@@ -15,6 +15,7 @@ export default {
         '2xl': '1536px',
       },
       colors: { // colores personalizados
+        'green-custom-hover': '#3ec5ad', //usar: [bg, text, border, shadow]-green-custom
         'green-custom': '#2EBAA1', //usar: [bg, text, border, shadow]-green-custom
         'gray-custom': '#000000', //usar: [bg, text, border, shadow]-gray-custom
       },

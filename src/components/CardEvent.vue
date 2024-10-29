@@ -1,141 +1,132 @@
+<!-- EventList.vue -->
 <template>
-  <v-card
-    :disabled="loading"
-    :loading="loading"
-    class="mx-auto my-6 d-flex flex-column"
-    max-width="374"
-  >
-    <template v-slot:loader="{ isActive }">
-      <v-progress-linear
-        :active="isActive"
-        color="deep-purple"
-        height="4"
-        indeterminate
-      ></v-progress-linear>
-    </template>
+  <div class="bg-gray-100 py-8">
+    <!-- Contenedor de las tarjetas, centrado y en fila de 3 columnas -->
+    <div
+      class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
+    >
+      <!-- Iteración sobre el array de eventos para mostrar tarjetas con contenido independiente -->
+      <div
+        v-for="(event, index) in events"
+        :key="index"
+        class="bg-white rounded-lg shadow-md max-w-md mx-auto border border-gray-200 overflow-hidden"
+      >
+        <!-- Ubicación del evento -->
+        <div
+          class="bg-white p-3 text-green-custom flex items-center rounded-t-lg"
+        >
+          <IconMapPin size="20" class="mr-2" /> {{ event.location }}
+        </div>
 
-    <!-- Contenedor de la imagen -->
-    <div class="image-container">
-      <v-img height="400" :src="imageSrc" cover></v-img>
-    </div>
+        <!-- Contenedor de la imagen con padding interno -->
+        <div class="p-4">
+          <div class="event-img bg-white rounded-lg overflow-hidden">
+            <img
+              :src="event.image"
+              alt="Imagen del evento"
+              class="w-full h-48 object-cover rounded-lg"
+            />
+          </div>
+        </div>
 
-    <!-- Contenedor del contenido de la carta -->
-    <div class="content-container d-flex flex-column">
-      <!-- Contenedor de la información del evento -->
-      <v-card-item class="info-container">
-        <v-card-title class="multiline-title">{{ eventTitle }}</v-card-title>
-        <v-card-subtitle class="text-subtitle-2 text-gray-600">
-          📍 {{ location }}
-        </v-card-subtitle>
-        <v-card-subtitle class="text-subtitle-2 text-gray-600">
-          📅 {{ date }}
-        </v-card-subtitle>
-        <v-card-subtitle class="text-subtitle-2 text-gray-600">
-          🕒 {{ time }}
-        </v-card-subtitle>
-      </v-card-item>
+        <!-- Información del evento -->
+        <div class="p-5">
+          <!-- Metadatos del evento -->
+          <div class="text-gray-500 text-sm mb-4 flex items-center space-x-4">
+            <span class="flex items-center">
+              <IconCalendar size="18" class="mr-2" /> {{ event.date }}
+            </span>
+            <span class="flex items-center">
+              <IconClock size="18" class="mr-2" /> {{ event.time }}
+            </span>
+          </div>
 
-      <!-- Descripción con altura limitada -->
-      <v-card-text class="description-text">
-        <div>{{ description }}</div>
-      </v-card-text>
+          <!-- Título del evento (ajuste de margen inferior) -->
+          <h4 class="text-xl font-semibold text-gray-800 h-12 overflow-hidden">
+            <a href="event-single.html" class="hover:text-green-custom">{{
+              event.title
+            }}</a>
+          </h4>
 
-      <!-- Contenedor del botón alineado al fondo -->
-      <div class="button-container">
-        <v-card-actions>
-          <v-btn color="deep-purple-lighten-2" text @click="viewEvent">
-            Ver
-          </v-btn>
-        </v-card-actions>
+          <!-- Descripción del evento -->
+          <p class="text-gray-600 text-base mb-5 h-16 overflow-hidden">
+            {{ event.description }}
+          </p>
+
+          <!-- Botón de unirse al evento -->
+          <div>
+            <a
+              :href="event.link"
+              class="inline-flex items-center bg-green-custom text-white px-5 py-3 rounded-md text-base font-medium hover:bg-green-600 transition"
+            >
+              Unirte <IconArrowRight size="18" class="ml-2" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </v-card>
+  </div>
 </template>
 
-<script>
-export default {
-  props: {
-    eventTitle: {
-      type: String,
-      required: true,
-    },
-    location: {
-      type: String,
-      required: true,
-    },
-    date: {
-      type: String,
-      required: true,
-    },
-    time: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-    imageSrc: {
-      type: String,
-      required: true,
-    },
+<script setup>
+import {
+  IconMapPin,
+  IconCalendar,
+  IconClock,
+  IconArrowRight,
+} from "@tabler/icons-vue";
+
+// Datos de los eventos con contenido independiente
+const events = [
+  {
+    location: "Virtual",
+    image: "../../images/evento_1.jpg",
+    date: "16 Abril, 2024",
+    time: "10:00AM - 01:00PM",
+    title: "Data Science Virtual",
+    description:
+      "Participa en nuestro evento virtual dirigido a aquellos que están interesados por el mundo de la Data Sciencie.",
+    link: "event-single.html",
   },
-  data() {
-    return {
-      loading: false,
-    };
+  {
+    location: "Auditorio Central",
+    image: "../../images/evento_2.jpg",
+    date: "20 Mayo, 2024",
+    time: "9:00AM - 12:00PM",
+    title: "Conferencia de IA",
+    description:
+      "No te pierdas esta oportunidad de actualizarte y compartir experiencias con colegas y profesionales del área y decidir tu futuro.",
+    link: "event-single.html",
   },
-  methods: {
-    viewEvent() {
-      this.loading = true;
-      setTimeout(() => {
-        this.loading = false;
-      }, 1000);
-    },
+  {
+    location: "Online",
+    image: "../../images/evento_3.jpg",
+    date: "5 Junio, 2024",
+    time: "2:00PM - 5:00PM",
+    title: "Introducción a Big Data",
+    description:
+      "Estamos emocionados de anunciar que se acerca la fiesta conmemorativa por el Aniversario de nuestro Programa Académico de Ingeniería de Sistemas e Informática.",
+    link: "event-single.html",
   },
-};
+];
 </script>
 
 <style scoped>
-.image-container {
-  height: 400px; /* Altura fija para la imagen */
+/* Estilo para estandarizar el tamaño de la imagen */
+.event-img img {
+  width: 100%;
+  height: 22rem; /* Altura fija para estandarizar la imagen */
+  object-fit: cover;
+}
+
+/* Estandarización de altura de títulos y descripción para alineación uniforme */
+h4 {
+  height: 3rem; /* Altura fija para el título */
   overflow: hidden;
 }
 
-.content-container {
-  height: 350px; /* Altura fija para el contenido */
-  display: flex;
-  flex-direction: column;
-}
-
-.multiline-title {
-  white-space: normal;
-  overflow-wrap: break-word;
-}
-
-.description-text {
-  max-height: 80px;
+p {
+  height: 10rem; /* Altura fija para la descripción */
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
-/* Aumenta el espacio en la sección de información */
-.info-container {
-  padding: 16px;
-  padding-bottom: 8px;
-}
-
-/* Empuja el botón hacia la parte inferior de la carta */
-.button-container {
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 16px;
 }
 </style>
-
-
-

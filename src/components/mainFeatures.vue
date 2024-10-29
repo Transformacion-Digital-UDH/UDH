@@ -6,7 +6,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <!--CARD 1-->
         <div
-          class="bg-[#333333] rounded-lg p-6 text-left text-white relative mt-4 ml-1"
+          class="bg-[#333333] rounded-lg p-6 text-left text-white relative mt-1"
         >
           <div
             class="feature-icon flex justify-left transform hover:scale-100 transition-transform duration-700 ease-in-out"
@@ -42,7 +42,7 @@
 
         <!--CARD 2-->
         <div
-          class="bg-[#333333] rounded-lg p-6 text-left text-white relative mt-4"
+          class="bg-[#333333] rounded-lg p-6 text-left text-white relative mt-1"
         >
           <div
             class="feature-icon flex justify-left transform hover:scale-100 transition-transform duration-700 ease-in-out"
@@ -80,7 +80,7 @@
 
         <!--CARD 3-->
         <div
-          class="bg-[#333333] rounded-lg p-6 text-left text-white relative mt-4"
+          class="bg-[#333333] rounded-lg p-6 text-left text-white relative mt-1"
         >
           <div
             class="feature-icon flex justify-left transform hover:scale-100 transition-transform duration-700 ease-in-out"
@@ -118,7 +118,7 @@
 
         <!--CARD 4-->
         <div
-          class="bg-[#333333] rounded-lg p-6 text-left text-white relative mt-4 mr-1"
+          class="bg-[#333333] rounded-lg p-6 text-left text-white relative mt-1"
         >
           <div
             class="feature-icon flex justify-left transform hover:scale-100 transition-transform duration-700 ease-in-out"

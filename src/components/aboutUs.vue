@@ -1,3 +1,11 @@
+<script setup>
+import {
+  IconArrowNarrowRight,
+  IconHeadset,
+  IconQuote,
+} from "@tabler/icons-vue";
+</script>
+
 <template>
   <div class="about-area py-16 bg-white">
     <div
@@ -10,40 +18,14 @@
             alt="Sobre nosotros"
             class="rounded-lg w-full shadow-lg relative z-10"
           />
-
-          <!-- MARCO VERDE -->
+          <!-- Marco verde -->
           <div
-            class="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 md:-top-10 md:-left-10 w-[200px] h-[300px] sm:w-[250px] sm:h-[610px] md:w-[300px] md:h-[570px] lg:w-[300px] lg:h-[480px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] z-0"
+            class="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 md:-top-10 md:-left-10 w-[200px] h-[300px] sm:w-[250px] sm:h-[610px] md:w-[300px] md:h-[570px] lg:w-[300px] lg:h-[500px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] z-0"
           ></div>
-
-          <!-- MARCO NEGRO -->
+          <!-- Marco negro -->
           <div
             class="absolute -bottom-4 -right-4 sm:-bottom-4 sm:-right-4 md:-bottom-5 md:-right-5 w-[200px] h-[240px] sm:w-[250px] sm:h-[280px] md:w-[300px] md:h-[320px] lg:w-[400px] lg:h-[490px] bg-[#333333] z-0 clip-path rounded-br-[15px] lg:rounded-br-[17px] sm:rounded-br-[17px]"
           ></div>
-
-          <div
-            class="absolute bottom-20 sm:bottom-20 md:bottom-32 lg:bottom-20 -left-4 sm:-left-8 md:-left-10 bg-[#2ebaa1] p-3 md:p-4 rounded-lg lg:rounded-2xl shadow-lg text-white flex flex-col items-center z-20 h-[140px] sm:h-[160px] md:h-[180px] lg:h-[200px]"
-          >
-            <div class="feature-icon flex justify-left mb-2 md:mb-3">
-              <div
-                class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center"
-              >
-                <img
-                  src="../../public/images/shareImage.svg"
-                  alt="Icono de servicio"
-                  class="w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16"
-                />
-              </div>
-            </div>
-            <div class="text-center">
-              <b
-                class="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold"
-              >
-                34 Años de <br />
-                calidad de servicio
-              </b>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -60,14 +42,18 @@
             Nuestro Sistema Educativo
             <span class="text-[#2ebaa1]">Te Inspira</span> Más.
           </h2>
-          <p class="text-[#757F95] mb-4 md:mb-6 text-xs sm:text-sm md:text-base">
+          <p
+            class="text-[#757F95] mb-4 md:mb-6 text-xs sm:text-sm md:text-base"
+          >
             En nuestra universidad, creemos en el poder de la educación para
             inspirar y transformar vidas. Nuestro enfoque integral está diseñado
             para motivarte a alcanzar tus sueños y desarrollar todo tu
             potencial.
           </p>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start"
+          >
             <div>
               <div class="flex items-start mb-4 md:mb-6">
                 <div class="feature-icon flex justify-left mr-4">
@@ -93,6 +79,7 @@
                   </p>
                 </div>
               </div>
+
               <div class="flex items-start">
                 <div class="feature-icon flex justify-left mr-4">
                   <div
@@ -120,34 +107,45 @@
               </div>
             </div>
 
-            <div class="bg-gray-50 p-4 sm:p-5 md:p-6 rounded-lg shadow-lg">
+            <div
+              class="bg-[rgba(17,110,99,0.09)] p-4 rounded-lg shadow-lg flex items-start"
+            >
               <p
-                class="text-[#757F95] mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-base"
+                class="text-[#19232B] mb-1 text-xs sm:text-sm md:text-base max-w-[250px] leading-tight"
               >
                 Es un hecho ampliamente conocido que un lector se distrae por el
                 contenido de una página cuando observa su diseño y distribución.
               </p>
-              <span
-                class="text-[#2ebaa1] font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+              <div
+                class="ml-2 text-[#2ebaa1] font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
               >
-                99
-              </span>
+                <IconQuote
+                  class="w-[40px] xs:w-[45px] sm:w-[50px] md:w-[55px] lg:w-[60px] h-[40px] xs:h-[45px] sm:h-[50px] md:h-[55px] lg:h-[150px]"
+                />
+              </div>
             </div>
           </div>
 
+          <hr class="mx-4 border-t-1 border-[#E5E7EB] mt-12" />
+
           <div class="flex items-center justify-between mt-4 sm:mt-6 md:mt-8">
             <a
-              href="about.html"
-              class="bg-[#2ebaa1] font-bold uppercase text-white py-2 sm:py-2.5 md:py-3 px-3 sm:px-5 md:px-6 rounded-lg flex items-center hover:bg-[#27a692] transition duration-300"
+              href="/"
+              class="text-sm bg-[#2ebaa1] font-bold uppercase text-white py-4 sm:py-2.5 md:py-3 px-3 sm:px-5 md:px-6 rounded-lg flex items-center hover:bg-[#27a692] transition duration-300"
             >
-              Descubre Más <i class="fas fa-arrow-right-long ml-2"></i>
+              Descubre Más
+              <IconArrowNarrowRight />
             </a>
             <div class="flex items-center">
-              <div class="bg-gray-100 p-2 sm:p-2.5 md:p-3 rounded-full">
-                <i class="fas fa-headset text-[#2ebaa1]"></i>
+              <div class="feature-icon flex justify-left mr-1">
+                <div
+                  class="w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-[#333333] rounded-full flex items-center justify-center"
+                >
+                  <IconHeadset class="text-white" />
+                </div>
               </div>
               <div class="ml-2 sm:ml-3 md:ml-4">
-                <span class="text-[#333333] text-xs sm:text-sm block">
+                <span class="text-[#333333] text-xs font-bold sm:text-sm block">
                   Llama Ahora
                 </span>
                 <h6 class="text-[#2ebaa1] md:text-lg font-bold">

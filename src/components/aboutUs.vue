@@ -1,9 +1,5 @@
 <script setup>
-import {
-  IconArrowNarrowRight,
-  IconHeadset,
-  IconQuote,
-} from "@tabler/icons-vue";
+import { IconArrowNarrowRight, IconHeadset } from "@tabler/icons-vue";
 </script>
 
 <template>
@@ -26,6 +22,29 @@ import {
           <div
             class="absolute -bottom-4 -right-4 sm:-bottom-4 sm:-right-4 md:-bottom-5 md:-right-5 w-[200px] h-[240px] sm:w-[250px] sm:h-[280px] md:w-[300px] md:h-[320px] lg:w-[400px] lg:h-[490px] bg-[#333333] z-0 clip-path rounded-br-[15px] lg:rounded-br-[17px] sm:rounded-br-[17px]"
           ></div>
+          <div
+            class="absolute bottom-20 sm:bottom-20 md:bottom-32 lg:bottom-20 -left-4 sm:-left-8 md:-left-10 bg-[#2ebaa1] p-3 md:p-4 rounded-lg lg:rounded-2xl shadow-lg text-white flex flex-col items-center z-20 h-[140px] sm:h-[160px] md:h-[180px] lg:h-[200px]"
+          >
+            <div class="feature-icon flex justify-left mb-2 md:mb-3">
+              <div
+                class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center"
+              >
+                <img
+                  src="../../public/images/shareImage.svg"
+                  alt="Icono de servicio"
+                  class="w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16"
+                />
+              </div>
+            </div>
+            <div class="text-center">
+              <b
+                class="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold"
+              >
+                34 Años de <br />
+                calidad de servicio
+              </b>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -108,27 +127,22 @@ import {
             </div>
 
             <div
-              class="bg-[rgba(17,110,99,0.09)] p-4 rounded-lg shadow-lg flex items-start"
+              class="bg-[rgba(17,110,99,0.09)] p-4 rounded-lg shadow-lg flex items-start ml-4 mr-4"
             >
               <p
-                class="text-[#19232B] mb-1 text-xs sm:text-sm md:text-base max-w-[250px] leading-tight"
+                class="text-[#19232B] mb-1 text-xs sm:text-sm md:text-base leading-tight"
               >
                 Es un hecho ampliamente conocido que un lector se distrae por el
                 contenido de una página cuando observa su diseño y distribución.
               </p>
-              <div
-                class="ml-2 text-[#2ebaa1] font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
-              >
-                <IconQuote
-                  class="w-[40px] xs:w-[45px] sm:w-[50px] md:w-[55px] lg:w-[60px] h-[40px] xs:h-[45px] sm:h-[50px] md:h-[55px] lg:h-[150px]"
-                />
-              </div>
             </div>
           </div>
 
           <hr class="mx-4 border-t-1 border-[#E5E7EB] mt-12" />
 
-          <div class="flex items-center justify-between mt-4 sm:mt-6 md:mt-8">
+          <div
+            class="flex items-center justify-between mt-4 ml-4 mr-4 sm:mt-6 md:mt-8"
+          >
             <a
               href="/"
               class="text-sm bg-[#2ebaa1] font-bold uppercase text-white py-4 sm:py-2.5 md:py-3 px-3 sm:px-5 md:px-6 rounded-lg flex items-center hover:bg-[#27a692] transition duration-300"
@@ -168,7 +182,7 @@ import {
 .underline-title::after {
   content: "";
   display: block;
-  width: 172px;
+  width: 192px;
   height: 2px;
   background-color: #2ebaa1;
   margin-top: 0.5px;
@@ -178,7 +192,8 @@ import {
 
 @media (max-width: 640px) {
   .underline-title::after {
-    width: 103px;
+    width: 115px;
+    height: 1px;
   }
 }
 </style>

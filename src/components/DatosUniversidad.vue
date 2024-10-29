@@ -13,6 +13,7 @@
                 <h6 class="title text-gray-700 mt-2">+ Total carreras</h6>
               </div>
             </div>
+            xdd
           </div>
           <!-- Caja 2 -->
           <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">

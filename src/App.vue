@@ -1,4 +1,6 @@
+<!-- App.vue -->
 <script setup lang="ts">
+
 import Header from "@/components/Header.vue";
 import mainFeatures from "@/components/mainFeatures.vue";
 import aboutUs from "@/components/aboutUs.vue";

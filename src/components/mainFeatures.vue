@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="bg-[#333333] m-10 rounded-2xl">
     <div class="container mx-auto">
@@ -15,8 +13,8 @@
               class="w-20 h-20 bg-[#2ebaa1] rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-700 ease-in-out"
             >
               <img
-                src="../../public/images/default_image.svg"
-                class="w-10 h-10"
+                src="../../public/images/mainImage1.svg"
+                class="w-10 h-10 filter invert brightness-0"
               />
             </div>
           </div>
@@ -51,8 +49,8 @@
               class="w-20 h-20 bg-[#2ebaa1] rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-700 ease-in-out"
             >
               <img
-                src="../../public/images/default_image.svg"
-                class="w-10 h-10"
+                src="../../public/images/mainImage2.svg"
+                class="w-10 h-10 filter invert brightness-0"
               />
             </div>
           </div>
@@ -89,8 +87,8 @@
               class="w-20 h-20 bg-[#2ebaa1] rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-700 ease-in-out"
             >
               <img
-                src="../../public/images/default_image.svg"
-                class="w-10 h-10"
+                src="../../public/images/mainImage3.svg"
+                class="w-10 h-10 filter invert brightness-0"
               />
             </div>
           </div>
@@ -127,8 +125,8 @@
               class="w-20 h-20 bg-[#2ebaa1] rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-700 ease-in-out"
             >
               <img
-                src="../../public/images/default_image.svg"
-                class="w-10 h-10"
+                src="../../public/images/mainImage4.svg"
+                class="w-10 h-10 filter invert brightness-0"
               />
             </div>
           </div>
@@ -155,5 +153,3 @@
     </div>
   </div>
 </template>
-
-<style scoped></style>

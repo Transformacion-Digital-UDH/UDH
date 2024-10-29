@@ -5,10 +5,10 @@ import Carousel from "@/components/Carousel.vue";
 import mainFeatures from "@/components/mainFeatures.vue";
 import aboutUs from "@/components/aboutUs.vue";
 import CardEvent from "./components/CardEvent.vue";
+
 </script>
 
 <template>
-  <!-- Header content -->
   <Header />
 
   <!-- Main content -->

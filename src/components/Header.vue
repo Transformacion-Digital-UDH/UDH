@@ -45,7 +45,6 @@
 
 <script setup>
 import { IconMapPin, IconMail, IconUser, IconBrandWhatsapp, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-vue';
-
 </script>
 
 <style scoped>

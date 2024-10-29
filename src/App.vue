@@ -7,12 +7,20 @@ import Carousel from '@/components/Carousel.vue';
 import mainFeatures from "@/components/mainFeatures.vue";
 import aboutUs from "@/components/aboutUs.vue";
 
+</script>
+
 <template>
-    <Header/>
+    <!-- Header content -->
+    <Header />
+
+    <!-- Main content -->
     <Carousel />
     <mainFeatures />
     <aboutUs />
     <DatosUniversidad />
-<template>
+
+    <!-- Footer content -->
+    <footer></footer>
+</template>
 
 <style scoped></style>

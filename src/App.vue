@@ -8,12 +8,18 @@ import CardEvent from "./components/CardEvent.vue";
 </script>
 
 <template>
+  <!-- Header content -->
   <Header />
+
+  <!-- Main content -->
   <Carousel />
   <mainFeatures />
   <aboutUs />
   <DatosUniversidad />
   <CardEvent />
+
+  <!-- Footer content -->
+  <footer></footer>
 </template>
 
 <style scoped></style>

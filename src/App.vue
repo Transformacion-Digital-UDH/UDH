@@ -1,28 +1,26 @@
+<!-- App.vue -->
 <script setup lang="ts">
+
 import Header from '@/components/Header.vue';
+import DatosUniversidad from '@/components/DatosUniversidad.vue';
+import Carousel from '@/components/Carousel.vue';
+import mainFeatures from "@/components/mainFeatures.vue";
+import aboutUs from "@/components/aboutUs.vue";
+
 </script>
 
 <template>
-    <div class="layout_container grid min-h-dvh">
-        <!-- Header content  -->
-        <div>    
-            <Header/>
-        </div>
+    <!-- Header content -->
+    <Header />
 
-        <!-- Main content -->
-        <main>
-        </main>
-        
-        <!-- Footer content -->
-        <footer>
-            
-        </footer>
-    </div>
-    
+    <!-- Main content -->
+    <Carousel />
+    <mainFeatures />
+    <aboutUs />
+    <DatosUniversidad />
+
+    <!-- Footer content -->
+    <footer></footer>
 </template>
 
-<style scoped>
-.layout_container{
-    grid-template-rows: auto 1fr auto;
-}
-</style>
+<style scoped></style>

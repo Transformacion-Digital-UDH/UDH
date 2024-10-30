@@ -6,7 +6,7 @@ import mainFeatures from "@/components/mainFeatures.vue";
 import aboutUs from "@/components/aboutUs.vue";
 import CardEvent from "./components/CardEvent.vue";
 import VideoUniversidad from "./components/videoUniversidad.vue";
-
+import Footer from "@/components/Footer.vue";
 </script>
 
 <template>
@@ -21,7 +21,7 @@ import VideoUniversidad from "./components/videoUniversidad.vue";
   <CardEvent />
 
   <!-- Footer content -->
-  <footer></footer>
+  <Footer />
 </template>
 
 <style scoped></style>

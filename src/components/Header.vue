@@ -134,7 +134,7 @@
                                 <button class="p-2 text-gray-custom hover:text-green-custom">
                                     <IconSearch class="w-5 h-5" />
                                 </button>
-                                <ButtonPrimary label="Ingresar" class="px-7 py-[10px]"/>
+                                <ButtonPrimarySecondEffect label="Ingresar" class="px-7 py-[10px]"/>
                             </li>
                         </ul>
                     </nav>
@@ -173,7 +173,7 @@ import NavDropdownColumn from '@/components/navigation/NavDropdownColumn.vue';
 import NavNestedDropdown from '@/components/navigation/NavNestedDropdown.vue';
 import NavNestedItem from '@/components/navigation/NavNestedItem.vue';
 import MobileMenu from '@/components/navigation/MobileMenu.vue';
-import ButtonPrimary from '@/components/ButtonPrimary.vue';
+import ButtonPrimarySecondEffect from '@/components/ButtonPrimarySecondEffect.vue';
 
 const navRef = ref(null);
 const navHeight = ref(0);

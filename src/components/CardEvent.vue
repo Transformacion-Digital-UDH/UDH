@@ -1,7 +1,7 @@
 <!-- EventList.vue -->
 <template>
+  <TitleSection title="Nuestros" subtitle1="Próximos" subtitle2="Eventos" />
   <div class="bg-gray-100 py-8">
-    <!-- Contenedor de las tarjetas, centrado y en fila de 3 columnas -->
     <div
       class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
     >
@@ -9,57 +9,54 @@
       <div
         v-for="(event, index) in events"
         :key="index"
-        class="bg-white rounded-lg shadow-md max-w-md mx-auto border border-gray-200 overflow-hidden"
+        class="card relative rounded-lg shadow-md max-w-md mx-auto overflow-hidden"
       >
-        <!-- Ubicación del evento -->
-        <div
-          class="bg-white p-3 text-green-custom flex items-center rounded-t-lg"
-        >
-          <IconMapPin size="20" class="mr-2" /> {{ event.location }}
-        </div>
-
-        <!-- Contenedor de la imagen con padding interno -->
-        <div class="p-4">
-          <div class="event-img bg-white rounded-lg overflow-hidden">
-            <img
-              :src="event.image"
-              alt="Imagen del evento"
-              class="w-full h-48 object-cover rounded-lg"
-            />
-          </div>
-        </div>
-
-        <!-- Información del evento -->
-        <div class="p-5">
-          <!-- Metadatos del evento -->
-          <div class="text-gray-500 text-sm mb-4 flex items-center space-x-4">
-            <span class="flex items-center">
-              <IconCalendar size="18" class="mr-2" /> {{ event.date }}
-            </span>
-            <span class="flex items-center">
-              <IconClock size="18" class="mr-2" /> {{ event.time }}
-            </span>
+        <div class="p-5 bg-gray-900 text-black rounded-lg">
+          <div
+            class="bg-transparent p-3 text-green-custom flex items-center rounded-t-lg z-10 relative"
+          >
+            <IconMapPin size="20" class="mr-2" /> {{ event.location }}
           </div>
 
-          <!-- Título del evento (ajuste de margen inferior) -->
-          <h4 class="text-xl font-semibold text-gray-800 h-12 overflow-hidden">
-            <a href="event-single.html" class="hover:text-green-custom">{{
-              event.title
-            }}</a>
-          </h4>
+          <div class="p-4 relative z-10">
+            <div class="event-img bg-white rounded-lg overflow-hidden">
+              <img
+                :src="event.image"
+                alt="Imagen del evento"
+                class="w-full h-48 object-cover rounded-lg"
+              />
+            </div>
+          </div>
 
-          <!-- Descripción del evento -->
-          <p class="text-gray-600 text-base mb-5 h-16 overflow-hidden">
-            {{ event.description }}
-          </p>
+          <div class="p-5 relative z-10">
+            <div
+              class="text-green-custom text-sm mb-4 flex items-center space-x-2 min-h-10"
+            >
+              <span class="flex items-center">
+                <IconCalendar size="18" class="mr-2" /> {{ event.date }}
+              </span>
+              <span class="flex items-center">
+                <IconClock size="18" class="mr-2" /> {{ event.time }}
+              </span>
+            </div>
 
-          <!-- Botón de unirse al evento -->
-          <div>
-            <ButtonPrimarySecondEffect
-              label="Unirte"
-              class="px-7 py-[10px] w-[110px]"
-              :icon="IconArrowRight"
-            />
+            <h4 class="text-xl font-semibold text-black h-12 overflow-hidden">
+              <a href="event-single.html" class="hover:text-green-custom">{{
+                event.title
+              }}</a>
+            </h4>
+
+            <p class="text-black text-base mb-5 h-16 overflow-hidden">
+              {{ event.description }}
+            </p>
+
+            <div>
+              <ButtonPrimarySecondEffect
+                label="Unirte"
+                class="px-7 py-[10px] w-[110px]"
+                :icon="IconArrowRight"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -69,9 +66,14 @@
 
 <script setup>
 import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
-import { IconMapPin, IconCalendar, IconClock, IconArrowRight } from "@tabler/icons-vue";
+import TitleSection from "@/components/TitleSection.vue";
+import {
+  IconMapPin,
+  IconCalendar,
+  IconClock,
+  IconArrowRight,
+} from "@tabler/icons-vue";
 
-// Datos de los eventos con contenido independiente
 const events = [
   {
     location: "Virtual",
@@ -107,21 +109,61 @@ const events = [
 </script>
 
 <style scoped>
-/* Estilo para estandarizar el tamaño de la imagen */
+.card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 130%;
+  background-image: linear-gradient(
+    180deg,
+    rgb(46, 186, 161),
+    rgb(46, 186, 161)
+  );
+  animation: rotBGimg 3s linear infinite;
+  transition: all 0.2s linear;
+  z-index: 0;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background: #ffffff;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ajuste para imagen del evento */
 .event-img img {
   width: 100%;
-  height: 22rem; /* Altura fija para estandarizar la imagen */
+  height: 22rem;
   object-fit: cover;
 }
 
-/* Estandarización de altura de títulos y descripción para alineación uniforme */
+/* Estilos de altura para el título y la descripción */
 h4 {
-  height: 3rem; /* Altura fija para el título */
+  height: 3rem;
   overflow: hidden;
 }
 
 p {
-  height: 10rem; /* Altura fija para la descripción */
+  height: 10rem;
+  min-height: 10rem;
   overflow: hidden;
 }
 </style>

@@ -1,24 +1,19 @@
-<!-- EventList.vue -->
 <template>
   <div class="bg-gray-100 py-8">
-    <!-- Contenedor de las tarjetas, centrado y en fila de 3 columnas -->
     <div
       class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
     >
-      <!-- Iteración sobre el array de eventos para mostrar tarjetas con contenido independiente -->
       <div
         v-for="(event, index) in events"
         :key="index"
         class="bg-white rounded-lg shadow-md max-w-md mx-auto border border-gray-200 overflow-hidden"
       >
-        <!-- Ubicación del evento -->
         <div
           class="bg-white p-3 text-green-custom flex items-center rounded-t-lg"
         >
           <IconMapPin size="20" class="mr-2" /> {{ event.location }}
         </div>
 
-        <!-- Contenedor de la imagen con padding interno -->
         <div class="p-4">
           <div class="event-img bg-white rounded-lg overflow-hidden">
             <img
@@ -29,9 +24,7 @@
           </div>
         </div>
 
-        <!-- Información del evento -->
         <div class="p-5">
-          <!-- Metadatos del evento -->
           <div class="text-gray-500 text-sm mb-4 flex items-center space-x-4">
             <span class="flex items-center">
               <IconCalendar size="18" class="mr-2" /> {{ event.date }}
@@ -41,19 +34,16 @@
             </span>
           </div>
 
-          <!-- Título del evento (ajuste de margen inferior) -->
           <h4 class="text-xl font-semibold text-gray-800 h-12 overflow-hidden">
             <a href="event-single.html" class="hover:text-green-custom">{{
               event.title
             }}</a>
           </h4>
 
-          <!-- Descripción del evento -->
           <p class="text-gray-600 text-base mb-5 h-16 overflow-hidden">
             {{ event.description }}
           </p>
 
-          <!-- Botón de unirse al evento -->
           <div>
             <ButtonPrimarySecondEffect
               label="Unirte"
@@ -69,9 +59,13 @@
 
 <script setup>
 import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
-import { IconMapPin, IconCalendar, IconClock, IconArrowRight } from "@tabler/icons-vue";
+import {
+  IconMapPin,
+  IconCalendar,
+  IconClock,
+  IconArrowRight,
+} from "@tabler/icons-vue";
 
-// Datos de los eventos con contenido independiente
 const events = [
   {
     location: "Virtual",
@@ -107,21 +101,19 @@ const events = [
 </script>
 
 <style scoped>
-/* Estilo para estandarizar el tamaño de la imagen */
 .event-img img {
   width: 100%;
-  height: 22rem; /* Altura fija para estandarizar la imagen */
+  height: 22rem;
   object-fit: cover;
 }
 
-/* Estandarización de altura de títulos y descripción para alineación uniforme */
 h4 {
-  height: 3rem; /* Altura fija para el título */
+  height: 3rem;
   overflow: hidden;
 }
 
 p {
-  height: 10rem; /* Altura fija para la descripción */
+  height: 10rem;
   overflow: hidden;
 }
 </style>

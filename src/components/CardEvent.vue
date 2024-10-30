@@ -55,7 +55,11 @@
 
           <!-- Botón de unirse al evento -->
           <div>
-            <ButtonPrimarySecondEffect label="Unirte" class="px-7 py-[10px] w-[110px]" />
+            <ButtonPrimarySecondEffect
+              label="Unirte"
+              class="px-7 py-[10px] w-[110px]"
+              :icon="IconArrowRight"
+            />
           </div>
         </div>
       </div>
@@ -65,12 +69,7 @@
 
 <script setup>
 import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
-import {
-  IconMapPin,
-  IconCalendar,
-  IconClock,
-  IconArrowRight,
-} from "@tabler/icons-vue";
+import { IconMapPin, IconCalendar, IconClock, IconArrowRight } from "@tabler/icons-vue";
 
 // Datos de los eventos con contenido independiente
 const events = [

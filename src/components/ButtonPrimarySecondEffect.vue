@@ -1,8 +1,15 @@
 <script setup>
+import { IconArrowRight } from "@tabler/icons-vue";
+import { h } from "vue";
+
 defineProps({
   label: {
     type: String,
     default: "Button",
+  },
+  icon: {
+    type: [Object, Function],
+    default: null,
   },
 });
 </script>
@@ -11,7 +18,10 @@ defineProps({
   <div>
     <div class="button-container-1">
       <span class="mas">{{ label }}</span>
-      <button id="work" type="button" name="Hover">{{ label }}</button>
+      <button id="work" type="button" name="Hover">
+        {{ label }}
+        <component :is="icon" v-if="icon" size="22" class="ml-2" />
+      </button>
     </div>
   </div>
 </template>
@@ -44,10 +54,17 @@ defineProps({
   transition: 0.5s;
   letter-spacing: 1px;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   button {
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     font-weight: 300;
     font-size: 15px;
     letter-spacing: 1px;
@@ -61,6 +78,7 @@ defineProps({
       none,
       #fff
     );
+
     cursor: pointer;
     -webkit-animation: ani2 0.7s steps(22) forwards;
     animation: ani2 0.7s steps(22) forwards;
@@ -80,7 +98,7 @@ defineProps({
   width: 100%;
   font-weight: 300;
   font-size: 15px;
-  margin-top: 11px;
+  margin-top: 1px;
   overflow: hidden;
   font-weight: bold;
 }

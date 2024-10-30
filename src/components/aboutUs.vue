@@ -1,6 +1,6 @@
 <script setup>
 import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
-import { IconArrowNarrowRight, IconHeadset } from "@tabler/icons-vue";
+import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
 </script>
 
 <template>
@@ -145,8 +145,9 @@ import { IconArrowNarrowRight, IconHeadset } from "@tabler/icons-vue";
             class="flex items-center justify-between mt-4 ml-4 mr-4 sm:mt-6 md:mt-8"
           >
             <ButtonPrimarySecondEffect
-              label="Descubre Más"
+              label="Descubre más"
               class="px-7 py-[10px] w-[160px]"
+              :icon="IconArrowRight"
             />
             <div class="flex items-center">
               <div class="feature-icon flex justify-left mr-1">

@@ -7,6 +7,7 @@ import aboutUs from "@/components/aboutUs.vue";
 import CardEvent from "@/components/CardEvent.vue";
 import VideoUniversidad from "@/components/videoUniversidad.vue";
 import CardRelease from "@/components/CardRelease.vue";
+import Footer from "@/components/Footer.vue";
 </script>
 
 <template>
@@ -22,7 +23,7 @@ import CardRelease from "@/components/CardRelease.vue";
   <CardRelease />
 
   <!-- Footer content -->
-  <footer></footer>
+  <Footer />
 </template>
 
 <style scoped></style>

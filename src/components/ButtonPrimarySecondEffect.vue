@@ -11,6 +11,10 @@ defineProps({
     type: [Object, Function],
     default: null,
   },
+  type: {
+    type: String,
+    default: "button",
+  }
 });
 </script>
 
@@ -18,7 +22,7 @@ defineProps({
   <div>
     <div class="button-container-1">
       <span class="mas">{{ label }}</span>
-      <button id="work" type="button" name="Hover">
+      <button id="work" type=type name="Hover">
         {{ label }}
         <component :is="icon" v-if="icon" size="22" class="ml-2" />
       </button>

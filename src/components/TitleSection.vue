@@ -4,16 +4,31 @@
       <p
         class="text-green-custom font-semibold uppercase tracking-wide mb-4 text-2xl underline"
       >
-        Nuestros
+        {{ title }}
       </p>
 
       <h2 class="text-6xl font-bold text-gray-900">
-        Próximos <span class="text-green-custom">Eventos</span>
+        {{ subtitle1 }} <span class="text-green-custom">{{ subtitle2 }}</span>
       </h2>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    required: false,
+  },
+  subtitle1: {
+    type: String,
+    required: true,
+  },
+  subtitle2: {
+    type: String,
+    required: true,
+  },
+});
+</script>
 
 <style scoped></style>

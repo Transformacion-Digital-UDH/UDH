@@ -1,5 +1,6 @@
 <!-- EventList.vue -->
 <template>
+  <TitleSection title="Nuestros" subtitle1="Próximos" subtitle2="Eventos" />
   <div class="bg-gray-100 py-8">
     <div
       class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
@@ -29,7 +30,7 @@
 
           <div class="p-5 relative z-10">
             <div
-              class="text-green-custom text-sm mb-4 flex items-center space-x-4"
+              class="text-green-custom text-sm mb-4 flex items-center space-x-2 min-h-10"
             >
               <span class="flex items-center">
                 <IconCalendar size="18" class="mr-2" /> {{ event.date }}
@@ -65,6 +66,7 @@
 
 <script setup>
 import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
+import TitleSection from "@/components/TitleSection.vue";
 import {
   IconMapPin,
   IconCalendar,
@@ -133,7 +135,7 @@ const events = [
   position: absolute;
   inset: 5px;
   background: #ffffff;
-  border-radius: 15px;
+  border-radius: 10px;
   z-index: 1;
 }
 
@@ -161,6 +163,7 @@ h4 {
 
 p {
   height: 10rem;
+  min-height: 10rem;
   overflow: hidden;
 }
 </style>

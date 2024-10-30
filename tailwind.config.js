@@ -18,6 +18,7 @@ export default {
         'green-custom-hover': '#3ec5ad', //usar: [bg, text, border, shadow]-green-custom
         'green-custom': '#2EBAA1', //usar: [bg, text, border, shadow]-green-custom
         'gray-custom': '#000000', //usar: [bg, text, border, shadow]-gray-custom
+        'rgray-custom': '#333333', //usar: [bg, text, border, shadow]-gray-custom
       },
       fontFamily: {
         'epilogue': ['Epilogue', 'sans-serif'], // usar: font-epilogue

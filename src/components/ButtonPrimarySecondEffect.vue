@@ -98,7 +98,7 @@ defineProps({
   width: 100%;
   font-weight: 300;
   font-size: 15px;
-  margin-top: 1px;
+  margin-top: 0.5px;
   overflow: hidden;
   font-weight: bold;
 }

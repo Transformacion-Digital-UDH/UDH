@@ -9,11 +9,11 @@
       <div
         v-for="(event, index) in events"
         :key="index"
-        class="bg-black text-white rounded-lg shadow-md max-w-md mx-auto border border-gray-700 overflow-hidden"
+        class="bg-rgray-custom text-white rounded-lg shadow-md max-w-md mx-auto border border-gray-700 overflow-hidden"
       >
         <!-- Contenedor de la imagen con padding interno -->
         <div class="p-4">
-          <div class="event-img bg-black rounded-lg overflow-hidden">
+          <div class="event-img bg-rgray-custom rounded-lg overflow-hidden">
             <img
               :src="event.image"
               alt="Imagen del evento"

@@ -1,55 +1,61 @@
+<!-- EventList.vue -->
 <template>
   <div class="bg-gray-100 py-8">
     <div
       class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
     >
+      <!-- Iteración sobre el array de eventos para mostrar tarjetas con contenido independiente -->
       <div
         v-for="(event, index) in events"
         :key="index"
-        class="bg-white rounded-lg shadow-md max-w-md mx-auto border border-gray-200 overflow-hidden"
+        class="card relative rounded-lg shadow-md max-w-md mx-auto overflow-hidden"
       >
-        <div
-          class="bg-white p-3 text-green-custom flex items-center rounded-t-lg"
-        >
-          <IconMapPin size="20" class="mr-2" /> {{ event.location }}
-        </div>
-
-        <div class="p-4">
-          <div class="event-img bg-white rounded-lg overflow-hidden">
-            <img
-              :src="event.image"
-              alt="Imagen del evento"
-              class="w-full h-48 object-cover rounded-lg"
-            />
-          </div>
-        </div>
-
-        <div class="p-5">
-          <div class="text-gray-500 text-sm mb-4 flex items-center space-x-4">
-            <span class="flex items-center">
-              <IconCalendar size="18" class="mr-2" /> {{ event.date }}
-            </span>
-            <span class="flex items-center">
-              <IconClock size="18" class="mr-2" /> {{ event.time }}
-            </span>
+        <div class="p-5 bg-gray-900 text-black rounded-lg">
+          <div
+            class="bg-transparent p-3 text-green-custom flex items-center rounded-t-lg z-10 relative"
+          >
+            <IconMapPin size="20" class="mr-2" /> {{ event.location }}
           </div>
 
-          <h4 class="text-xl font-semibold text-gray-800 h-12 overflow-hidden">
-            <a href="event-single.html" class="hover:text-green-custom">{{
-              event.title
-            }}</a>
-          </h4>
+          <div class="p-4 relative z-10">
+            <div class="event-img bg-white rounded-lg overflow-hidden">
+              <img
+                :src="event.image"
+                alt="Imagen del evento"
+                class="w-full h-48 object-cover rounded-lg"
+              />
+            </div>
+          </div>
 
-          <p class="text-gray-600 text-base mb-5 h-16 overflow-hidden">
-            {{ event.description }}
-          </p>
+          <div class="p-5 relative z-10">
+            <div
+              class="text-green-custom text-sm mb-4 flex items-center space-x-4"
+            >
+              <span class="flex items-center">
+                <IconCalendar size="18" class="mr-2" /> {{ event.date }}
+              </span>
+              <span class="flex items-center">
+                <IconClock size="18" class="mr-2" /> {{ event.time }}
+              </span>
+            </div>
 
-          <div>
-            <ButtonPrimarySecondEffect
-              label="Unirte"
-              class="px-7 py-[10px] w-[110px]"
-              :icon="IconArrowRight"
-            />
+            <h4 class="text-xl font-semibold text-black h-12 overflow-hidden">
+              <a href="event-single.html" class="hover:text-green-custom">{{
+                event.title
+              }}</a>
+            </h4>
+
+            <p class="text-black text-base mb-5 h-16 overflow-hidden">
+              {{ event.description }}
+            </p>
+
+            <div>
+              <ButtonPrimarySecondEffect
+                label="Unirte"
+                class="px-7 py-[10px] w-[110px]"
+                :icon="IconArrowRight"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -101,12 +107,53 @@ const events = [
 </script>
 
 <style scoped>
+.card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 130%;
+  background-image: linear-gradient(
+    180deg,
+    rgb(46, 186, 161),
+    rgb(46, 186, 161)
+  );
+  animation: rotBGimg 3s linear infinite;
+  transition: all 0.2s linear;
+  z-index: 0;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background: #ffffff;
+  border-radius: 15px;
+  z-index: 1;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ajuste para imagen del evento */
 .event-img img {
   width: 100%;
   height: 22rem;
   object-fit: cover;
 }
 
+/* Estilos de altura para el título y la descripción */
 h4 {
   height: 3rem;
   overflow: hidden;

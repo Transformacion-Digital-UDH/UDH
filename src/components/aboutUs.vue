@@ -3,7 +3,7 @@ import { IconArrowNarrowRight, IconHeadset } from "@tabler/icons-vue";
 </script>
 
 <template>
-  <div class="about-area py-16 bg-white">
+  <div class="about-area py-16 bg-white font-epilogue">
     <div
       class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center items-center"
     >
@@ -51,7 +51,7 @@ import { IconArrowNarrowRight, IconHeadset } from "@tabler/icons-vue";
       <div class="lg:w-1/2 px-4 sm:px-6">
         <div>
           <h3
-            class="text-xs md:text-xl font-bold text-[#2ebaa1] mb-2 uppercase relative inline-block underline-title"
+            class="text-xs md:text-xl font-bold text-[#2ebaa1] mb-2 uppercase relative inline-block underline"
           >
             Sobre Nosotros
           </h3>
@@ -177,17 +177,6 @@ import { IconArrowNarrowRight, IconHeadset } from "@tabler/icons-vue";
 <style scoped>
 .clip-path {
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-}
-
-.underline-title::after {
-  content: "";
-  display: block;
-  width: 192px;
-  height: 2px;
-  background-color: #2ebaa1;
-  margin-top: 0.5px;
-  position: relative;
-  left: 0;
 }
 
 @media (max-width: 640px) {

@@ -38,13 +38,10 @@
               convertirte en un líder en tu campo.
             </p>
 
-            <a
-              href="#"
-              class="inline-block bg-green-custom text-white px-4 py-2 rounded-md animate-fadeInUp"
-              style="animation-delay: 1s"
-            >
-              Conoce más <i class="fas fa-arrow-right-long"></i>
-            </a>
+            <ButtonPrimarySecondEffect
+              label="Conoce más"
+              class="px-7 py-[10px] w-[110px]"
+            />
           </div>
         </div>
       </div>
@@ -88,13 +85,10 @@
               los innovadores del mañana y enfrentar los retos más complejos del
               mundo.
             </p>
-            <a
-              href="#"
-              class="inline-block bg-green-custom text-white px-4 py-2 rounded-md animate-fadeInUp"
-              style="animation-delay: 1s"
-            >
-              Conoce más <i class="fas fa-arrow-right-long"></i>
-            </a>
+            <ButtonPrimarySecondEffect
+              label="Conoce más"
+              class="px-7 py-[10px] w-[110px]"
+            />
           </div>
         </div>
       </div>
@@ -104,6 +98,7 @@
 
 <script setup>
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
+import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
 import "@splidejs/vue-splide/css";
 
 // Opciones del carrusel

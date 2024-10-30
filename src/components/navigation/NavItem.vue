@@ -1,7 +1,7 @@
 <template>
     <li class="relative group">
         <button 
-            class="flex items-center gap-1 px-4 py-6 hover:text-green-custom transition-colors"
+            class="flex items-center gap-1 px-4 py-6 hover:text-green-custom transition-colors text-xs sm:text-xs md:text-xs lg:text-base "
             @mouseenter="isOpen = true"
             @mouseleave="isOpen = false"
         >

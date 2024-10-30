@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed inset-0 z-50 lg:hidden">
+    <div class="fixed inset-0 z-50 xl:hidden block">
         <!-- Backdrop -->
         <div 
             class="fixed inset-0 bg-black/50 transition-opacity duration-300"
@@ -24,7 +24,7 @@
                 <div class="flex-1 overflow-y-auto">
                     <div class="p-2">
                         <!-- Login Button -->
-                       <ButtonPrimary label="Ingresar" class="w-full my-2 py-[10px]" />
+                       <ButtonPrimarySecondEffect label="Ingresar" class="!my-3" />
 
                         <!-- Search Box -->
                         <div class="relative mb-4">
@@ -54,8 +54,8 @@
 
 <script setup>
 import { IconX, IconSearch, IconChevronDown } from '@tabler/icons-vue';
-import MobileMenuItem from './MobileMenuItem.vue';
-import ButtonPrimary from '../ButtonPrimary.vue';
+import MobileMenuItem from '@/components/navigation/MobileMenuItem.vue';
+import ButtonPrimarySecondEffect from '@/components/ButtonPrimarySecondEffect.vue';
 
 // Menu structure
 const menuItems = [
@@ -70,12 +70,45 @@ const menuItems = [
     {
         title: 'Carreras',
         items: [
-            { title: 'Sobre UDH', href: '#' },
-            { title: 'Biblioteca virtual', href: '#' },
-            { title: 'Transparencia universitaria', href: '#' },
-            { title: 'Biblioteca UDH', href: '#' },
-            { title: 'Nuestras facultades', href: '#' },
-            { title: 'Centro de idioma', href: '#' }
+            {
+                title: 'Ciencias de la salud',
+                items: [
+                    { title: 'Obstetricia', href: '#' },
+                    { title: 'Psicología', href: '#' },
+                    { title: 'Enfermeria', href: '#' },
+                    { title: 'Odontologia', href: '#' }
+                ]
+            },
+            {
+                title: 'Ingeniería',
+                items: [
+                    { title: 'Ingenieria de sistemas e informática', href: '#' },
+                    { title: 'Ingenieria civil', href: '#' },
+                    { title: 'Ingenieria ambiental', href: '#' },
+                    { title: 'Arquitectura', href: '#' }
+                ]
+            },
+            {
+                title: 'Ciencias empresariales',
+                items: [
+                    { title: 'Administración de empresas', href: '#' },
+                    { title: 'Contabilidad y finanzas', href: '#' },
+                    { title: 'Turismo, hoteleria y gastronomia', href: '#' },
+                    { title: 'Marketing y negocios internacionales', href: '#' }
+                ]
+            },
+            {
+                title: 'Derecho y ciencias políticas',
+                items: [
+                    { title: 'Derecho y ciencias políticas', href: '#' }
+                ]
+            },
+            {
+                title: 'Ciencias de la educación y humanidades',
+                items: [
+                    { title: 'Educación básica: Inicial y primaria', href: '#' }
+                ]
+            }
         ]
     },
     {

@@ -34,11 +34,11 @@ defineProps({
 }
 
 .button-container-1 {
+  background: #fff;
   position: relative;
-  width: 110px;
   height: 45px;
   overflow: hidden;
-  border: 1px solid #2EBAA1;
+  border: 1px solid #2ebaa1;
   font-weight: 300;
   font-size: 20px;
   transition: 0.5s;
@@ -49,12 +49,12 @@ defineProps({
     width: 100%;
     height: 100%;
     font-weight: 300;
-    font-size: 11px;
+    font-size: 15px;
     letter-spacing: 1px;
     font-weight: bold;
 
     @include button(
-      #2EBAA1,
+      #2ebaa1,
       "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png",
       2300%,
       100%,
@@ -73,13 +73,14 @@ defineProps({
 }
 
 .mas {
+  background: #fff;
   position: absolute;
-  color: #2EBAA1;
+  color: #2ebaa1;
   text-align: center;
   width: 100%;
   font-weight: 300;
-  font-size: 11px;
-  margin-top: 14px;
+  font-size: 15px;
+  margin-top: 11px;
   overflow: hidden;
   font-weight: bold;
 }

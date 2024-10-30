@@ -1,4 +1,5 @@
 <script setup>
+import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
 import { IconArrowNarrowRight, IconHeadset } from "@tabler/icons-vue";
 </script>
 
@@ -143,13 +144,10 @@ import { IconArrowNarrowRight, IconHeadset } from "@tabler/icons-vue";
           <div
             class="flex items-center justify-between mt-4 ml-4 mr-4 sm:mt-6 md:mt-8"
           >
-            <a
-              href="/"
-              class="text-sm bg-[#2ebaa1] font-bold uppercase text-white py-4 sm:py-2.5 md:py-3 px-3 sm:px-5 md:px-6 rounded-lg flex items-center hover:bg-[#27a692] transition duration-300"
-            >
-              Descubre Más
-              <IconArrowNarrowRight />
-            </a>
+            <ButtonPrimarySecondEffect
+              label="Descubre Más"
+              class="px-7 py-[10px] w-[160px]"
+            />
             <div class="flex items-center">
               <div class="feature-icon flex justify-left mr-1">
                 <div

@@ -55,12 +55,7 @@
 
           <!-- Botón de unirse al evento -->
           <div>
-            <a
-              :href="event.link"
-              class="inline-flex items-center bg-green-custom text-white px-5 py-3 rounded-md text-base font-medium hover:bg-green-600 transition"
-            >
-              Unirte <IconArrowRight size="18" class="ml-2" />
-            </a>
+            <ButtonPrimarySecondEffect label="Unirte" class="px-7 py-[10px] w-[110px]" />
           </div>
         </div>
       </div>
@@ -69,6 +64,7 @@
 </template>
 
 <script setup>
+import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
 import {
   IconMapPin,
   IconCalendar,

@@ -134,7 +134,7 @@
                                 <button class="p-2 text-gray-custom hover:text-green-custom">
                                     <IconSearch class="w-5 h-5" />
                                 </button>
-                                <ButtonPrimarySecondEffect label="Ingresar" class="px-7 py-[10px]"/>
+                                <ButtonPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]"/>
                             </li>
                         </ul>
                     </nav>

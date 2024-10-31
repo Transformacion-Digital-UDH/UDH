@@ -1,13 +1,15 @@
 <template>
     <footer
         class="bg-[#333333] m-0 p-0 flex justify-center font-epilogue items-center content-center h-auto text-white font-semibold">
-        <div class="container mx-auto xl:mx-28">
+        <div class="container mx-auto xs:mx-6 xl:mx-28">
             <!-- footer main -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 p-2 mt-14 mb-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 px-1 mt-14 mb-2 md:px-12 lg:px-2">
                 <!-- Information -->
                 <div class="">
                     <!-- logo -->
-                    <img src="/logo_white.png" alt="logo" class="w-[250px]">
+                    <div class="flex lg:justify-start justify-center">
+                        <img src="/logo_white.png" alt="logo" class="w-[250px] ">
+                    </div>
                     <div class="my-6">
                         <h2 class="my-5">OFICINA CENTRAL</h2>
                         <a href="#" class="flex my-3 gap-5 items-center content-center">
@@ -69,7 +71,7 @@
                     </div>
                 </div>
                 <!-- links -->
-                <div class="pl-10">
+                <div class="pl-0 lg:pl-10 md:pl-12">
                     <h2
                         class="pb-4 relative before:contents-[''] before:absolute before:h-[3px] before:w-[90px] before:bottom-0 before:left-0 before:z-10 before:bg-gray-500 after:absolute after:contents-[''] after:w-[30px] after:h-[3px] after:bottom-0 after:left-5 after:z-10 after:bg-green-custom">
                         Enlaces de interés</h2>
@@ -142,7 +144,7 @@
                     </div>
                 </div>
                 <!-- Newsletter -->
-                <div class="pl-16">
+                <div class="pl-0 lg:pl-16 md:pl-16 w-full md:w-full lg:w-full sm:w-3/5 md:col-span-2 lg:col-span-1 xl:w-full xl:pl-0">
                     <h2
                         class="pb-4 relative before:contents-[''] before:absolute before:h-[3px] before:w-[90px] before:bottom-0 before:left-0 before:z-10 before:bg-gray-500 after:absolute after:contents-[''] after:w-[30px] after:h-[3px] after:bottom-0 after:left-5 after:z-10 after:bg-green-custom">
                         Boletín</h2>
@@ -169,9 +171,9 @@
             <!-- footer bottom-->
             <div class="border-t border-gray-700 p-1"></div>
 
-            <div class="flex justify-between mt-4 mb-4">
+            <div class="flex justify-between mt-4 mb-4 xs:flex-col lg:flex-row">
                 <!-- Copyright -->
-                <div class="items-center content-center">
+                <div class="items-center content-center xs:text-center">
                     <p>
                         © Copyright 2024
                         <span class="font-semibold text-green-custom">UDH</span>
@@ -179,22 +181,22 @@
                     </p>
                 </div>
                 <!-- social icons -->
-                <div class="flex gap-3 justify-around items-center content-center align-middle h-auto">
+                <div class="flex gap-2 my-2 justify-center xl:gap-3 xl:justify-around items-center content-center align-middle h-auto">
                     <a href="#"
                         class="w-10 h-10 rounded-full bg-white content-center text-green-custom hover:text-white hover:bg-green-custom transition-transform duration-700 place-items-center">
-                        <IconBrandYoutube size="19" />
+                        <IconBrandYoutube size="19" stroke="2.5" />
                     </a>
                     <a href="#"
                         class="w-10 h-10 rounded-full bg-white content-center text-green-custom hover:text-white hover:bg-green-custom transition-transform duration-700 place-items-center">
-                        <IconBrandInstagram size="19" />
+                        <IconBrandInstagram size="19" stroke="2.5" />
                     </a>
                     <a href="#"
                         class="w-10 h-10 rounded-full bg-white content-center text-green-custom hover:text-white hover:bg-green-custom transition-transform duration-700 place-items-center">
-                        <IconBrandWhatsapp size="19" />
+                        <IconBrandWhatsapp size="19" stroke="2.5" />
                     </a>
                     <a href="#"
                         class="w-10 h-10 rounded-full bg-white content-center text-green-custom hover:text-white hover:bg-green-custom transition-transform duration-700 place-items-center">
-                        <IconBrandFacebook size="19" />
+                        <IconBrandFacebook size="19" stroke="2.5" />
                     </a>
                 </div>
             </div>

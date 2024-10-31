@@ -42,8 +42,8 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
               <b
                 class="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold"
               >
-                34 Años de <br />
-                calidad de servicio
+                35 años, dando <br />
+                una educación de calidad
               </b>
             </div>
           </div>
@@ -54,18 +54,17 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
         <div>
           <TitleSection
             title="Sobre Nosotros"
-            subtitle1="Nuestro Sistema Educativo"
-            subtitle2="Te Inspira"
-            subtitle3="Más."
+            subtitle1="Nuestro Sistema Educativo Fomenta"
+            subtitle2="Tu Crecimiento,"
+            subtitle3="Inspirándote Siempre."
             class="text-center lg:text-left text-6xl font-bold"
           />
           <p
             class="text-[#757F95] mb-4 md:mb-6 text-xs sm:text-sm md:text-base"
           >
-            En nuestra universidad, creemos en el poder de la educación para
-            inspirar y transformar vidas. Nuestro enfoque integral está diseñado
-            para motivarte a alcanzar tus sueños y desarrollar todo tu
-            potencial.
+            En nuestra universidad, nos enorgullecemos de inspirar y transformar
+            vidas. Nuestro enfoque integral te motiva a alcanzar tus sueños y
+            desarrollar todo tu potencial desde el primer día.
           </p>
 
           <div
@@ -91,8 +90,8 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
                     Servicios Educativos
                   </h5>
                   <p class="text-[#757F95] text-xs sm:text-sm md:text-base">
-                    Ofrecemos una amplia gama de servicios educativos que apoyan
-                    tu aprendizaje y crecimiento personal.
+                    Brindamos una amplia gama de laboratorios de última
+                    generación, docentes especializados y diversas instalaciones
                   </p>
                 </div>
               </div>
@@ -116,9 +115,9 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
                     Convenios Internacionales
                   </h5>
                   <p class="text-[#757F95] text-xs sm:text-sm md:text-base">
-                    Estas alianzas globales enriquecen tu experiencia educativa
-                    y te preparan para enfrentar los desafíos de un entorno
-                    profesional internacional.
+                    Estas alianzas globales potencian tu formación y te preparan
+                    para afrontar los retos de un entorno profesional
+                    internacional.
                   </p>
                 </div>
               </div>
@@ -130,8 +129,8 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
               <p
                 class="text-[#19232B] mb-1 text-xs sm:text-sm md:text-base leading-tight"
               >
-                Es un hecho ampliamente conocido que un lector se distrae por el
-                contenido de una página cuando observa su diseño y distribución.
+                Impulsa tu futuro con las carreras que la Universidad de Huánuco
+                tiene para ti.
               </p>
             </div>
           </div>
@@ -159,7 +158,7 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
                   Llama Ahora
                 </span>
                 <h6 class="text-[#2ebaa1] md:text-lg font-bold">
-                  <a href="tel:+21236547898">(51-62) 519773</a>
+                  <a href="tel:+21236547898">(51-62) 515151</a>
                 </h6>
               </div>
             </div>

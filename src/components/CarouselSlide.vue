@@ -2,10 +2,9 @@
 <template>
   <SplideSlide>
     <div
-      class="hero-single relative flex items-center justify-center bg-cover bg-center"
+      :class="['hero-single relative flex items-center justify-center bg-cover bg-center min-h-dvh', minheight]"
       :style="{
-        backgroundImage: `url(${backgroundImage})`,
-        minHeight: '100vh',
+        backgroundImage: `url(${backgroundImage})`
       }"
     >
       <!-- Capa de fondo semi-transparente -->
@@ -74,6 +73,11 @@ defineProps({
   buttonLabel: {
     type: String,
     default: "Conoce más",
+  },
+  minheight: {
+    type: String,
+    default: "min-h-dvh",
+    required: false,
   },
 });
 </script>

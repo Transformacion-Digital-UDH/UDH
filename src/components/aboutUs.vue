@@ -1,10 +1,11 @@
 <script setup>
 import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
+import TitleSection from "@/components/TitleSection.vue";
 import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
 </script>
 
 <template>
-  <div class="about-area py-16 bg-white font-epilogue">
+  <div class="about-area py-16 bg-white">
     <div
       class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center items-center"
     >
@@ -37,7 +38,7 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
                 />
               </div>
             </div>
-            <div class="text-center">
+            <div class="text-center font-epilogue">
               <b
                 class="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold"
               >
@@ -49,19 +50,15 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
         </div>
       </div>
 
-      <div class="lg:w-1/2 px-4 sm:px-6">
+      <div class="lg:w-1/2 px-4 lg:px-0 text-center lg:text-left">
         <div>
-          <h3
-            class="text-xs md:text-xl font-bold text-[#2ebaa1] mb-2 uppercase relative inline-block underline"
-          >
-            Sobre Nosotros
-          </h3>
-          <h2
-            class="text-xl sm:text-2xl md:text-3xl lg:text-[60px] font-extrabold mb-4 md:mb-6 leading-tight lg:leading-[65px]"
-          >
-            Nuestro Sistema Educativo
-            <span class="text-[#2ebaa1]">Te Inspira</span> Más.
-          </h2>
+          <TitleSection
+            title="Sobre Nosotros"
+            subtitle1="Nuestro Sistema Educativo"
+            subtitle2="Te Inspira"
+            subtitle3="Más."
+            class="text-center lg:text-left text-6xl font-bold"
+          />
           <p
             class="text-[#757F95] mb-4 md:mb-6 text-xs sm:text-sm md:text-base"
           >

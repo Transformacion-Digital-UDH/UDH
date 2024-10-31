@@ -5,7 +5,7 @@
     <SplideSlide>
       <div
         class="hero-single relative flex items-center justify-center bg-cover bg-center"
-        style="background-image: url('/imagesSlider/1.jpg'); min-height: 80vh;"
+        style="background-image: url('/imagesSlider/1.jpg'); min-height: 100vh;"
       >
         <!-- Capa de fondo semi-transparente -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -51,7 +51,7 @@
     <SplideSlide>
       <div
         class="hero-single relative flex items-center justify-center bg-cover bg-center"
-        style="background-image: url('/imagesSlider/2.jpg'); min-height: 80vh;"
+        style="background-image: url('/imagesSlider/2.jpg'); min-height: 100vh;"
       >
         <!-- Capa de fondo semi-transparente -->
         <div class="absolute inset-0 bg-black opacity-50"></div>

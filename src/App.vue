@@ -14,8 +14,12 @@ import Footer from "@/components/Footer.vue";
   <Header />
 
   <!-- Main content -->
-  <Carousel />
-  <mainFeatures />
+  <div class="flex flex-col items-center md:mb-20 lg:mb-5">
+    <Carousel class="w-full" />
+    <mainFeatures
+      class="w-[90%] max-w-[1200px] my-8 md:my-[-90px] lg:my-[-90px] z-10"
+    />
+  </div>
   <aboutUs />
   <DatosUniversidad />
   <VideoUniversidad />

@@ -1,11 +1,6 @@
 <template>
-<<<<<<< HEAD
-  <TitleSectionn subtitle1="Boletin Informativo &" subtitle2="Noticias" />
-  <div class="bg-gray-100 py-8">
-=======
   <TitleSection subtitle1="Boletin Informativo &" subtitle2="Noticias" />
   <div class="bg-white py-8">
->>>>>>> 06524b06f85970bf63a5c381ad9eca3df4263d6c
     <div
       class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4"
     >

@@ -9,6 +9,7 @@
       highlightedText="educación de calidad"
       description="En la UDH, creemos en el poder transformador de la educación. Ofrecemos programas académicos diseñados para prepararte para los desafíos del mundo real, ayudándote a alcanzar tus metas y a convertirte en un líder en tu campo."
       buttonLabel="Conoce más"
+      minheight="min-h-[90dvh]"
     />
 
     <!-- Slide 2 -->
@@ -19,6 +20,7 @@
       highlightedText="investigación pionera"
       description="En la Universidad de Innovación, nos dedicamos a explorar nuevos horizontes y a liderar el camino en investigación avanzada. Nuestros programas están diseñados para fomentar la creatividad y el pensamiento crítico, preparando a nuestros estudiantes para ser los innovadores del mañana y enfrentar los retos más complejos del mundo."
       buttonLabel="Conoce más"
+      minheight="min-h-[90dvh]"
     />
   </Splide>
 </template>

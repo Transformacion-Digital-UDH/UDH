@@ -1,7 +1,7 @@
 <!-- EventList.vue -->
 <template>
   <TitleSection title="Nuestros" subtitle1="Próximos" subtitle2="Eventos" />
-  <div class="bg-gray-100 py-8">
+  <div class="bg-white py-8">
     <div
       class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
     >

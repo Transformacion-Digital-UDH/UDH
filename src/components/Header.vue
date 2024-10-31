@@ -10,24 +10,24 @@
         <nav 
             ref="navRef"
             :class="[
-                'bg-white py-0 w-full px-1 lg:px-6 md:px-2 sm:px-5 xs:px-0 shadow-lg transition-all duration-300',
+                'bg-white py-0 w-full px-2 lg:px-6 sm:px-6  md:px-4 shadow-lg transition-all duration-300',
                 { 'fixed top-0 left-0 right-0 z-50': isScrolledPast }
             ]"
         >
             <div class="mx-auto max-w-full px-4 ">
-                <div class="flex items-center justify-between lg:justify-center font-epilogue">
+                <div class="flex items-center justify-between xl:justify-center font-epilogue font-semibold">
                     <!-- Logo -->
                     <a href="#" class="shrink-0 py-4 lg:py-2">
-                        <img src="/logo.png" alt="logo" class="w-[180px]">
+                        <img src="/logo.png" alt="logo" class="w-[90px] md:w-[120px] lg:w-[140px] xl:w-[180px]">
                     </a>
 
                     <!-- Desktop Navigation -->
-                    <nav class="hidden lg:block">
+                    <nav class="hidden xl:block">
                         <ul class="flex items-center gap-2">
                             <!-- Navigation Items -->
                             <NavItem title="Investigación">
                                 <template #dropdown>
-                                    <div class="w-48">
+                                    <div class="w-72">
                                         <NavDropdownLink href="#">Revisión científica</NavDropdownLink>
                                         <NavDropdownLink href="#">Repositorio</NavDropdownLink>
                                         <NavDropdownLink href="#">Vicerrectorado de investigación</NavDropdownLink>
@@ -35,26 +35,31 @@
                                 </template>
                             </NavItem>
 
-                            <NavItem title="Carreras" position="-left-32">
+                            <NavItem title="Carreras" position="-left-48">
                                 <template #dropdown>
-                                    <div class="grid grid-cols-3 w-[900px] p-4 gap-4">
-                                        <NavDropdownColumn>
-                                            <NavDropdownLink href="#">Sobre UDH</NavDropdownLink>
-                                            <NavDropdownLink href="#">Biblioteca virtual</NavDropdownLink>
-                                            <NavDropdownLink href="#">Transparencia universitaria</NavDropdownLink>
-                                            <NavDropdownLink href="#">Biblioteca UDH</NavDropdownLink>
+                                    <div class="grid grid-cols-4 w-[1000px] p-4 gap-3">
+                                        <NavDropdownColumn title="ciencias de la salud">
+                                            <NavDropdownLink href="#">Obstetricia</NavDropdownLink>
+                                            <NavDropdownLink href="#">Psicología</NavDropdownLink>
+                                            <NavDropdownLink href="#">Enfermeria</NavDropdownLink>
+                                            <NavDropdownLink href="#">Odontologia</NavDropdownLink>
                                         </NavDropdownColumn>
-                                        <NavDropdownColumn>
-                                            <NavDropdownLink href="#">Nuestras facultades</NavDropdownLink>
-                                            <NavDropdownLink href="#">Centro de idioma</NavDropdownLink>
-                                            <NavDropdownLink href="#">Nuestras sedes</NavDropdownLink>
-                                            <NavDropdownLink href="#">Defensoría universitaria</NavDropdownLink>
+                                        <NavDropdownColumn title="ingeniería">
+                                            <NavDropdownLink href="#">Ingenieria de sistemas e informática</NavDropdownLink>
+                                            <NavDropdownLink href="#">Ingenieria civil</NavDropdownLink>
+                                            <NavDropdownLink href="#">Ingenieria ambiental</NavDropdownLink>
+                                            <NavDropdownLink href="#">Arquitectura</NavDropdownLink>
                                         </NavDropdownColumn>
-                                        <NavDropdownColumn>
-                                            <NavDropdownLink href="#">Bienestar universitario</NavDropdownLink>
-                                            <NavDropdownLink href="#">Calendario académico</NavDropdownLink>
-                                            <NavDropdownLink href="#">Trámites</NavDropdownLink>
-                                            <NavDropdownLink href="#">Contactos</NavDropdownLink>
+                                        <NavDropdownColumn title="ciencias de la educación y humanidades">
+                                            <NavDropdownLink href="#">Educación básica: Inicial y primaria</NavDropdownLink>
+                                            <p class="uppercase text-green-custom pt-5">DERECHO Y CIENCIAS POLITICAS</p>
+                                            <NavDropdownLink href="#">Derecho y ciencias politicas</NavDropdownLink>
+                                        </NavDropdownColumn>
+                                        <NavDropdownColumn title="ciencias empresariales">
+                                            <NavDropdownLink href="#">Administración de empresas</NavDropdownLink>
+                                            <NavDropdownLink href="#">Contabilidad y finanzas</NavDropdownLink>
+                                            <NavDropdownLink href="#">Turismo, hoteleria y gastronomia</NavDropdownLink>
+                                            <NavDropdownLink href="#">Marketing y negocios internacionales</NavDropdownLink>
                                         </NavDropdownColumn>
                                     </div>
                                 </template>
@@ -85,7 +90,7 @@
 
                             <NavItem title="Postgrado">
                                 <template #dropdown>
-                                    <div class="w-48">
+                                    <div class="w-60">
                                         <NavDropdownLink href="#">Maestrías</NavDropdownLink>
                                         <NavDropdownLink href="#">Doctorados</NavDropdownLink>
                                         <NavDropdownLink href="#">Segunda especialidad</NavDropdownLink>
@@ -95,7 +100,7 @@
 
                             <NavItem title="Admisión">
                                 <template #dropdown>
-                                    <div class="w-48">
+                                    <div class="w-64">
                                         <NavDropdownLink href="#">Modalidades y costos</NavDropdownLink>
                                         <NavDropdownLink href="#">Guía</NavDropdownLink>
                                         <NavDropdownLink href="#">Matrícula y pensiones</NavDropdownLink>
@@ -140,7 +145,7 @@
                     </nav>
 
                     <!-- Mobile Navigation -->
-                    <div class="flex items-center gap-4 lg:hidden">
+                    <div class="flex items-center gap-4 xl:hidden">
                         <button class="p-2 text-gray-custom hover:text-green-custom">
                             <IconSearch class="w-6 h-6" />
                         </button>

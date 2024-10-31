@@ -1,12 +1,12 @@
 <template>
     <div 
-        class="relative group/nested"
+        class="relative group/nested w-72"
         @mouseenter="isOpen = true"
         @mouseleave="isOpen = false"
     >
         <a 
             href="#"
-            class="flex items-center justify-between px-4 py-2 text-white hover:text-green-custom transition-colors"
+            class="flex items-center justify-between px-4 py-2 text-white hover:text-green-custom transition-colors border-b border-gray-700 text-sm"
         >
             {{ title }}
             <IconChevronRight class="w-4 h-4" />
@@ -14,7 +14,7 @@
         
         <div 
             v-show="isOpen"
-            class="absolute top-0 left-full bg-gray-custom border-t-4 border-green-custom shadow-lg min-w-[200px]"
+            class="absolute top-0 left-full bg-gray-custom border-t-4 border-green-custom shadow-lg min-w-72"
         >
             <div class="py-2">
                 <slot name="submenu" />

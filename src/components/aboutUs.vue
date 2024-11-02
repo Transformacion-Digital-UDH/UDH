@@ -50,7 +50,7 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
         </div>
       </div>
 
-      <div class="lg:w-1/2 px-4 lg:px-0 text-center lg:text-left">
+      <div class="lg:w-1/2 lg:px-0 text-center lg:text-left">
         <div>
           <TitleSection
             title="Sobre Nosotros"

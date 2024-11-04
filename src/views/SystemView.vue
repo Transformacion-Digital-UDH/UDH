@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import MainLayout from "@/layout/MainLayout.vue";
+import GridInformation from "@/components/GridInformation.vue";
 
 </script>
 
 <template>
   <MainLayout>
-    <h1>System</h1>
+    <GridInformation />
   </MainLayout>
 </template>
 

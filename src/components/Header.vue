@@ -17,7 +17,7 @@
             <div class="mx-auto max-w-full px-4 ">
                 <div class="flex items-center justify-between xl:justify-center font-epilogue font-semibold">
                     <!-- Logo -->
-                    <a href="#" class="shrink-0 py-4 lg:py-2">
+                    <a href="/" class="shrink-0 py-4 lg:py-2">
                         <img src="/logo.png" alt="logo" class="w-[90px] md:w-[120px] lg:w-[140px] xl:w-[180px]">
                     </a>
 
@@ -45,7 +45,7 @@
                                             <NavDropdownLink href="#">Odontologia</NavDropdownLink>
                                         </NavDropdownColumn>
                                         <NavDropdownColumn title="ingeniería">
-                                            <NavDropdownLink href="#">Ingenieria de sistemas e informática</NavDropdownLink>
+                                            <NavDropdownLink href="/sistemas-e-informatica">Ingenieria de sistemas e informática</NavDropdownLink>
                                             <NavDropdownLink href="#">Ingenieria civil</NavDropdownLink>
                                             <NavDropdownLink href="#">Ingenieria ambiental</NavDropdownLink>
                                             <NavDropdownLink href="#">Arquitectura</NavDropdownLink>

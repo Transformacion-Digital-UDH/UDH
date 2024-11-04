@@ -12,13 +12,13 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
       <div class="lg:w-1/2 mb-8 lg:mb-0 relative ml-4 mr-4 lg:ml-12 lg:mr-12">
         <div class="relative">
           <img
-            src="../../public/images/studentsImage.webp"
+            src="https://via.placeholder.com/400x500"
             alt="Sobre nosotros"
             class="rounded-lg w-full shadow-lg relative z-10"
           />
           <!-- Marco verde -->
           <div
-            class="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 md:-top-10 md:-left-10 w-[200px] h-[300px] sm:w-[250px] sm:h-[610px] md:w-[300px] md:h-[570px] lg:w-[300px] lg:h-[500px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] z-0"
+            class="absolute -top-4 -left-4 sm:-top-8 sm:-left-8 md:-top-10 md:-left-10 w-[200px] h-[320px] sm:w-[250px] sm:h-[410px] md:w-[300px] md:h-[270px] lg:w-[300px] lg:h-[540px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] z-0"
           ></div>
           <!-- Marco negro -->
           <div
@@ -32,7 +32,7 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
                 class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center"
               >
                 <img
-                  src="../../public/images/shareImage.svg"
+                  src="../assets/images/shareImage.svg"
                   alt="Icono de servicio"
                   class="w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16"
                 />
@@ -77,7 +77,7 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
                     class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#2ebaa1] rounded-full flex items-center justify-center"
                   >
                     <img
-                      src="../../public/images/aboutImage1.svg"
+                      src="../assets/images/aboutImage1.svg"
                       alt="Servicios Educativos"
                       class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 filter invert brightness-0"
                     />
@@ -102,7 +102,7 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
                     class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#2ebaa1] rounded-full flex items-center justify-center"
                   >
                     <img
-                      src="../../public/images/aboutImage2.svg"
+                      src="../assets/images/aboutImage2.svg"
                       alt="Convenios Internacionales"
                       class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 filter invert brightness-0"
                     />

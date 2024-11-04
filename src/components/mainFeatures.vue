@@ -13,7 +13,7 @@
               class="w-20 h-20 bg-[#2ebaa1] rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-700 ease-in-out"
             >
               <img
-                src="../../public/images/mainImage1.svg"
+                src="../assets/images/mainImage1.svg"
                 class="w-10 h-10 filter invert brightness-0"
               />
             </div>
@@ -49,7 +49,7 @@
               class="w-20 h-20 bg-[#2ebaa1] rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-700 ease-in-out"
             >
               <img
-                src="../../public/images/mainImage2.svg"
+                src="../assets/images/mainImage2.svg"
                 class="w-10 h-10 filter invert brightness-0"
               />
             </div>
@@ -87,7 +87,7 @@
               class="w-20 h-20 bg-[#2ebaa1] rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-700 ease-in-out"
             >
               <img
-                src="../../public/images/mainImage3.svg"
+                src="../assets/images/mainImage3.svg"
                 class="w-10 h-10 filter invert brightness-0"
               />
             </div>
@@ -125,7 +125,7 @@
               class="w-20 h-20 bg-[#2ebaa1] rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-700 ease-in-out"
             >
               <img
-                src="../../public/images/mainImage4.svg"
+                src="../assets/images/mainImage4.svg"
                 class="w-10 h-10 filter invert brightness-0"
               />
             </div>

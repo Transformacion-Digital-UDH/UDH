@@ -7,6 +7,18 @@ import aboutUs from "@/components/aboutUs.vue";
 import CardEvent from "@/components/CardEvent.vue";
 import VideoUniversidad from "@/components/videoUniversidad.vue";
 import CardRelease from "@/components/CardRelease.vue";
+import FriendPagesCarousel from "@/components/FriendPagesCarousel.vue";
+
+const friendPages = [
+  { name: 'Página 1', url: 'https://pagina1.com', image: 'https://via.placeholder.com/150x80' },
+  { name: 'Página 2', url: 'https://pagina2.com', image: 'https://via.placeholder.com/150x80' },
+  { name: 'Página 3', url: 'https://pagina3.com', image: 'https://via.placeholder.com/150x80' },
+  { name: 'Página 4', url: 'https://pagina4.com', image: 'https://via.placeholder.com/150x80' },
+  { name: 'Página 5', url: 'https://pagina5.com', image: 'https://via.placeholder.com/150x80' },
+  { name: 'Página 6', url: 'https://pagina6.com', image: 'https://via.placeholder.com/150x80' },
+  { name: 'Página 7', url: 'https://pagina7.com', image: 'https://via.placeholder.com/150x80' },
+  { name: 'Página 8', url: 'https://pagina8.com', image: 'https://via.placeholder.com/150x80' },
+];
 </script>
 
 <template>
@@ -20,7 +32,8 @@ import CardRelease from "@/components/CardRelease.vue";
     <DatosUniversidad />
     <VideoUniversidad />
     <CardEvent />
-  <CardRelease />
+    <CardRelease />
+    <FriendPagesCarousel :pages="friendPages"/>
   </MainLayout>
 </template>
 

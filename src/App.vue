@@ -7,6 +7,7 @@ import aboutUs from "@/components/aboutUs.vue";
 import CardEvent from "@/components/CardEvent.vue";
 import VideoUniversidad from "@/components/videoUniversidad.vue";
 import CardRelease from "@/components/CardRelease.vue";
+import ButtonMultiple from "@/components/ButtonMultiple.vue";
 import Footer from "@/components/Footer.vue";
 </script>
 
@@ -25,6 +26,9 @@ import Footer from "@/components/Footer.vue";
   <VideoUniversidad />
   <CardEvent />
   <CardRelease />
+
+  <!-- ButtonMultiple content -->
+  <ButtonMultiple />
 
   <!-- Footer content -->
   <Footer />

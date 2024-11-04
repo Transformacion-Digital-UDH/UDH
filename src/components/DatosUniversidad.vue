@@ -78,7 +78,7 @@ const particleOptions = {
           @mouseleave="toggleParticles(0, false)"
         >
           <div class="counter-box text-center p-6 rounded-lg relative overflow-hidden">
-            <Particles v-if="showParticles[0]" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
+            <Particles v-if="showParticles[0]" :id="'particles-0'" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
             <div class="icon mb-4 mx-auto flex items-center justify-center z-10">
               <IconAlbum color="white" size="45"/>
             </div>
@@ -96,7 +96,7 @@ const particleOptions = {
           @mouseleave="toggleParticles(1, false)"
         >
           <div class="counter-box text-center p-6 rounded-lg relative overflow-hidden">
-            <Particles v-if="showParticles[1]" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
+            <Particles v-if="showParticles[1]" :id="'particles-1'" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
             <div class="icon mb-4 mx-auto flex items-center justify-center z-10">
               <IconSchool color="white" size="45"/>
             </div>
@@ -114,7 +114,7 @@ const particleOptions = {
           @mouseleave="toggleParticles(2, false)"
         >
           <div class="counter-box text-center p-6 rounded-lg relative overflow-hidden">
-            <Particles v-if="showParticles[2]" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
+            <Particles v-if="showParticles[2]" :id="'particles-2'" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
             <div class="icon mb-4 mx-auto flex items-center justify-center z-10">
               <IconUserCheck color="white" size="45"/>
             </div>
@@ -132,7 +132,7 @@ const particleOptions = {
           @mouseleave="toggleParticles(3, false)"
         >
           <div class="counter-box text-center p-6 rounded-lg relative overflow-hidden">
-            <Particles v-if="showParticles[3]" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
+            <Particles v-if="showParticles[3]" :id="'particles-3'" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
             <div class="icon mb-4 mx-auto flex items-center justify-center z-10">
               <IconTrophyFilled color="white" size="45"/>
             </div>

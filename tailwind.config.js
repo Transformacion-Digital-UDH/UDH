@@ -25,6 +25,9 @@ export default {
         'venus': ['VenusRising', 'sans-serif'], // usar: font-venus
       },
       fontWeight: {
+      },
+      boxShadow: {
+        'custom-card': '0 0px 28px 2px rgba(0, 0, 0, 0.1)',
       }
     },
   },

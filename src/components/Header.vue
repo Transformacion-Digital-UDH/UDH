@@ -2,16 +2,16 @@
     <header class="relative">
         <!-- Header Top -->
         <HeaderTop v-if="!isScrolledPast" />
-        
+
         <!-- Spacer div to prevent content jump -->
         <div v-if="isScrolledPast" :style="{ height: navHeight + 'px' }"></div>
-        
+
         <!-- Main Navigation -->
         <nav 
             ref="navRef"
             :class="[
-                'bg-white py-0 w-full px-2 lg:px-6 sm:px-6  md:px-4 shadow-lg transition-all duration-300',
-                { 'fixed top-0 left-0 right-0 z-50': isScrolledPast }
+            'bg-white py-0 w-full px-2 lg:px-6 sm:px-6  md:px-4 shadow-lg transition-all duration-300',
+            { 'fixed top-0 left-0 right-0 z-50': isScrolledPast }
             ]"
         >
             <div class="mx-auto max-w-full px-4 ">
@@ -136,19 +136,15 @@
 
                             <!-- Utilities -->
                             <li class="flex items-center gap-2 ml-4">
-                                <button class="p-2 text-gray-custom hover:text-green-custom">
-                                    <IconSearch class="w-5 h-5" />
-                                </button>
-                                <ButtonPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]"/>
+                                <Search />
+                                <ButtonPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]" />
                             </li>
                         </ul>
                     </nav>
 
                     <!-- Mobile Navigation -->
                     <div class="flex items-center gap-4 xl:hidden">
-                        <button class="p-2 text-gray-custom hover:text-green-custom">
-                            <IconSearch class="w-6 h-6" />
-                        </button>
+                        <Search />
                         <button 
                             class="p-2 text-gray-custom hover:text-green-custom"
                             @click="toggleMobileMenu"
@@ -170,7 +166,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { IconSearch, IconMenu2 } from '@tabler/icons-vue';
+import { IconMenu2 } from '@tabler/icons-vue';
 import HeaderTop from '@/components/HeaderTop.vue';
 import NavItem from '@/components/navigation/NavItem.vue';
 import NavDropdownLink from '@/components/navigation/NavDropdownLink.vue';
@@ -179,7 +175,7 @@ import NavNestedDropdown from '@/components/navigation/NavNestedDropdown.vue';
 import NavNestedItem from '@/components/navigation/NavNestedItem.vue';
 import MobileMenu from '@/components/navigation/MobileMenu.vue';
 import ButtonPrimarySecondEffect from '@/components/ButtonPrimarySecondEffect.vue';
-
+import Search from '@/components/Search.vue';
 const navRef = ref(null);
 const navHeight = ref(0);
 const isScrolledPast = ref(false);

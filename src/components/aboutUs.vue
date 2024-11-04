@@ -12,7 +12,7 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
       <div class="lg:w-1/2 mb-8 lg:mb-0 relative ml-4 mr-4 lg:ml-12 lg:mr-12">
         <div class="relative">
           <img
-            src="https://via.placeholder.com/400x500"
+            src="https://placehold.co/400x500"
             alt="Sobre nosotros"
             class="rounded-lg w-full shadow-lg relative z-10"
           />

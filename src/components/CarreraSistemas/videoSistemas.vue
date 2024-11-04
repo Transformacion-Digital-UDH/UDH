@@ -23,21 +23,17 @@ function closeModal() {
           <div class="video-content" @click="openModal">
             <!-- Video Placeholder with Play Button -->
             <img
-              src="https://via.placeholder.com/600x400"
+              src="https://placehold.co/600x400"
               alt="Sobre nosotros"
               class="rounded-lg w-full shadow-lg relative z-10"
             />
             <!-- Marco verde -->
-            <div
-              class="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 md:-top-8 md:-left-8 lg:-top-5 lg:-left-5 xl:-top-10 xl:-left-10 2xl:-top-10 2xl:-left-10 w-[200px] h-[300px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[300px] lg:h-[300px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px]"
-            ></div>
+            <div class="green-border"></div>
             <!-- Marco negro -->
-            <div
-              class="absolute -bottom-4 -right-4 sm:-bottom-4 sm:-right-4 md:-bottom-5 md:-right-5 w-[200px] h-[240px] sm:w-[250px] sm:h-[280px] md:w-[300px] md:h-[320px] lg:w-[300px] lg:h-[300px] bg-[#333333] clip-path rounded-br-[15px] lg:rounded-br-[17px] sm:rounded-br-[17px]"
-            ></div>
+            <div class="black-border"></div>
             <!-- Play Button Overlay -->
             <button
-              class="play-button absolute inset-0 flex items-center justify-center z-20"
+              class="play-button absolute flex items-center justify-center z-20"
             >
               <IconPlayerPlayFilled />
             </button>
@@ -51,16 +47,16 @@ function closeModal() {
       v-if="showModal"
       class="modal-overlay fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 transition-opacity"
     >
+      <!-- Close Button -->
+      <button
+        @click="closeModal"
+        class="absolute top-2 right-2 text-black text-2xl font-bold"
+      >
+        ✖
+      </button>
       <div
         class="modal-content bg-white rounded-lg overflow-hidden relative shadow-lg animate-fadeIn"
       >
-        <!-- Close Button -->
-        <button
-          @click="closeModal"
-          class="absolute top-2 right-2 text-black text-2xl font-bold"
-        >
-          ✖
-        </button>
         <!-- Video -->
         <video
           src="https://www.w3schools.com/html/mov_bbb.mp4"
@@ -87,21 +83,44 @@ function closeModal() {
   border-radius: 15px;
 }
 
+.green-border {
+  position: absolute;
+  top: -7%;
+  left: -5%;
+  width: 70%;
+  height: 70%;
+  border: 15px solid #2ebaa1;
+  border-radius: 25px;
+}
+
+.black-border {
+  position: absolute;
+  bottom: -4%;
+  right: -3%;
+  width: 70%;
+  height: 70%;
+  background-color: #333333;
+  clip-path: polygon(100% 0, 20% 100%, 100% 100%);
+  border-bottom-right-radius: 25px;
+}
+
 .play-button {
   background-color: rgba(46, 186, 161, 0.9);
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  left: 265px;
-  top: 170px;
   color: white;
   font-size: 2rem;
   cursor: pointer;
   transition: transform 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the button */
 }
 
 .play-button:hover {
-  transform: scale(1.1);
+  transform: translate(-50%, -50%) scale(1.1); /* Maintain centering on hover */
 }
 
 .modal-overlay {
@@ -135,6 +154,46 @@ button {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .green-border,
+  .black-border {
+    width: 95%;
+    height: 95%;
+    border-width: 8px;
+  }
+
+  .video-thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .play-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .green-border,
+  .black-border {
+    width: 100%;
+    height: 100%;
+    border-width: 6px;
+  }
+
+  .video-thumbnail {
+    border-radius: 8px;
+  }
+
+  .play-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
 }
 </style>

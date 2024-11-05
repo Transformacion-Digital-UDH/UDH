@@ -1,5 +1,6 @@
 <script setup>
-import videoSistemas from "@/components/CarreraSistemas/videoSistemas.vue";
+import VideoCareer from "@/components/Carreras/videoCareer.vue";
+import characterCareer from "@/components/Carreras/characterCareer.vue";
 </script>
 
 <template>
@@ -14,7 +15,7 @@ import videoSistemas from "@/components/CarreraSistemas/videoSistemas.vue";
       class="lg:col-span-2 min-h-[1200px] rounded-xl shadow-custom-card bg-white"
     >
       <!--ACA IRA MI VIDEO SISTEMAS-->
-      <videoSistemas />
+      <VideoCareer />
     </div>
 
     <!-- Columna Derecha (Tarjetas de Información) -->
@@ -28,7 +29,9 @@ import videoSistemas from "@/components/CarreraSistemas/videoSistemas.vue";
       <div class="min-h-[450px] rounded-xl shadow-custom-card bg-white"></div>
 
       <!-- Tarjeta caracteristicas -->
-      <div class="min-h-[400px] rounded-xl shadow-custom-card bg-white"></div>
+      <div class="min-h-[400px] rounded-xl shadow-custom-card bg-white">
+        <characterCareer />
+      </div>
 
       <!-- Tarjeta documentos -->
       <div class="min-h-[200px] rounded-xl shadow-custom-card bg-white"></div>

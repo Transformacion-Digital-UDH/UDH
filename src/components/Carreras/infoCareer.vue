@@ -6,7 +6,7 @@ import dataInformationCareer from '@/components/dataInformationCareer.vue';
     <dataInformationCareer :datas="[
         { icon: 'fas fa-graduation-cap', titulo: 'FACULTAD', descripcion: 'Ingenieria' },
         { icon: 'fas fa-users', titulo: 'VACANTES 2025', descripcion: '20 estudiantes' },
-        { icon: 'fas fa-clock', titulo: 'Duración de la carrera', descripcion: '05 años' },
+        { icon: 'fas fa-clock', titulo: 'DURACION DE LA CARRERA', descripcion: '05 años' },
         { icon: 'fas fa-dollar', titulo: 'Pension', descripcion: 'S/. 468.12' }
     ]" />
 </template>

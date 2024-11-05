@@ -74,10 +74,63 @@ function closeVideo() {
   color: white;
   font-size: 2rem;
   cursor: pointer;
-  transition: transform 0.3s ease;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: pulse 1.5s infinite;
+}
+
+.play-button::before,
+.play-button::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid rgba(46, 186, 161, 0.6);
+  box-shadow: 0 0 5px rgba(46, 186, 161, 0.6),
+              0 0 10px rgba(46, 186, 161, 0.4),
+              0 0 15px rgba(46, 186, 161, 0.2);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  animation: glow 1.5s infinite;
+}
+
+.play-button::before {
+  animation-delay: 0s;
+}
+
+.play-button::after {
+  animation-delay: 0.1s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 </style>

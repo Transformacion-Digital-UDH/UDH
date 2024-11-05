@@ -4,7 +4,7 @@ import dataRequirement from "@/components/dataRequirement.vue";
 
 <template>
   <dataRequirement
-    class="text-[15px] font-bold"
+    class="text-[13px] lg:text-[14px] xl:text-[15px] font-bold"
     :Requisitos="[
       'Conocimientos previos en matemáticas y lógica.',
       'Habilidad para resolver problemas técnicos complejos.',

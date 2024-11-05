@@ -69,7 +69,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .button-multiple {
-  z-index: 50;
+  z-index: 30;
   display: flex;
   flex-direction: column;
   gap: 10px;

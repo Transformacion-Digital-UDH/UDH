@@ -1,5 +1,6 @@
 <script setup>
 import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
+import ImageWithFrames from "@/components/ImageWithFrames.vue";
 import TitleSection from "@/components/TitleSection.vue";
 import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
 </script>
@@ -9,46 +10,13 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
     <div
       class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center items-center"
     >
-      <div class="lg:w-1/2 mb-8 lg:mb-0 relative ml-4 mr-4 lg:ml-12 lg:mr-12">
-        <div class="relative">
-          <img
-            src="https://placehold.co/400x500"
-            alt="Sobre nosotros"
-            class="rounded-lg w-full shadow-lg relative z-10"
-          />
-          <!-- Marco verde -->
-          <div
-            class="absolute -top-4 -left-4 sm:-top-8 sm:-left-8 md:-top-10 md:-left-10 w-[200px] h-[320px] sm:w-[250px] sm:h-[410px] md:w-[300px] md:h-[270px] lg:w-[300px] lg:h-[540px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] z-0"
-          ></div>
-          <!-- Marco negro -->
-          <div
-            class="absolute -bottom-4 -right-4 sm:-bottom-4 sm:-right-4 md:-bottom-5 md:-right-5 w-[200px] h-[240px] sm:w-[250px] sm:h-[280px] md:w-[300px] md:h-[320px] lg:w-[400px] lg:h-[490px] bg-[#333333] z-0 clip-path rounded-br-[15px] lg:rounded-br-[17px] sm:rounded-br-[17px]"
-          ></div>
-          <div
-            class="absolute bottom-20 sm:bottom-20 md:bottom-32 lg:bottom-20 -left-4 sm:-left-8 md:-left-10 bg-[#2ebaa1] p-3 md:p-4 rounded-lg lg:rounded-2xl shadow-lg text-white flex flex-col items-center z-20 h-[140px] sm:h-[160px] md:h-[180px] lg:h-[200px]"
-          >
-            <div class="feature-icon flex justify-left mb-2 md:mb-3">
-              <div
-                class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center"
-              >
-                <img
-                  src="../assets/images/shareImage.svg"
-                  alt="Icono de servicio"
-                  class="w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16"
-                />
-              </div>
-            </div>
-            <div class="text-center font-epilogue">
-              <b
-                class="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold"
-              >
-                35 años, dando <br />
-                una educación de calidad
-              </b>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ImageWithFrames
+        imageUrl="https://placehold.co/400x500"
+        :aboutUs="true"
+        description="35 años, dando una educación de calidad"
+        greenBorderClass="absolute -top-4 -left-4 sm:-top-8 sm:-left-8 md:-top-10 md:-left-10 w-[200px] h-[320px] sm:w-[250px] sm:h-[410px] md:w-[300px] md:h-[270px] lg:w-[300px] lg:h-[540px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] z-0"
+        blackBorderClass="absolute -bottom-4 -right-4 sm:-bottom-4 sm:-right-4 md:-bottom-5 md:-right-5 w-[200px] h-[240px] sm:w-[250px] sm:h-[280px] md:w-[300px] md:h-[320px] lg:w-[400px] lg:h-[490px] bg-[#333333] z-0 clip-path rounded-br-[15px] lg:rounded-br-[17px] sm:rounded-br-[17px]"
+      />
 
       <div class="lg:w-1/2 lg:px-0 text-center lg:text-left">
         <div>

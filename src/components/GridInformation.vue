@@ -1,5 +1,6 @@
 <script setup>
 import VideoCareer from "@/components/Carreras/videoCareer.vue";
+import courseRequirement from "@/components/Carreras/courseRequirement.vue";
 import characterCareer from "@/components/Carreras/characterCareer.vue";
 </script>
 
@@ -14,8 +15,8 @@ import characterCareer from "@/components/Carreras/characterCareer.vue";
     <div
       class="lg:col-span-2 min-h-[1200px] rounded-xl shadow-custom-card bg-white"
     >
-      <!--ACA IRA MI VIDEO SISTEMAS-->
       <VideoCareer />
+      <courseRequirement />
     </div>
 
     <!-- Columna Derecha (Tarjetas de Información) -->

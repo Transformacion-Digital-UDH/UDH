@@ -84,7 +84,7 @@ const friendPages = [
     </div>
     <aboutUs />
     <DatosUniversidad />
-    <VideoUniversidad />
+    <VideoUniversidad videoUrl="https://www.youtube.com/embed/K0aKgIyU0qs?si=-nwGr1FyivhKClxj"/>
     <CardEvent />
     <CardRelease />
     <FriendPagesCarousel :pages="friendPages" />

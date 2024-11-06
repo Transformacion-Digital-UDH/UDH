@@ -1,16 +1,14 @@
-<!-- CarouselSlide.vue -->
 <template>
   <SplideSlide>
     <div
-      :class="['hero-single relative flex items-center justify-center bg-cover bg-center min-h-dvh', minheight]"
-      :style="{
-        backgroundImage: `url(${backgroundImage})`
-      }"
+      :class="[
+        'hero-single relative flex items-center justify-center bg-cover bg-center',
+        minheight,
+      ]"
+      :style="{ backgroundImage: `url(${backgroundImage})` }"
     >
-      <!-- Capa de fondo semi-transparente -->
       <div class="absolute inset-0 bg-black opacity-70"></div>
 
-      <!-- Contenido del slide -->
       <div class="container relative z-10 mx-auto px-4">
         <div
           class="text-left text-white max-w-2xl space-y-4 md:space-y-6 lg:space-y-8 p-4"
@@ -22,7 +20,7 @@
             {{ subtitle }}
           </h6>
           <h1
-            class="text-3xl md:text-5xl lg:text-6xl font-bold animate-fadeInRight"
+            class="text-2xl md:text-4xl lg:text-5xl font-bold animate-fadeInRight"
             style="animation-delay: 0.5s"
           >
             {{ title }}
@@ -34,7 +32,6 @@
           >
             {{ description }}
           </p>
-
           <ButtonPrimarySecondEffect
             :label="buttonLabel"
             class="px-7 py-[10px] w-[110px]"
@@ -76,12 +73,9 @@ defineProps({
   },
   minheight: {
     type: String,
-    default: "min-h-dvh",
-    required: false,
+    required: true,
   },
 });
 </script>
 
-<style scoped>
-/* Same animations and styles from the Carousel.vue */
-</style>
+<style scoped></style>

@@ -1,48 +1,108 @@
-<!-- Carousel.vue -->
 <template>
-  <Splide :options="splideOptions" class="carousel-wrapper">
-    <!-- Slide 1 -->
+  <Splide
+    :options="splideOptions"
+    :class="['carousel-wrapper', heightClass]"
+    ref="splideRef"
+  >
     <CarouselSlide
-      backgroundImage="/imagesSlider/1.jpg"
-      subtitle="Bienvenido a la UDH"
-      title="Transforma tu vida con una"
-      highlightedText="educación de calidad"
-      description="En la UDH, creemos en el poder transformador de la educación. Ofrecemos programas académicos diseñados para prepararte para los desafíos del mundo real, ayudándote a alcanzar tus metas y a convertirte en un líder en tu campo."
-      buttonLabel="Conoce más"
-      minheight="min-h-[90dvh]"
-    />
-
-    <!-- Slide 2 -->
-    <CarouselSlide
-      backgroundImage="/imagesSlider/2.jpg"
-      subtitle="Bienvenido a la UDH"
-      title="Impulsa el futuro con"
-      highlightedText="investigación pionera"
-      description="En la Universidad de Innovación, nos dedicamos a explorar nuevos horizontes y a liderar el camino en investigación avanzada. Nuestros programas están diseñados para fomentar la creatividad y el pensamiento crítico, preparando a nuestros estudiantes para ser los innovadores del mañana y enfrentar los retos más complejos del mundo."
-      buttonLabel="Conoce más"
-      minheight="min-h-[90dvh]"
+      v-for="(slide, index) in slides"
+      :key="index"
+      :backgroundImage="slide.backgroundImage"
+      :subtitle="slide.subtitle"
+      :title="slide.title"
+      :highlightedText="slide.highlightedText"
+      :description="slide.description"
+      :buttonLabel="slide.buttonLabel"
+      :minheight="heightClass"
     />
   </Splide>
 </template>
 
 <script setup>
+import { ref, onMounted, computed } from "vue";
 import { Splide } from "@splidejs/vue-splide";
 import CarouselSlide from "@/components/CarouselSlide.vue";
 import "@splidejs/vue-splide/css";
 
-// Opciones del carrusel
+const splideRef = ref(null);
+
+const props = defineProps({
+  slides: {
+    type: Array,
+    required: true,
+    validator: (value) =>
+      value.every(
+        (slide) =>
+          slide.backgroundImage &&
+          slide.subtitle &&
+          slide.title &&
+          slide.highlightedText &&
+          slide.description
+      ),
+  },
+  carouselHeight: {
+    type: String,
+    default: "medium",
+  },
+});
+
+const heightClass = computed(() => {
+  switch (props.carouselHeight) {
+    case "small":
+      return "h-[50dvh]";
+    case "medium":
+      return "h-[75dvh]";
+    case "large":
+      return "h-[105dvh]";
+    default:
+      return "h-[75dvh]";
+  }
+});
+
 const splideOptions = {
   type: "loop",
   autoplay: true,
-  interval: 3000,
-  speed: 800,
-  pauseOnHover: false,
+  interval: 5000,
+  speed: 1000,
+  pauseOnHover: true,
   perPage: 1,
-  arrows: false,
-  pagination: true,
+  perMove: 1,
+  arrows: true,
+  pagination: false,
+  rewind: true,
+  gap: "1rem",
+  resetProgress: false,
+  lazyLoad: true,
+  easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+  drag: "free",
+  snap: true,
+  width: "100%",
+  height: "100%",
+  transition: "slide",
+  breakpoints: {
+    640: {
+      arrows: false,
+    },
+  },
 };
+
+onMounted(() => {
+  const splideInstance = splideRef.value?.splide;
+  if (splideInstance) {
+    splideInstance.Components.Autoplay.play();
+  }
+});
 </script>
 
 <style scoped>
-/* Mantener las animaciones y estilos de Carousel.vue */
+.carousel-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+:deep(.splide__track),
+:deep(.splide__list),
+:deep(.splide__slide) {
+  height: 100% !important;
+}
 </style>

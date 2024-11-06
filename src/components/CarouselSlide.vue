@@ -20,7 +20,7 @@
             {{ subtitle }}
           </h6>
           <h1
-            class="text-3xl md:text-5xl lg:text-6xl font-bold animate-fadeInRight"
+            class="text-2xl md:text-4xl lg:text-5xl font-bold animate-fadeInRight"
             style="animation-delay: 0.5s"
           >
             {{ title }}

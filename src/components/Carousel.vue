@@ -10,6 +10,7 @@
       :highlightedText="slide.highlightedText"
       :description="slide.description"
       :buttonLabel="slide.buttonLabel"
+      :minheight="heightClass"
     />
   </Splide>
 </template>
@@ -64,7 +65,7 @@ const splideOptions = {
   perPage: 1,
   perMove: 1,
   arrows: true,
-  pagination: true,
+  pagination: false,
   rewind: true,
   gap: '1rem',
   resetProgress: false,
@@ -102,38 +103,5 @@ onMounted(() => {
   height: 100% !important;
 }
 
-:deep(.splide__pagination) {
-  bottom: 2rem;
-}
-
-:deep(.splide__pagination__page) {
-  background: #ffffff;
-  opacity: 0.7;
-  margin: 0 5px;
-}
-
-:deep(.splide__pagination__page.is-active) {
-  background: #22c55e;
-  opacity: 1;
-  transform: scale(1.2);
-}
-
-:deep(.splide__track) {
-  overflow: visible;
-}
-
-:deep(.splide__arrow) {
-  background: rgba(255, 255, 255, 0.8);
-  width: 2.5rem;
-  height: 2.5rem;
-}
-
-:deep(.splide__arrow svg) {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
-:deep(.splide__arrow:hover) {
-  background: rgba(255, 255, 255, 0.95);
-}
+/* Otros estilos ya definidos */
 </style>

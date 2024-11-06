@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col p-4 bg-white shadow-lg rounded-lg text-left border border-gray-200 relative h-80 w-80 mx-5">
+    <div class="flex flex-col p-4 bg-white shadow-lg rounded-lg text-left border-[3px] border-black relative h-80 w-80">
       <div class="text-green-custom text-5xl font-bold absolute top-2 left-2">
         {{ curso.numero }}
       </div>

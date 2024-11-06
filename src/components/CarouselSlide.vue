@@ -1,24 +1,41 @@
 <template>
   <SplideSlide>
     <div
-      :class="[ 'hero-single relative flex items-center justify-center bg-cover bg-center', minheight ]"
+      :class="[
+        'hero-single relative flex items-center justify-center bg-cover bg-center',
+        minheight,
+      ]"
       :style="{ backgroundImage: `url(${backgroundImage})` }"
     >
       <div class="absolute inset-0 bg-black opacity-70"></div>
 
       <div class="container relative z-10 mx-auto px-4">
-        <div class="text-left text-white max-w-2xl space-y-4 md:space-y-6 lg:space-y-8 p-4">
-          <h6 class="text-lg md:text-xl lg:text-2xl font-semibold animate-fadeInDown" style="animation-delay: 0.25s">
+        <div
+          class="text-left text-white max-w-2xl space-y-4 md:space-y-6 lg:space-y-8 p-4"
+        >
+          <h6
+            class="text-lg md:text-xl lg:text-2xl font-semibold animate-fadeInDown"
+            style="animation-delay: 0.25s"
+          >
             {{ subtitle }}
           </h6>
-          <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold animate-fadeInRight" style="animation-delay: 0.5s">
+          <h1
+            class="text-3xl md:text-5xl lg:text-6xl font-bold animate-fadeInRight"
+            style="animation-delay: 0.5s"
+          >
             {{ title }}
             <span class="text-green-custom">{{ highlightedText }}</span>
           </h1>
-          <p class="text-base md:text-lg lg:text-xl animate-fadeInLeft" style="animation-delay: 0.75s">
+          <p
+            class="text-base md:text-lg lg:text-xl animate-fadeInLeft"
+            style="animation-delay: 0.75s"
+          >
             {{ description }}
           </p>
-          <ButtonPrimarySecondEffect :label="buttonLabel" class="px-7 py-[10px] w-[110px]" />
+          <ButtonPrimarySecondEffect
+            :label="buttonLabel"
+            class="px-7 py-[10px] w-[110px]"
+          />
         </div>
       </div>
     </div>

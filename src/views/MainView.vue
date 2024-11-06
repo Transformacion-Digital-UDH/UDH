@@ -77,9 +77,7 @@ const friendPages = [
 <template>
   <MainLayout>
     <div class="flex flex-col items-center md:mb-20 lg:mb-5 relative">
-      <!-- Carrusel ocupando toda la anchura -->
       <Carousel :slides="carouselSlides" carouselHeight="large" />
-      <!-- Ajustamos mainFeatures para una superposición sutil -->
       <mainFeatures
         class="w-[90%] max-w-[1200px] my-6 md:my-[-40px] lg:my-[-40px] z-20 relative top-[-20px]"
       />

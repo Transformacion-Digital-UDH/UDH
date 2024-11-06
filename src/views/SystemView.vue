@@ -3,7 +3,6 @@ import MainLayout from "@/layout/MainLayout.vue";
 import GridInformation from "@/components/GridInformation.vue";
 import Carousel from "@/components/Carousel.vue";
 
-// Array de contenido para el carrusel
 const carouselSlides = [
   {
     backgroundImage: "/imagesSlider/1.jpg",
@@ -26,10 +25,8 @@ const carouselSlides = [
 
 <template>
   <MainLayout>
-    <!-- Carrusel separado de GridInformation -->
     <Carousel :slides="carouselSlides" carouselHeight="medium" />
 
-    <!-- GridInformation componente separado -->
     <GridInformation />
   </MainLayout>
 </template>

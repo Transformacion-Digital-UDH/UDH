@@ -1,6 +1,9 @@
-<!-- Carousel.vue -->
 <template>
-  <Splide :options="splideOptions" :class="['carousel-wrapper', heightClass]" ref="splideRef">
+  <Splide
+    :options="splideOptions"
+    :class="['carousel-wrapper', heightClass]"
+    ref="splideRef"
+  >
     <CarouselSlide
       v-for="(slide, index) in slides"
       :key="index"
@@ -16,7 +19,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed } from "vue";
 import { Splide } from "@splidejs/vue-splide";
 import CarouselSlide from "@/components/CarouselSlide.vue";
 import "@splidejs/vue-splide/css";
@@ -27,32 +30,32 @@ const props = defineProps({
   slides: {
     type: Array,
     required: true,
-    validator: (value) => 
-      value.every(slide => 
-        slide.backgroundImage && 
-        slide.subtitle && 
-        slide.title && 
-        slide.highlightedText && 
-        slide.description
+    validator: (value) =>
+      value.every(
+        (slide) =>
+          slide.backgroundImage &&
+          slide.subtitle &&
+          slide.title &&
+          slide.highlightedText &&
+          slide.description
       ),
   },
   carouselHeight: {
     type: String,
-    default: 'medium', // Puede ser 'small', 'medium', 'large'
-  }
+    default: "medium",
+  },
 });
 
-// Computed property para determinar la clase de altura
 const heightClass = computed(() => {
   switch (props.carouselHeight) {
-    case 'small':
-      return 'h-[50dvh]';
-    case 'medium':
-      return 'h-[75dvh]';
-    case 'large':
-      return 'h-[105dvh]';
+    case "small":
+      return "h-[50dvh]";
+    case "medium":
+      return "h-[75dvh]";
+    case "large":
+      return "h-[105dvh]";
     default:
-      return 'h-[75dvh]';
+      return "h-[75dvh]";
   }
 });
 
@@ -67,20 +70,20 @@ const splideOptions = {
   arrows: true,
   pagination: false,
   rewind: true,
-  gap: '1rem',
+  gap: "1rem",
   resetProgress: false,
   lazyLoad: true,
-  easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-  drag: 'free',
+  easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+  drag: "free",
   snap: true,
-  width: '100%',
-  height: '100%', // Ajustado para usar altura relativa
-  transition: 'slide',
+  width: "100%",
+  height: "100%",
+  transition: "slide",
   breakpoints: {
     640: {
       arrows: false,
-    }
-  }
+    },
+  },
 };
 
 onMounted(() => {
@@ -102,6 +105,4 @@ onMounted(() => {
 :deep(.splide__slide) {
   height: 100% !important;
 }
-
-/* Otros estilos ya definidos */
 </style>

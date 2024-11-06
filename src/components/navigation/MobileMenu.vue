@@ -64,7 +64,7 @@ const menuItems = [
             {
                 title: 'Ingeniería',
                 items: [
-                    { title: 'Ingenieria de sistemas e informática', href: '#' },
+                    { title: 'Ingenieria de sistemas e informática', href: '/sistemas-e-informatica' },
                     { title: 'Ingenieria civil', href: '#' },
                     { title: 'Ingenieria ambiental', href: '#' },
                     { title: 'Arquitectura', href: '#' }

@@ -103,6 +103,58 @@ const cursos = [
       "Arquitectura del Computador",
     ],
   },
+  
+  {
+    numero: "7",
+    titulo: "Septimo Ciclo",
+    courses: [
+      "Base de Datos Avanzadas y Big Data",
+      "Metodología de la Investigación",
+      "Computación Gráfica y Visual",
+      "Modelamiento y Análisis de Software",
+      "Proyecto Social",
+      "Arquitectura del Computador",
+    ],
+  },
+  
+  {
+    numero: "8",
+    titulo: "Octavo Ciclo",
+    courses: [
+      "Base de Datos Avanzadas y Big Data",
+      "Metodología de la Investigación",
+      "Computación Gráfica y Visual",
+      "Modelamiento y Análisis de Software",
+      "Proyecto Social",
+      "Arquitectura del Computador",
+    ],
+  },
+  
+  {
+    numero: "9",
+    titulo: "Noveno Ciclo",
+    courses: [
+      "Base de Datos Avanzadas y Big Data",
+      "Metodología de la Investigación",
+      "Computación Gráfica y Visual",
+      "Modelamiento y Análisis de Software",
+      "Proyecto Social",
+      "Arquitectura del Computador",
+    ],
+  },
+  
+  {
+    numero: "10",
+    titulo: "Decimo ciclo",
+    courses: [
+      "Base de Datos Avanzadas y Big Data",
+      "Metodología de la Investigación",
+      "Computación Gráfica y Visual",
+      "Modelamiento y Análisis de Software",
+      "Proyecto Social",
+      "Arquitectura del Computador",
+    ],
+  },
 ];
 
 

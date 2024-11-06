@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-10">
+  <div class="mb-10 container mx-auto">
     <Splide
       ref="splide"
       :options="carouselOptions"
@@ -38,18 +38,18 @@ export default {
         arrows: false,
         interval: 3000,
         pauseOnHover: true,
-        pagination: false,
-        gap: "0.5rem",
-        perPage: 5,
+        pagination: true,
+        perPage: 3,
+        rewind: false,
         breakpoints: {
           1024: {
             perPage: 4,
           },
           768: {
-            perPage: 3,
+            perPage: 2,
           },
           640: {
-            perPage: 2,
+            perPage: 1,
           },
           360: {
             perPage: 1,

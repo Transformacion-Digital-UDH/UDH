@@ -21,3 +21,25 @@
     font-weight: normal;
     font-style: normal;
 }
+
+.splide .splide__pagination__page {
+    background-color: #d1d5db !important; 
+    opacity: 0.5;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.splide .splide__pagination__page:hover {
+    background-color: #4b5563 !important; 
+    opacity: 1;
+}
+
+/* Usar el color 'green-custom' de Tailwind en el punto activo */
+.splide .splide__pagination__page.is-active {
+    background-color: #2EBAA1 !important; /* Código hexadecimal de 'green-custom' */
+    opacity: 1;
+}
+
+.splide__pagination {
+    transform: translateY(30px); /* Ajusta según necesites */
+  }
+  

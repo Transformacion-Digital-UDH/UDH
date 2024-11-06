@@ -2,6 +2,9 @@
 import MainLayout from "@/layout/MainLayout.vue";
 import GridInformation from "@/components/GridInformation.vue";
 import Carousel from "@/components/Carousel.vue";
+import CarouselCursos from "@/components/Carreras/CarouselCursos.vue";
+
+// props carousel proyectos carrera
 
 const carouselSlides = [
   {
@@ -26,11 +29,89 @@ const carouselSlides = [
     buttonLabel: "Conoce más",
   },
 ];
+
+// Props de cursos por ciclo
+
+const cursos = [
+{
+    numero: "1",
+    titulo: "Sexto Ciclo",
+    courses: [
+      "Base de Datos Avanzadas y Big Data",
+      "Metodología de la Investigación",
+      "Computación Gráfica y Visual",
+      "Modelamiento y Análisis de Software",
+      "Proyecto Social",
+      "Arquitectura del Computador",
+    ],
+  },
+  {
+    numero: "2",
+    titulo: "Sexto Ciclo",
+    courses: [
+      "Base de Datos Avanzadas y Big Data",
+      "Metodología de la Investigación",
+      "Computación Gráfica y Visual",
+      "Modelamiento y Análisis de Software",
+      "Proyecto Social",
+      "Arquitectura del Computador",
+    ],
+  },
+  {
+    numero: "3",
+    titulo: "Sexto Ciclo",
+    courses: [
+      "Base de Datos Avanzadas y Big Data",
+      "Metodología de la Investigación",
+      "Computación Gráfica y Visual",
+      "Modelamiento y Análisis de Software",
+      "Proyecto Social",
+      "Arquitectura del Computador",
+    ],
+  },
+  {
+    numero: "4",
+    titulo: "Cuarto Ciclo",
+    courses: [
+      "Probabilidad y Estadística",
+      "Estructura de Datos",
+      "Optimización y Simulación",
+      "Cálculo 2",
+      "Electrónica Digital",
+    ],
+  },
+  {
+    numero: "5",
+    titulo: "Quinto Ciclo",
+    courses: [
+      "Análisis de Algoritmos y Estrategias de Programación",
+      "Comunicación 3",
+      "Base de Datos",
+      "Responsabilidad Social",
+      "Técnicas de Programación Orientada a Objetos",
+    ],
+  },
+  {
+    numero: "6",
+    titulo: "Sexto Ciclo",
+    courses: [
+      "Base de Datos Avanzadas y Big Data",
+      "Metodología de la Investigación",
+      "Computación Gráfica y Visual",
+      "Modelamiento y Análisis de Software",
+      "Proyecto Social",
+      "Arquitectura del Computador",
+    ],
+  },
+];
+
+
 </script>
 
 <template>
   <MainLayout>
     <Carousel :slides="carouselSlides" carouselHeight="medium" />
     <GridInformation />
+    <CarouselCursos :cursos="cursos" />
   </MainLayout>
 </template>

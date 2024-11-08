@@ -4,7 +4,6 @@ import GridInformation from "@/components/GridInformation.vue";
 import Carousel from "@/components/Carousel.vue";
 import CarouselCursos from "@/components/Carreras/CarouselCursos.vue";
 
-// props carousel proyectos carrera
 
 const carouselSlides = [
   {
@@ -30,7 +29,6 @@ const carouselSlides = [
   },
 ];
 
-// Props de cursos por ciclo
 
 const cursos = [
 {

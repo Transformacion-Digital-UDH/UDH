@@ -26,6 +26,8 @@
     background-color: #d1d5db !important; 
     opacity: 0.5;
     transition: background-color 0.3s, opacity 0.3s;
+    width: 20px !important;
+    border-radius: 5px !important;
 }
 
 .splide .splide__pagination__page:hover {

@@ -70,7 +70,6 @@ const splideOptions = {
   arrows: true,
   pagination: false,
   rewind: true,
-  gap: "1rem",
   resetProgress: false,
   lazyLoad: true,
   easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",

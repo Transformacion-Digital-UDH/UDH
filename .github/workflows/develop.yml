@@ -1,8 +1,8 @@
-name: Desplegar a producción
+name: Desplegar a testing
 on:
   push:
     branches:
-      - main
+      - dev
 jobs:
   deploy:
     runs-on: ubuntu-latest

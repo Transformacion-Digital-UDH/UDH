@@ -2,12 +2,12 @@
   <TitleSection subtitle1="Boletin Informativo &" subtitle2="Noticias" />
   <div class="bg-white py-8">
     <div
-      class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4"
+      class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-10  sm:px-4"
     >
       <div
         v-for="(event, index) in events"
         :key="index"
-        class="bg-rgray-custom text-white rounded-lg shadow-md max-w-md mx-auto border border-gray-700 overflow-hidden"
+        class="bg-rgray-custom text-white rounded-lg shadow-md w-full mx-auto border border-gray-700 overflow-hidden"
       >
         <div class="p-5">
           <div class="text-gray-400 text-sm mb-4 flex items-center space-x-4">
@@ -16,13 +16,13 @@
             </span>
           </div>
 
-          <h4 class="text-xl font-semibold text-white h-12 overflow-hidden">
+          <h4 class="text-xl font-semibold text-white h-32 overflow-hidden">
             <a href="event-single.html" class="hover:text-green-custom">{{
               event.title
             }}</a>
           </h4>
 
-          <p class="text-gray-300 text-base mb-5 h-16 overflow-hidden">
+          <p class="text-gray-300 text-base mb-5 h-40 overflow-hidden">
             {{ event.description }}
           </p>
         </div>
@@ -85,7 +85,28 @@ h4 {
 }
 
 p {
-  height: 10rem;
+  height: 6rem;
   overflow: hidden;
 }
+
+@media (min-width: 640px) {
+  h4 {
+    height: 8rem;
+  }
+
+  p {
+    height: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h4 {
+    height: 12rem;
+  }
+
+  p {
+    height: 10rem;
+  }
+}
 </style>
+

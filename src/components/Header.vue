@@ -14,11 +14,11 @@
             { 'fixed top-0 left-0 right-0 z-50': isScrolledPast }
             ]"
         >
-            <div class="mx-auto max-w-full px-4 ">
+            <div class="mx-auto max-w-full px-3 ">
                 <div class="flex items-center justify-between xl:justify-center font-epilogue font-semibold">
                     <!-- Logo -->
-                    <a href="/" class="shrink-0 py-4 lg:py-2">
-                        <img src="/logo.png" alt="logo" class="w-[90px] md:w-[120px] lg:w-[140px] xl:w-[180px]">
+                    <a href="/" class="shrink-0 py-4 lg:py-3 mr-4">
+                        <img src="/logo.png" alt="logo" class="w-[90px] md:w-[120px] lg:w-[140px] xl:w-[150px]">
                     </a>
 
                     <!-- Desktop Navigation -->

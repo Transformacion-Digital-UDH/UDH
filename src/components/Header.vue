@@ -45,13 +45,14 @@
                                             <NavDropdownLink href="#">Odontologia</NavDropdownLink>
                                         </NavDropdownColumn>
                                         <NavDropdownColumn title="ingeniería">
-                                            <NavDropdownLink href="/sistemas-e-informatica">Ingenieria de sistemas e informática</NavDropdownLink>
+                                            <NavDropdownLink href="/carrera/sistemas-e-informatica">Ingenieria de sistemas e informática</NavDropdownLink>
                                             <NavDropdownLink href="#">Ingenieria civil</NavDropdownLink>
                                             <NavDropdownLink href="#">Ingenieria ambiental</NavDropdownLink>
                                             <NavDropdownLink href="#">Arquitectura</NavDropdownLink>
                                         </NavDropdownColumn>
                                         <NavDropdownColumn title="ciencias de la educación y humanidades">
-                                            <NavDropdownLink href="#">Educación básica: Inicial y primaria</NavDropdownLink>
+                                            <NavDropdownLink href="#">Educación básica: Inicial y primaria
+                                            </NavDropdownLink>
                                             <p class="uppercase text-green-custom pt-5">DERECHO Y CIENCIAS POLITICAS</p>
                                             <NavDropdownLink href="#">Derecho y ciencias politicas</NavDropdownLink>
                                         </NavDropdownColumn>
@@ -135,7 +136,11 @@
                             </NavItem>
 
                             <!-- Utilities -->
-                            <li class="flex items-center gap-2 ml-4">
+                            <li class="flex items-center gap-1 ml-4">
+                                <img @click="changeLanguage('en')" v-if="lang === 'es-PE'"
+                                    src="/src/assets/icons/flag-peru.svg" alt="flag" class="w-6 h-6 cursor-pointer">
+                                <img @click="changeLanguage('es-PE')" v-else src="/src/assets/icons/flasg-us.svg"
+                                    alt="flag" class="w-6 h-6 cursor-pointer">
                                 <Search />
                                 <ButtonPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]" />
                             </li>
@@ -176,10 +181,21 @@ import NavNestedItem from '@/components/navigation/NavNestedItem.vue';
 import MobileMenu from '@/components/navigation/MobileMenu.vue';
 import ButtonPrimarySecondEffect from '@/components/ButtonPrimarySecondEffect.vue';
 import Search from '@/components/Search.vue';
+import { useSelectStore } from "@/stores/select";
+
 const navRef = ref(null);
 const navHeight = ref(0);
 const isScrolledPast = ref(false);
+const lang = ref('');
 const isMobileMenuOpen = ref(false);
+
+const selectStore = useSelectStore();
+lang.value = selectStore.language;
+
+const changeLanguage = (language) => {
+    selectStore.changeLanguage(language);
+    lang.value = language;
+}
 
 const updateNavHeight = () => {
     if (navRef.value) {

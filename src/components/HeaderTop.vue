@@ -16,7 +16,7 @@
                     </a>
                 </div>
                 <!-- right -->
-                <div class="flex items-center gap-1 lg:gap-4 z-10 ">
+                <div class="flex justify-center items-center gap-1 lg:gap-4 z-10 ">
                     <a href="#"
                         class="w-8 h-8 rounded-full bg-[#333333] content-center text-white hover:text-green-custom place-items-center">
                         <IconBrandWhatsapp size="19" />

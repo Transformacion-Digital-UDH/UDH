@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import MainLayout from "@/layout/MainLayout.vue";
 import DatosUniversidad from "@/components/DatosUniversidad.vue";
 import Carousel from "@/components/Carousel.vue";
@@ -8,6 +8,12 @@ import CardEvent from "@/components/CardEvent.vue";
 import VideoUniversidad from "@/components/videoUniversidad.vue";
 import CardRelease from "@/components/CardRelease.vue";
 import FriendPagesCarousel from "@/components/FriendPagesCarousel.vue";
+import { getHomeInfo } from "@/lib/get-home-info";
+import { onMounted } from "vue";
+
+onMounted(async () => {
+  const homeInfo = await getHomeInfo();
+})
 
 const carouselSlides = [
   {
@@ -29,65 +35,21 @@ const carouselSlides = [
     buttonLabel: "Conoce más",
   },
 ];
-
-const friendPages = [
-  {
-    name: "Página 1",
-    url: "https://pagina1.com",
-    image: "https://placehold.co/150x80",
-  },
-  {
-    name: "Página 2",
-    url: "https://pagina2.com",
-    image: "https://placehold.co/150x80",
-  },
-  {
-    name: "Página 3",
-    url: "https://pagina3.com",
-    image: "https://placehold.co/150x80",
-  },
-  {
-    name: "Página 4",
-    url: "https://pagina4.com",
-    image: "https://placehold.co/150x80",
-  },
-  {
-    name: "Página 5",
-    url: "https://pagina5.com",
-    image: "https://placehold.co/150x80",
-  },
-  {
-    name: "Página 6",
-    url: "https://pagina6.com",
-    image: "https://placehold.co/150x80",
-  },
-  {
-    name: "Página 7",
-    url: "https://pagina7.com",
-    image: "https://placehold.co/150x80",
-  },
-  {
-    name: "Página 8",
-    url: "https://pagina8.com",
-    image: "https://placehold.co/150x80",
-  },
-];
 </script>
 
 <template>
   <MainLayout>
     <div class="flex flex-col items-center md:mb-20 lg:mb-5 relative">
       <Carousel :slides="carouselSlides" carouselHeight="large" />
-      <mainFeatures
-        class="w-[90%] max-w-[1200px] my-6 md:my-[-40px] lg:my-[-40px] z-20 relative top-[-20px]"
-      />
+      <mainFeatures class="w-[90%] max-w-[1200px] my-6 md:my-[-40px] lg:my-[-40px] z-20 relative top-[-20px]" />
     </div>
     <aboutUs />
     <DatosUniversidad />
-    <VideoUniversidad videoUrl="https://www.youtube.com/embed/K0aKgIyU0qs?si=-nwGr1FyivhKClxj"/>
+    <VideoUniversidad image-url="https://placehold.co/1920x1080"
+      videoUrl="https://www.youtube.com/embed/K0aKgIyU0qs?si=-nwGr1FyivhKClxj" />
     <CardEvent />
     <CardRelease />
-    <FriendPagesCarousel :pages="friendPages" />
+    <FriendPagesCarousel :pages="[]" />
   </MainLayout>
 </template>
 

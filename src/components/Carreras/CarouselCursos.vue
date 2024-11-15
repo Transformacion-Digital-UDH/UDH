@@ -5,7 +5,8 @@
       :options="carouselOptions"
       aria-label="Carrusel de Cursos"
     >
-      <SplideSlide v-for="(curso, index) in cursos" :key="index">
+      <SplideSlide v-for="(curso, index) in cursos" :key="index"
+      class="width_modified_splide">
         <div class="flex justify-center">
           <CursoPostIt :curso="curso" />
         </div>

@@ -23,7 +23,7 @@
 }
 
 .splide .splide__pagination__page {
-    background-color: #d1d5db !important; 
+    background-color: #757575 !important; 
     opacity: 0.5;
     transition: background-color 0.3s, opacity 0.3s;
     width: 20px !important;
@@ -45,3 +45,6 @@
     transform: translateY(30px); /* Ajusta según necesites */
   }
   
+.width_modified_splide{
+    width: calc(28%) !important;
+}

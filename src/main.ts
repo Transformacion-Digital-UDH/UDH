@@ -5,6 +5,7 @@ import '@splidejs/vue-splide/css';
 import router from '@/router';
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import Particles from "vue3-particles";
 
 const pinia = createPinia()
 
@@ -18,4 +19,5 @@ const app = createApp(App);
 
 app.use(router)
 app.use(pinia)
+app.use(Particles); 
 app.mount('#app');

@@ -17,17 +17,9 @@
                 </div>
                 <!-- right -->
                 <div class="flex justify-center items-center gap-1 lg:gap-4 z-10 ">
-                    <a href="#"
+                    <a :href="rs.link" v-for="rs in redes_sociales" :key="rs.id"
                         class="w-8 h-8 rounded-full bg-[#333333] content-center text-white hover:text-green-custom place-items-center">
-                        <IconBrandWhatsapp size="19" />
-                    </a>
-                    <a href="#"
-                        class="w-8 h-8 rounded-full bg-[#333333] content-center text-white hover:text-green-custom place-items-center">
-                        <IconBrandYoutube size="19" />
-                    </a>
-                    <a href="#"
-                        class="w-8 h-8 rounded-full bg-[#333333] content-center text-white hover:text-green-custom place-items-center">
-                        <IconBrandInstagram size="19" />
+                        <img :src="`${baseApiUrl}/${rs.icono.url}`" :alt="rs.nombre" class="w-6 h-6" />
                     </a>
                 </div>
             </div>
@@ -36,5 +28,15 @@
 </template>
 
 <script setup>
-import { IconUsers, IconMail, IconUser, IconBrandWhatsapp, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-vue';
+import { IconUsers, IconUser } from '@tabler/icons-vue';
+
+const props = defineProps({
+    redes_sociales: {
+        type: Array,
+        required: true
+    }
+})
+
+const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
+
 </script>

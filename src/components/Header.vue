@@ -1,24 +1,22 @@
 <template>
     <header class="relative">
         <!-- Header Top -->
-        <HeaderTop v-if="!isScrolledPast" />
+        <HeaderTop v-if="!isScrolledPast" :redes_sociales="redes_sociales" />
 
         <!-- Spacer div to prevent content jump -->
         <div v-if="isScrolledPast" :style="{ height: navHeight + 'px' }"></div>
 
         <!-- Main Navigation -->
-        <nav 
-            ref="navRef"
-            :class="[
+        <nav ref="navRef" :class="[
             'bg-white py-0 w-full px-2 lg:px-6 sm:px-6  md:px-4 shadow-lg transition-all duration-300',
             { 'fixed top-0 left-0 right-0 z-50': isScrolledPast }
-            ]"
-        >
+        ]">
             <div class="mx-auto max-w-full px-3 ">
                 <div class="flex items-center justify-between xl:justify-center font-epilogue font-semibold">
                     <!-- Logo -->
                     <a href="/" class="shrink-0 py-4 lg:py-3 mr-4">
-                        <img src="/logo.png" alt="logo" class="w-[90px] md:w-[120px] lg:w-[140px] xl:w-[150px]">
+                        <img :src="logoUrl" :alt="logoAlt"
+                            class="w-[90px] md:w-[120px] lg:w-[140px] xl:w-[150px]">
                     </a>
 
                     <!-- Desktop Navigation -->
@@ -45,7 +43,8 @@
                                             <NavDropdownLink href="#">Odontologia</NavDropdownLink>
                                         </NavDropdownColumn>
                                         <NavDropdownColumn title="ingeniería">
-                                            <NavDropdownLink href="/carrera/sistemas-e-informatica">Ingenieria de sistemas e informática</NavDropdownLink>
+                                            <NavDropdownLink href="/carrera/sistemas-e-informatica">Ingenieria de
+                                                sistemas e informática</NavDropdownLink>
                                             <NavDropdownLink href="#">Ingenieria civil</NavDropdownLink>
                                             <NavDropdownLink href="#">Ingenieria ambiental</NavDropdownLink>
                                             <NavDropdownLink href="#">Arquitectura</NavDropdownLink>
@@ -60,7 +59,8 @@
                                             <NavDropdownLink href="#">Administración de empresas</NavDropdownLink>
                                             <NavDropdownLink href="#">Contabilidad y finanzas</NavDropdownLink>
                                             <NavDropdownLink href="#">Turismo, hoteleria y gastronomia</NavDropdownLink>
-                                            <NavDropdownLink href="#">Marketing y negocios internacionales</NavDropdownLink>
+                                            <NavDropdownLink href="#">Marketing y negocios internacionales
+                                            </NavDropdownLink>
                                         </NavDropdownColumn>
                                     </div>
                                 </template>
@@ -150,10 +150,7 @@
                     <!-- Mobile Navigation -->
                     <div class="flex items-center gap-4 xl:hidden">
                         <Search />
-                        <button 
-                            class="p-2 text-gray-custom hover:text-green-custom"
-                            @click="toggleMobileMenu"
-                        >
+                        <button class="p-2 text-gray-custom hover:text-green-custom" @click="toggleMobileMenu">
                             <IconMenu2 class="w-6 h-6" />
                         </button>
                     </div>
@@ -162,15 +159,12 @@
         </nav>
 
         <!-- Mobile Menu -->
-        <MobileMenu 
-            v-if="isMobileMenuOpen" 
-            @close="closeMobileMenu" 
-        />
+        <MobileMenu v-if="isMobileMenuOpen" @close="closeMobileMenu" />
     </header>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { IconMenu2 } from '@tabler/icons-vue';
 import HeaderTop from '@/components/HeaderTop.vue';
 import NavItem from '@/components/navigation/NavItem.vue';
@@ -188,6 +182,31 @@ const navHeight = ref(0);
 const isScrolledPast = ref(false);
 const lang = ref('');
 const isMobileMenuOpen = ref(false);
+
+const props = defineProps({
+    redes_sociales: {
+        type: Array,
+        required: true
+    },
+    logoudh: {
+        type: Object,
+        required: true
+    },
+    link_login: {
+        type: String,
+        required: true
+    }
+});
+
+const logoUrl = computed(() =>
+    props.logoudh?.url
+        ? `${import.meta.env.VITE_API_URL_STRAPI}${props.logoudh.url}`
+        : ''
+);
+
+const logoAlt = computed(() =>
+    props.logoudh?.name ? props.logoudh.name : 'Logo'
+);
 
 const selectStore = useSelectStore();
 lang.value = selectStore.language;

@@ -67,7 +67,6 @@
 </template>
 
 <script setup>
-import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
 import TitleSection from "@/components/TitleSection.vue";
 import {
   IconMapPin,

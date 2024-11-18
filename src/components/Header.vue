@@ -142,7 +142,8 @@
                                 <img @click="changeLanguage('es-PE')" v-else src="/src/assets/icons/flasg-us.svg"
                                     alt="flag" class="w-6 h-6 cursor-pointer">
                                 <Search />
-                                <LinkPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]" :hrefHref="link_login"/>
+                                <LinkPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]"
+                                    :hrefHref="link_login" />
                             </li>
                         </ul>
                     </nav>
@@ -159,7 +160,7 @@
         </nav>
 
         <!-- Mobile Menu -->
-        <MobileMenu v-if="isMobileMenuOpen" @close="closeMobileMenu" :link_login="link_login"/>
+        <MobileMenu v-if="isMobileMenuOpen" @close="closeMobileMenu" :link_login="link_login" />
     </header>
 </template>
 
@@ -207,13 +208,15 @@ const fetchSettings = async () => {
 };
 
 // cargo los datos recibido de la API
-onMounted(fetchSettings);
+onMounted(async () => {
+    await fetchSettings();
+});
 
 const selectStore = useSelectStore();
 lang.value = selectStore.language;
 
-const changeLanguage = (language) => {
-    selectStore.changeLanguage(language);
+const changeLanguage = async (language) => {
+    await selectStore.changeLanguage(language);
     lang.value = language;
 }
 
@@ -247,6 +250,4 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -6,13 +6,9 @@
             <div class="flex items-center justify-between">
                 <!-- left -->
                 <div class="mr-2 z-10 text-white flex lg:gap-6 lg:text-base xs:text-xs md:text-sm gap-1 font-epilogue">
-                    <a href="#" class="border-e-[1px] border-white pr-4 flex gap-2 items-center hover:font-semibold">
-                        <IconUsers class="text-green-custom" size="20" />
-                        Ingresantes
-                    </a>
-                    <a href="#" class="flex gap-2 items-center hover:font-semibold">
-                        <IconUser class="text-green-custom" size="20" />
-                        Ingresar
+                    <a href="https://repositorio.udh.edu.pe/" target="_blank" class="border-e-[1px] border-white pr-4 flex gap-2 items-center hover:font-semibold">
+                        <IconLibrary class="text-green-custom" size="20" />
+                        Repositorio
                     </a>
                 </div>
                 <!-- right -->
@@ -28,7 +24,7 @@
 </template>
 
 <script setup>
-import { IconUsers, IconUser } from '@tabler/icons-vue';
+import { IconLibrary } from '@tabler/icons-vue';
 
 const props = defineProps({
     redes_sociales: {

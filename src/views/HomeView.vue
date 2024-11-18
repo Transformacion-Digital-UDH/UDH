@@ -18,10 +18,7 @@ import FriendPagesCarousel from "@/components/FriendPagesCarousel.vue";
     </div>
     <aboutUs />
     <DatosUniversidad />
-    <VideoUniversidad
-      image-url="https://placehold.co/1920x1080"
-      videoUrl="https://www.youtube.com/embed/K0aKgIyU0qs?si=-nwGr1FyivhKClxj"
-    />
+    <VideoUniversidad />
     <CardEvent />
     <CardRelease />
     <FriendPagesCarousel :pages="[]" />

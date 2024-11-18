@@ -1,12 +1,68 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { IconAlbum, IconUserCheck, IconSchool, IconTrophyFilled } from '@tabler/icons-vue';
+import { loadFull } from "tsparticles";
+import Particles from "vue3-particles";
 
 const targetValues = [24, 8000, 100, 30];
 const counterValues = ref([0, 0, 0, 0]);
-const showParticles = ref([false, false, false, false]); // Control de partículas para cada caja
+const showParticles = ref([false, false, false, false]);
 
-// Animación del contador
+// Configuración de partículas
+const particlesOptions = {
+  fullScreen: { enable: false },
+  background: {
+    color: {
+      value: "transparent",
+    },
+  },
+  fpsLimit: 60,
+  particles: {
+    color: {
+      value: "#2ebaa1",
+    },
+    links: {
+      color: "#2ebaa1",
+      distance: 150,
+      enable: true,
+      opacity: 0.5,
+      width: 1,
+    },
+    move: {
+      direction: "none",
+      enable: true,
+      outModes: {
+        default: "bounce",
+      },
+      random: false,
+      speed: 3,
+      straight: false,
+    },
+    number: {
+      density: {
+        enable: true,
+        area: 800,
+      },
+      value: 80,
+    },
+    opacity: {
+      value: 0.5,
+    },
+    shape: {
+      type: "circle",
+    },
+    size: {
+      value: { min: 1, max: 5 },
+    },
+  },
+  detectRetina: true,
+};
+
+// Inicialización de partículas
+const particlesInit = async engine => {
+  await loadFull(engine);
+};
+
 onMounted(() => {
   targetValues.forEach((value, index) => {
     animateCounter(index, value);
@@ -27,44 +83,9 @@ function animateCounter(index, target) {
   }, 20);
 }
 
-// Función para mostrar/ocultar partículas
 function toggleParticles(index, state) {
   showParticles.value[index] = state;
 }
-
-// Configuración de partículas
-const particleOptions = {
-  fpsLimit: 60,
-  particles: {
-    number: {
-      value: 50,
-      density: {
-        enable: true,
-        value_area: 800,
-      },
-    },
-    color: {
-      value: "#00aaff",
-    },
-    shape: {
-      type: "circle",
-    },
-    opacity: {
-      value: 0.5,
-    },
-    size: {
-      value: 3,
-      random: true,
-    },
-    move: {
-      enable: true,
-      speed: 2,
-      direction: "none",
-      outMode: "bounce",
-    },
-  },
-  detectRetina: true,
-};
 </script>
 
 <template>
@@ -77,12 +98,18 @@ const particleOptions = {
           @mouseover="toggleParticles(0, true)"
           @mouseleave="toggleParticles(0, false)"
         >
-          <div class="counter-box text-center p-6 rounded-lg relative overflow-hidden">
-            <Particles v-if="showParticles[0]" :id="'particles-0'" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
-            <div class="icon mb-4 mx-auto flex items-center justify-center z-10">
+          <div class="counter-box text-center p-6 rounded-lg shadow-md bg-white relative overflow-hidden">
+            <div v-if="showParticles[0]" class="particles-container">
+              <Particles
+                :id="'particles-0'"
+                :particlesInit="particlesInit"
+                :options="particlesOptions"
+              />
+            </div>
+            <div class="icon mb-4 mx-auto flex items-center justify-center relative z-10">
               <IconAlbum color="white" size="45"/>
             </div>
-            <div class="z-10">
+            <div class="relative z-10">
               <span class="counter text-3xl font-bold text-teal-600">{{ counterValues[0] }}</span>
               <h6 class="title text-gray-700 mt-2">+ Total carreras</h6>
             </div>
@@ -95,12 +122,18 @@ const particleOptions = {
           @mouseover="toggleParticles(1, true)"
           @mouseleave="toggleParticles(1, false)"
         >
-          <div class="counter-box text-center p-6 rounded-lg relative overflow-hidden">
-            <Particles v-if="showParticles[1]" :id="'particles-1'" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
-            <div class="icon mb-4 mx-auto flex items-center justify-center z-10">
+          <div class="counter-box text-center p-6 rounded-lg shadow-lg bg-white relative overflow-hidden">
+            <div v-if="showParticles[1]" class="particles-container">
+              <Particles
+                :id="'particles-1'"
+                :particlesInit="particlesInit"
+                :options="particlesOptions"
+              />
+            </div>
+            <div class="icon mb-4 mx-auto flex items-center justify-center relative z-10">
               <IconSchool color="white" size="45"/>
             </div>
-            <div class="z-10">
+            <div class="relative z-10">
               <span class="counter text-3xl font-bold text-teal-600">{{ counterValues[1] }}</span>
               <h6 class="title text-gray-700 mt-2">+ Estudiantes</h6>
             </div>
@@ -113,12 +146,18 @@ const particleOptions = {
           @mouseover="toggleParticles(2, true)"
           @mouseleave="toggleParticles(2, false)"
         >
-          <div class="counter-box text-center p-6 rounded-lg relative overflow-hidden">
-            <Particles v-if="showParticles[2]" :id="'particles-2'" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
-            <div class="icon mb-4 mx-auto flex items-center justify-center z-10">
+          <div class="counter-box text-center p-6 rounded-lg shadow-lg bg-white relative overflow-hidden">
+            <div v-if="showParticles[2]" class="particles-container">
+              <Particles
+                :id="'particles-2'"
+                :particlesInit="particlesInit"
+                :options="particlesOptions"
+              />
+            </div>
+            <div class="icon mb-4 mx-auto flex items-center justify-center relative z-10">
               <IconUserCheck color="white" size="45"/>
             </div>
-            <div class="z-10">
+            <div class="relative z-10">
               <span class="counter text-3xl font-bold text-teal-600">{{ counterValues[2] }}</span>
               <h6 class="title text-gray-700 mt-2">+ Profesores capacitados</h6>
             </div>
@@ -131,12 +170,18 @@ const particleOptions = {
           @mouseover="toggleParticles(3, true)"
           @mouseleave="toggleParticles(3, false)"
         >
-          <div class="counter-box text-center p-6 rounded-lg relative overflow-hidden">
-            <Particles v-if="showParticles[3]" :id="'particles-3'" :options="particleOptions" class="absolute inset-0 z-0 pointer-events-none" />
-            <div class="icon mb-4 mx-auto flex items-center justify-center z-10">
+          <div class="counter-box text-center p-6 rounded-lg shadow-lg bg-white relative overflow-hidden">
+            <div v-if="showParticles[3]" class="particles-container">
+              <Particles
+                :id="'particles-3'"
+                :particlesInit="particlesInit"
+                :options="particlesOptions"
+              />
+            </div>
+            <div class="icon mb-4 mx-auto flex items-center justify-center relative z-10">
               <IconTrophyFilled color="white" size="45"/>
             </div>
-            <div class="z-10">
+            <div class="relative z-10">
               <span class="counter text-3xl font-bold text-teal-600">{{ counterValues[3] }}</span>
               <h6 class="title text-gray-700 mt-2">+ Competencias</h6>
             </div>
@@ -163,6 +208,21 @@ const particleOptions = {
 .counter-box {
   position: relative;
   overflow: hidden;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.counter-box:hover {
+  transform: translateY(-5px);
+}
+
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 @media (min-width: 640px) {

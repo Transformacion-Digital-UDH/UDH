@@ -2,23 +2,13 @@
   <TitleSection subtitle1="Boletin Informativo &" subtitle2="Noticias" />
   <div class="bg-white py-8">
     <div
-      class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4"
+      class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-10  sm:px-4"
     >
       <div
         v-for="(event, index) in events"
         :key="index"
-        class="bg-rgray-custom text-white rounded-lg shadow-md max-w-md mx-auto border border-gray-700 overflow-hidden"
+        class="bg-rgray-custom text-white rounded-lg shadow-md w-full mx-auto border border-gray-700 overflow-hidden"
       >
-        <div class="p-4">
-          <div class="event-img bg-rgray-custom rounded-lg overflow-hidden">
-            <img
-              :src="event.image"
-              alt="Imagen del evento"
-              class="w-full h-48 object-cover rounded-lg"
-            />
-          </div>
-        </div>
-
         <div class="p-5">
           <div class="text-gray-400 text-sm mb-4 flex items-center space-x-4">
             <span class="flex items-center">
@@ -26,22 +16,15 @@
             </span>
           </div>
 
-          <h4 class="text-xl font-semibold text-white h-12 overflow-hidden">
+          <h4 class="text-xl font-semibold text-white h-32 overflow-hidden">
             <a href="event-single.html" class="hover:text-green-custom">{{
               event.title
             }}</a>
           </h4>
 
-          <p class="text-gray-300 text-base mb-5 h-16 overflow-hidden">
+          <p class="text-gray-300 text-base mb-5 h-40 overflow-hidden">
             {{ event.description }}
           </p>
-
-          <div>
-            <ButtonPrimarySecondEffect
-              label="Unirte"
-              class="px-7 py-[10px] w-[110px]"
-            />
-          </div>
         </div>
       </div>
     </div>
@@ -50,7 +33,6 @@
 
 <script setup>
 import TitleSection from "@/components/TitleSection.vue";
-import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
 import {
   IconMapPin,
   IconCalendar,
@@ -61,7 +43,6 @@ import {
 const events = [
   {
     location: "Virtual",
-    image: "../../imagesSlider/doc1.png",
     date: "16 Abril, 2024",
     title:
       "Declaracion jurada cambio de modalidad de presencial a semipresencial",
@@ -71,7 +52,6 @@ const events = [
   },
   {
     location: "Auditorio Central",
-    image: "../../imagesSlider/doc2.png",
     date: "20 Mayo, 2024",
     title: "Resolucion de cambio de modalidad de presencial - semipresencial",
     description:
@@ -80,7 +60,6 @@ const events = [
   },
   {
     location: "Online",
-    image: "../../imagesSlider/doc3.png",
     date: "5 Junio, 2024",
     title: "RESOLUCIÓN Nª 504-2019-P-CD-UDH",
     description:
@@ -89,7 +68,6 @@ const events = [
   },
   {
     location: "Online",
-    image: "../../imagesSlider/doc4.png",
     date: "5 Junio, 2024",
     title:
       "Declaracion jurada cambio de modalidad de presencial a semipresencial",
@@ -101,19 +79,34 @@ const events = [
 </script>
 
 <style scoped>
-.event-img img {
-  width: 100%;
-  height: 24rem;
-  object-fit: cover;
-}
-
 h4 {
   height: 8rem;
   overflow: hidden;
 }
 
 p {
-  height: 10rem;
+  height: 6rem;
   overflow: hidden;
 }
+
+@media (min-width: 640px) {
+  h4 {
+    height: 8rem;
+  }
+
+  p {
+    height: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h4 {
+    height: 12rem;
+  }
+
+  p {
+    height: 10rem;
+  }
+}
 </style>
+

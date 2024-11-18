@@ -4,6 +4,7 @@ import courseRequirement from "@/components/Carreras/courseRequirement.vue";
 import characterCareer from "@/components/Carreras/characterCareer.vue";
 import InfoCareer from "@/components/Carreras/infoCareer.vue";
 import logoCareer from "@/components/Carreras/logoCareer.vue";
+import DocumentsCareer from "@/components/Carreras/DocumentsCareer.vue";
 </script>
 
 <template>
@@ -37,7 +38,9 @@ import logoCareer from "@/components/Carreras/logoCareer.vue";
       </div>
 
       <!-- Tarjeta documentos -->
-      <div class="min-h-[200px] rounded-xl shadow-custom-card bg-white"></div>
+      <div class="min-h-[200px] h-auto rounded-xl shadow-custom-card bg-white">
+        <DocumentsCareer />
+      </div>
     </div>
   </div>
 </template>

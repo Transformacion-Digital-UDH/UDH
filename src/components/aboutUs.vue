@@ -1,5 +1,5 @@
 <script setup>
-import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
+import LinkPrimarySecondEffect from "@/components/LinkPrimarySecondEffect.vue";
 import ImageWithFrames from "@/components/ImageWithFrames.vue";
 import TitleSection from "@/components/TitleSection.vue";
 import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
@@ -108,7 +108,7 @@ import { IconArrowRight, IconHeadset } from "@tabler/icons-vue";
           <div
             class="flex items-center justify-between mt-4 ml-4 mr-4 sm:mt-6 md:mt-8"
           >
-            <ButtonPrimarySecondEffect
+            <LinkPrimarySecondEffect
               label="Descubre más"
               class="px-7 py-[10px] w-[160px]"
               :icon="IconArrowRight"

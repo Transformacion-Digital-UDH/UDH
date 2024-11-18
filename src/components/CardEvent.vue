@@ -1,7 +1,7 @@
 <!-- EventList.vue -->
 <template>
   <TitleSection title="Nuestros" subtitle1="Próximos" subtitle2="Eventos" />
-  <div class="bg-white py-8">
+  <div class="bg-white py-8 font-epilogue">
     <div
       class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
     >
@@ -13,50 +13,52 @@
       >
         <div class="p-5 bg-gray-900 text-black rounded-lg">
           <div
-            class="bg-transparent p-3 text-green-custom flex items-center rounded-t-lg z-10 relative"
+            class="bg-transparent px-3 py-0 text-green-custom flex items-center rounded-t-lg z-10 relative font-semibold"
           >
             <IconMapPin size="20" class="mr-2" /> {{ event.location }}
           </div>
 
           <div class="p-4 relative z-10">
             <div class="event-img bg-white rounded-lg overflow-hidden">
-              <img
-                :src="event.image"
-                alt="Imagen del evento"
-                class="w-full h-48 object-cover rounded-lg"
-              />
+              <a href="#">
+                <img
+                  :src="event.image"
+                  alt="Imagen del evento"
+                  class="w-full h-48 object-cover rounded-lg"
+                />
+              </a>
             </div>
           </div>
 
-          <div class="p-5 relative z-10">
+          <div class="px-5 py-0 relative z-10">
             <div
-              class="text-green-custom text-sm mb-4 flex items-center space-x-2 min-h-10"
+              class="font-semibold text-sm mb-4 flex items-center space-x-2 min-h-10"
             >
               <span class="flex items-center">
-                <IconCalendar size="18" class="mr-2" /> {{ event.date }}
+                <IconCalendar size="18" class="mr-2 text-green-custom" /> 
+                <span class="text-gray-custom">
+                  {{ event.date }}
+                </span>
               </span>
               <span class="flex items-center">
-                <IconClock size="18" class="mr-2" /> {{ event.time }}
+                <IconClock size="18" class="mr-2 text-green-custom" /> 
+                <span class="text-gray-custom">
+                  {{ event.time }}
+                </span>
               </span>
             </div>
 
-            <h4 class="text-xl font-semibold text-black h-12 overflow-hidden">
-              <a href="event-single.html" class="hover:text-green-custom">{{
-                event.title
-              }}</a>
+            <h4 class="text-xl font-semibold text-black h- overflow-hidden">
+              <a href="event-single.html" class="hover:text-green-custom">
+                {{ event.title}}
+              </a>
             </h4>
 
-            <p class="text-black text-base mb-5 h-16 overflow-hidden">
+            <p class="text-black text-base mb-0 h-16 overflow-hidden">
               {{ event.description }}
             </p>
 
-            <div>
-              <ButtonPrimarySecondEffect
-                label="Unirte"
-                class="px-7 py-[10px] w-[110px]"
-                :icon="IconArrowRight"
-              />
-            </div>
+            
           </div>
         </div>
       </div>
@@ -65,7 +67,6 @@
 </template>
 
 <script setup>
-import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
 import TitleSection from "@/components/TitleSection.vue";
 import {
   IconMapPin,
@@ -77,7 +78,7 @@ import {
 const events = [
   {
     location: "Virtual",
-    image: "../../images/evento_1.jpg",
+    image: "https://placehold.co/335x335",
     date: "16 Abril, 2024",
     time: "10:00AM - 01:00PM",
     title: "Data Science Virtual",
@@ -87,7 +88,7 @@ const events = [
   },
   {
     location: "Auditorio Central",
-    image: "../../images/evento_2.jpg",
+    image: "https://placehold.co/335x335",
     date: "20 Mayo, 2024",
     time: "9:00AM - 12:00PM",
     title: "Conferencia de IA",
@@ -97,7 +98,7 @@ const events = [
   },
   {
     location: "Online",
-    image: "../../images/evento_3.jpg",
+    image: "https://placehold.co/335x335",
     date: "5 Junio, 2024",
     time: "2:00PM - 5:00PM",
     title: "Introducción a Big Data",
@@ -111,7 +112,7 @@ const events = [
 <style scoped>
 .card {
   position: relative;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -119,14 +120,14 @@ const events = [
   content: "";
   position: absolute;
   width: 100px;
-  height: 130%;
+  height: 150%;
   background-image: linear-gradient(
     180deg,
     rgb(46, 186, 161),
     rgb(46, 186, 161)
   );
   animation: rotBGimg 3s linear infinite;
-  transition: all 0.2s linear;
+  transition: all 0.3s linear;
   z-index: 0;
 }
 

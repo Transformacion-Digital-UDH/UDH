@@ -32,7 +32,7 @@
           >
             {{ description }}
           </p>
-          <ButtonPrimarySecondEffect
+          <LinkPrimarySecondEffect
             :label="buttonLabel"
             class="px-7 py-[10px] w-[110px]"
           />
@@ -44,7 +44,7 @@
 
 <script setup>
 import { SplideSlide } from "@splidejs/vue-splide";
-import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
+import LinkPrimarySecondEffect from "@/components/LinkPrimarySecondEffect.vue";
 
 defineProps({
   backgroundImage: {

@@ -19,7 +19,7 @@
                 <div class="flex-1 overflow-y-auto">
                     <div class="p-2">
                         <!-- Login Button -->
-                        <ButtonPrimarySecondEffect label="Ingresar" class="!my-3" />
+                        <LinkPrimarySecondEffect label="Ingresar" class="!my-3" :hrefHref="link_login"/>
 
 
                         <!-- Menu Items -->
@@ -37,7 +37,14 @@
 <script setup>
 import { IconX, IconSearch, IconChevronDown } from '@tabler/icons-vue';
 import MobileMenuItem from '@/components/navigation/MobileMenuItem.vue';
-import ButtonPrimarySecondEffect from '@/components/ButtonPrimarySecondEffect.vue';
+import LinkPrimarySecondEffect from '@/components/LinkPrimarySecondEffect.vue';
+
+defineProps({
+    link_login: {
+        type: String,
+        required: true,
+    },
+});
 
 // Menu structure
 const menuItems = [

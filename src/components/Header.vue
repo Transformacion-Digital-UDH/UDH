@@ -15,7 +15,7 @@
                 <div class="flex items-center justify-between xl:justify-center font-epilogue font-semibold">
                     <!-- Logo -->
                     <a href="/" class="shrink-0 py-4 lg:py-3 mr-4">
-                        <img :src="logoUrl" :alt="logoAlt"
+                        <img :src="`${baseApiUrl}${logoudh.url}`" :alt="logoudh.name"
                             class="w-[90px] md:w-[120px] lg:w-[140px] xl:w-[150px]">
                     </a>
 
@@ -142,7 +142,7 @@
                                 <img @click="changeLanguage('es-PE')" v-else src="/src/assets/icons/flasg-us.svg"
                                     alt="flag" class="w-6 h-6 cursor-pointer">
                                 <Search />
-                                <ButtonPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]" />
+                                <LinkPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]" :hrefHref="link_login"/>
                             </li>
                         </ul>
                     </nav>
@@ -159,7 +159,7 @@
         </nav>
 
         <!-- Mobile Menu -->
-        <MobileMenu v-if="isMobileMenuOpen" @close="closeMobileMenu" />
+        <MobileMenu v-if="isMobileMenuOpen" @close="closeMobileMenu" :link_login="link_login"/>
     </header>
 </template>
 
@@ -173,9 +173,10 @@ import NavDropdownColumn from '@/components/navigation/NavDropdownColumn.vue';
 import NavNestedDropdown from '@/components/navigation/NavNestedDropdown.vue';
 import NavNestedItem from '@/components/navigation/NavNestedItem.vue';
 import MobileMenu from '@/components/navigation/MobileMenu.vue';
-import ButtonPrimarySecondEffect from '@/components/ButtonPrimarySecondEffect.vue';
+import LinkPrimarySecondEffect from '@/components/LinkPrimarySecondEffect.vue';
 import Search from '@/components/Search.vue';
 import { useSelectStore } from "@/stores/select";
+import { getHeaderInfo } from '@/lib/get-header-info';
 
 const navRef = ref(null);
 const navHeight = ref(0);
@@ -183,30 +184,30 @@ const isScrolledPast = ref(false);
 const lang = ref('');
 const isMobileMenuOpen = ref(false);
 
-const props = defineProps({
-    redes_sociales: {
-        type: Array,
-        required: true
-    },
-    logoudh: {
-        type: Object,
-        required: true
-    },
-    link_login: {
-        type: String,
-        required: true
+// definir variables para los datos referentes de los campos de la API
+const redes_sociales = ref([]);
+const contactos = ref([]);
+const logoudh = ref({});
+const link_login = ref(null);
+
+const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
+
+// funcion para obtener los datos de la API y asignarlos a las variables
+const fetchSettings = async () => {
+    try {
+        const headerInfo = await getHeaderInfo();
+
+        redes_sociales.value = headerInfo.redes_sociales || [];
+        contactos.value = headerInfo.contactos || [];
+        logoudh.value = headerInfo.logoudh || null;
+        link_login.value = headerInfo.link_login || null;
+    } catch (error) {
+        console.error("Error fetching settings data:", error);
     }
-});
+};
 
-const logoUrl = computed(() =>
-    props.logoudh?.url
-        ? `${import.meta.env.VITE_API_URL_STRAPI}${props.logoudh.url}`
-        : ''
-);
-
-const logoAlt = computed(() =>
-    props.logoudh?.name ? props.logoudh.name : 'Logo'
-);
+// cargo los datos recibido de la API
+onMounted(fetchSettings);
 
 const selectStore = useSelectStore();
 lang.value = selectStore.language;

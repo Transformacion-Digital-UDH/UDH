@@ -8,45 +8,20 @@ import CardEvent from "@/components/CardEvent.vue";
 import VideoUniversidad from "@/components/videoUniversidad.vue";
 import CardRelease from "@/components/CardRelease.vue";
 import FriendPagesCarousel from "@/components/FriendPagesCarousel.vue";
-import { getHomeInfo } from "@/lib/get-home-info";
-import { onMounted } from "vue";
-
-onMounted(async () => {
-  const homeInfo = await getHomeInfo();
-})
-
-const carouselSlides = [
-  {
-    backgroundImage: "/imagesSlider/1.jpg",
-    subtitle: "Bienvenido a la UDH",
-    title: "Transforma tu vida con una",
-    highlightedText: "educación de calidad",
-    description:
-      "En la UDH, creemos en el poder transformador de la educación. Ofrecemos programas académicos diseñados para prepararte para los desafíos del mundo real, ayudándote a alcanzar tus metas y a convertirte en un líder en tu campo.",
-    buttonLabel: "Conoce más",
-  },
-  {
-    backgroundImage: "/imagesSlider/2.jpg",
-    subtitle: "Bienvenido a la UDH",
-    title: "Impulsa el futuro con",
-    highlightedText: "investigación pionera",
-    description:
-      "En la Universidad de Innovación, nos dedicamos a explorar nuevos horizontes y a liderar el camino en investigación avanzada. Nuestros programas están diseñados para fomentar la creatividad y el pensamiento crítico, preparando a nuestros estudiantes para ser los innovadores del mañana y enfrentar los retos más complejos del mundo.",
-    buttonLabel: "Conoce más",
-  },
-];
 </script>
 
 <template>
   <MainLayout>
     <div class="flex flex-col items-center md:mb-20 lg:mb-5 relative">
-      <Carousel :slides="carouselSlides" carouselHeight="large" />
+      <Carousel carouselHeight="large" />
       <mainFeatures class="w-[90%] max-w-[1200px] my-6 md:my-[-40px] lg:my-[-40px] z-20 relative top-[-20px]" />
     </div>
     <aboutUs />
     <DatosUniversidad />
-    <VideoUniversidad image-url="https://placehold.co/1920x1080"
-      videoUrl="https://www.youtube.com/embed/K0aKgIyU0qs?si=-nwGr1FyivhKClxj" />
+    <VideoUniversidad
+      image-url="https://placehold.co/1920x1080"
+      videoUrl="https://www.youtube.com/embed/K0aKgIyU0qs?si=-nwGr1FyivhKClxj"
+    />
     <CardEvent />
     <CardRelease />
     <FriendPagesCarousel :pages="[]" />

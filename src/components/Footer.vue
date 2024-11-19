@@ -117,7 +117,7 @@ onMounted(() => {
 
                     <div class="mt-7">
 
-                        <a :href="pf.link" v-for="(pf, index) in enlaces_interes" :key="pf.id"
+                        <a :href="pf.link" v-for="(pf) in enlaces_interes" :key="pf.id"
                             class="flex my-3 gap-2 items-center content-center">
                             <div class="text-green-custom">
                                 <IconCaretRightFilled size="20" />

@@ -21,7 +21,7 @@ import FriendPagesCarousel from "@/components/FriendPagesCarousel.vue";
     <VideoUniversidad />
     <CardEvent />
     <CardRelease />
-    <FriendPagesCarousel :pages="[]" />
+    <FriendPagesCarousel />
   </MainLayout>
 </template>
 

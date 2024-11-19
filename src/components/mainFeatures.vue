@@ -3,6 +3,7 @@ import { onMounted, ref, computed } from "vue";
 import { getCharacter } from '@/lib/get-characters-info';
 
 const caracteristicas = ref([]);
+const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
 
 const fetchCharacters = async () => {
   try {
@@ -33,7 +34,7 @@ onMounted(() => {
           <div class="feature-icon transform hover:scale-100 transition-transform duration-700 ease-in-out">
             <div
               class="w-20 h-20 bg-[#2ebaa1] rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-700 ease-in-out">
-              <img :src="caracteristica.icono.url" :alt="caracteristica.icono.name"
+              <img :src="`${baseApiUrl}`+caracteristica.icono.url" :alt="caracteristica.icono.name"
                 class="w-10 h-10 filter invert brightness-0" />
             </div>
           </div>

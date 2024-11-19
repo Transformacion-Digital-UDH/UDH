@@ -1,189 +1,73 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { IconAlbum, IconUserCheck, IconSchool, IconTrophyFilled } from '@tabler/icons-vue';
-import { loadFull } from "tsparticles";
-import Particles from "vue3-particles";
+import { getdataNumtInfo } from '@/lib/get-dataNum-info';
 
-const targetValues = [24, 8000, 100, 30];
-const counterValues = ref([0, 0, 0, 0]);
-const showParticles = ref([false, false, false, false]);
+const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
 
-// Configuración de partículas
-const particlesOptions = {
-  fullScreen: { enable: false },
-  background: {
-    color: {
-      value: "transparent",
-    },
-  },
-  fpsLimit: 60,
-  particles: {
-    color: {
-      value: "#2ebaa1",
-    },
-    links: {
-      color: "#2ebaa1",
-      distance: 150,
-      enable: true,
-      opacity: 0.5,
-      width: 1,
-    },
-    move: {
-      direction: "none",
-      enable: true,
-      outModes: {
-        default: "bounce",
-      },
-      random: false,
-      speed: 3,
-      straight: false,
-    },
-    number: {
-      density: {
-        enable: true,
-        area: 800,
-      },
-      value: 80,
-    },
-    opacity: {
-      value: 0.5,
-    },
-    shape: {
-      type: "circle",
-    },
-    size: {
-      value: { min: 1, max: 5 },
-    },
-  },
-  detectRetina: true,
+// Variables para almacenar los datos numéricos y contadores
+const datosNumericos = ref([]);
+const counterValues = ref([]);
+
+// Función para obtener datos de la API
+const fetchNumericData = async () => {
+  try {
+    const response = await getdataNumtInfo();
+    const fetchedData = response.datos_numericos || [];
+
+    // Asignar datos a las variables
+    datosNumericos.value = fetchedData;
+    counterValues.value = fetchedData.map(() => 0); // Inicializar contadores como un array de ceros
+
+    // Iniciar animación de los contadores
+    fetchedData.forEach((item, index) => {
+      animateCounter(index, item.numero);
+    });
+  } catch (error) {
+    console.error("Error fetching numeric data:", error);
+  }
 };
 
-// Inicialización de partículas
-const particlesInit = async engine => {
-  await loadFull(engine);
-};
-
-onMounted(() => {
-  targetValues.forEach((value, index) => {
-    animateCounter(index, value);
-  });
-});
-
+// Función para animar los contadores
 function animateCounter(index, target) {
   let current = 0;
-  const increment = Math.ceil(target / 100);
+  const increment = Math.max(1, Math.ceil(target / 100)); // Incremento mínimo de 1
   const interval = setInterval(() => {
     if (current >= target) {
-      counterValues.value[index] = target;
+      counterValues.value[index] = target; // Asigna el valor final
       clearInterval(interval);
     } else {
       current += increment;
-      counterValues.value[index] = current;
+      counterValues.value[index] = current; // Actualiza el valor del contador
     }
-  }, 20);
+  }, 20); // Intervalo de 20ms para animar
 }
 
-function toggleParticles(index, state) {
-  showParticles.value[index] = state;
-}
+// Llamar a la función al montar el componente
+onMounted(() => {
+  fetchNumericData();
+});
+
 </script>
 
 <template>
   <div class="counter-area">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap justify-center">
-        <!-- Caja 1 -->
+        <!-- Generar cajas dinámicamente -->
         <div
+          v-for="(dato, index) in datosNumericos"
+          :key="dato.id"
           class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8 relative"
-          @mouseover="toggleParticles(0, true)"
-          @mouseleave="toggleParticles(0, false)"
         >
-          <div class="counter-box text-center p-6 rounded-lg shadow-md bg-white relative overflow-hidden">
-            <div v-if="showParticles[0]" class="particles-container">
-              <Particles
-                :id="'particles-0'"
-                :particlesInit="particlesInit"
-                :options="particlesOptions"
-              />
-            </div>
+          <div class="counter-box text-center p-6 rounded-lg bg-white relative overflow-hidden">
+            <!-- Ícono -->
             <div class="icon mb-4 mx-auto flex items-center justify-center relative z-10">
-              <IconAlbum color="white" size="45"/>
+              <img :src="`${baseApiUrl}${dato.icono.url}`" alt="Icon" class="w-12 h-12 filter brightness-0 invert" />
             </div>
+            <!-- Contador y etiqueta -->
             <div class="relative z-10">
-              <span class="counter text-3xl font-bold text-teal-600">{{ counterValues[0] }}</span>
-              <h6 class="title text-gray-700 mt-2">+ Total carreras</h6>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Caja 2 -->
-        <div
-          class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8 relative"
-          @mouseover="toggleParticles(1, true)"
-          @mouseleave="toggleParticles(1, false)"
-        >
-          <div class="counter-box text-center p-6 rounded-lg shadow-lg bg-white relative overflow-hidden">
-            <div v-if="showParticles[1]" class="particles-container">
-              <Particles
-                :id="'particles-1'"
-                :particlesInit="particlesInit"
-                :options="particlesOptions"
-              />
-            </div>
-            <div class="icon mb-4 mx-auto flex items-center justify-center relative z-10">
-              <IconSchool color="white" size="45"/>
-            </div>
-            <div class="relative z-10">
-              <span class="counter text-3xl font-bold text-teal-600">{{ counterValues[1] }}</span>
-              <h6 class="title text-gray-700 mt-2">+ Estudiantes</h6>
-            </div>
-          </div>
-        </div>
-
-        <!-- Caja 3 -->
-        <div
-          class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8 relative"
-          @mouseover="toggleParticles(2, true)"
-          @mouseleave="toggleParticles(2, false)"
-        >
-          <div class="counter-box text-center p-6 rounded-lg shadow-lg bg-white relative overflow-hidden">
-            <div v-if="showParticles[2]" class="particles-container">
-              <Particles
-                :id="'particles-2'"
-                :particlesInit="particlesInit"
-                :options="particlesOptions"
-              />
-            </div>
-            <div class="icon mb-4 mx-auto flex items-center justify-center relative z-10">
-              <IconUserCheck color="white" size="45"/>
-            </div>
-            <div class="relative z-10">
-              <span class="counter text-3xl font-bold text-teal-600">{{ counterValues[2] }}</span>
-              <h6 class="title text-gray-700 mt-2">+ Profesores capacitados</h6>
-            </div>
-          </div>
-        </div>
-
-        <!-- Caja 4 -->
-        <div
-          class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8 relative"
-          @mouseover="toggleParticles(3, true)"
-          @mouseleave="toggleParticles(3, false)"
-        >
-          <div class="counter-box text-center p-6 rounded-lg shadow-lg bg-white relative overflow-hidden">
-            <div v-if="showParticles[3]" class="particles-container">
-              <Particles
-                :id="'particles-3'"
-                :particlesInit="particlesInit"
-                :options="particlesOptions"
-              />
-            </div>
-            <div class="icon mb-4 mx-auto flex items-center justify-center relative z-10">
-              <IconTrophyFilled color="white" size="45"/>
-            </div>
-            <div class="relative z-10">
-              <span class="counter text-3xl font-bold text-teal-600">{{ counterValues[3] }}</span>
-              <h6 class="title text-gray-700 mt-2">+ Competencias</h6>
+              <span class="counter text-3xl font-bold text-teal-600">{{ counterValues[index] }}</span>
+              <h6 class="title text-gray-700 mt-2">{{ dato.etiqueta }}</h6>
             </div>
           </div>
         </div>
@@ -214,15 +98,6 @@ function toggleParticles(index, state) {
 
 .counter-box:hover {
   transform: translateY(-5px);
-}
-
-.particles-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
 }
 
 @media (min-width: 640px) {

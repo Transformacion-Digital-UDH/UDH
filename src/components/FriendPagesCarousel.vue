@@ -103,7 +103,7 @@ onBeforeUnmount(() => {
             v-if="page.imagen.url"
             :src="`${baseApiUrl}${page.imagen.url}`" 
             :alt="page.imagen.name || 'Image'" 
-            class="rounded-lg shadow-lg max-w-full"
+            class="rounded-lg max-w-full"
           />
         </a>
       </div>

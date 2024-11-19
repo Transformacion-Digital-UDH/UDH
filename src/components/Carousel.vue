@@ -23,23 +23,32 @@ import { ref, onMounted, computed } from "vue";
 import { Splide } from "@splidejs/vue-splide";
 import CarouselSlide from "@/components/CarouselSlide.vue";
 import "@splidejs/vue-splide/css";
+import { getCarouselInfo } from "@/lib/get-carousel-info";
 
 const splideRef = ref(null);
+const slides = ref([]); // Datos del carrusel
+
+// Lógica para obtener datos del carrusel desde Strapi
+const fetchCarouselData = async () => {
+  try {
+    const data = await getCarouselInfo();
+    slides.value = data.imagenes_carousel.map((item) => ({
+      backgroundImage: `https://udhback.sistemasudh.com${item.imagen?.url || ""}`,
+      subtitle: item.subtitulo_1 || "",
+      title: item.titulo || "",
+      highlightedText: item.subtitulo_2 || "",
+      description: item.descripcion || "",
+      buttonLabel: "Conoce más",
+    }));
+    console.log("Slides cargados:", slides.value);
+  } catch (error) {
+    console.error("Error fetching carousel data:", error);
+  }
+};
+
+onMounted(fetchCarouselData);
 
 const props = defineProps({
-  slides: {
-    type: Array,
-    required: true,
-    validator: (value) =>
-      value.every(
-        (slide) =>
-          slide.backgroundImage &&
-          slide.subtitle &&
-          slide.title &&
-          slide.highlightedText &&
-          slide.description
-      ),
-  },
   carouselHeight: {
     type: String,
     default: "medium",
@@ -66,7 +75,6 @@ const splideOptions = {
   speed: 1000,
   pauseOnHover: true,
   perPage: 1,
-  perMove: 1,
   arrows: true,
   pagination: false,
   rewind: true,
@@ -84,13 +92,6 @@ const splideOptions = {
     },
   },
 };
-
-onMounted(() => {
-  const splideInstance = splideRef.value?.splide;
-  if (splideInstance) {
-    splideInstance.Components.Autoplay.play();
-  }
-});
 </script>
 
 <style scoped>

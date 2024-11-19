@@ -18,6 +18,7 @@ interface SeoConfig {
     meta_og_sitename?: string;
     meta_og_title?: string;
     meta_title?: string;
+    meta_application_name?: string;
 }
 
 // Inicializar refs con tipos

@@ -5,7 +5,6 @@ import Carousel from "@/components/Carousel.vue";
 import mainFeatures from "@/components/mainFeatures.vue";
 import aboutUs from "@/components/aboutUs.vue";
 import CardEvent from "@/components/CardEvent.vue";
-import VideoUniversidad from "@/components/videoUniversidad.vue";
 import CardRelease from "@/components/CardRelease.vue";
 import FriendPagesCarousel from "@/components/FriendPagesCarousel.vue";
 </script>

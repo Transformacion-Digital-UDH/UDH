@@ -27,7 +27,7 @@ const props = defineProps({
 <template>
   <div
     v-if="aboutUs"
-    class="lg:w-1/2 mb-8 lg:mb-0 relative ml-4 mr-4 lg:ml-12 lg:mr-12"
+    class="lg:w-1/2 mb-8 sm:w-[600px] lg:mb-0 relative ml-4 mr-4 lg:ml-12 lg:mr-12"
   >
     <div class="relative">
       <img

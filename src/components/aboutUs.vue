@@ -29,7 +29,7 @@ onMounted(() => {
     <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center items-center">
       <ImageWithFrames :imageUrl="`${baseApiUrl}${nosotros.imagen.url}`"
         :alt="nosotros.imagen.name || 'Imagen de nosotros'" :aboutUs="true" :description="nosotros.mensaje_imagen"
-        greenBorderClass="absolute -top-4 -left-4 xs:-top-4 xs:-left-4 sm:-top-6 sm:-left-6 md:-top-8 md:-left-8 lg:-top-8 lg:-left-8 w-[200px] h-[260px] xs:w-[200px] xs:h-[290px] sm:w-[250px] sm:h-[410px] md:w-[300px] md:h-[270px] lg:w-[300px] lg:h-[440px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] z-0"
+        greenBorderClass="absolute -top-4 -left-4 xs:-top-4 xs:-left-4 sm:-top-8 sm:-left-8 md:-top-10 md:-left-10 lg:-top-8 lg:-left-8 w-[200px] h-[260px] xs:w-[200px] xs:h-[290px] sm:w-[250px] sm:h-[430px] md:w-[300px] md:h-[360px] lg:w-[300px] lg:h-[440px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] z-0"
         blackBorderClass="absolute -bottom-4 -right-4 sm:-bottom-4 sm:-right-4 md:-bottom-5 md:-right-5 w-[200px] h-[240px] sm:w-[250px] sm:h-[280px] md:w-[300px] md:h-[320px] lg:w-[400px] lg:h-[490px] bg-[#333333] z-0 clip-path rounded-br-[15px] lg:rounded-br-[17px] sm:rounded-br-[17px]" />
       <div class="lg:w-1/2 lg:px-0 text-center lg:text-left">
         <div>

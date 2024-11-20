@@ -43,7 +43,7 @@ const props = defineProps({
       <!-- Mostrar esta sección solo si aboutUs es true -->
       <div
         v-if="aboutUs"
-        class="absolute bottom-20 sm:bottom-20 md:bottom-32 lg:bottom-20 -left-4 sm:-left-8 md:-left-10 bg-[#2ebaa1] p-3 md:p-4 rounded-lg lg:rounded-2xl shadow-lg text-white flex flex-col items-center z-20 h-[140px] sm:h-[160px] md:h-[180px] lg:h-[200px]"
+        class="absolute bottom-20 xs:bottom-11 sm:bottom-20 md:bottom-32 lg:bottom-10 xl:bottom-20 -left-4 sm:-left-8 md:-left-10 lg:-left-8 xl:-left-8 bg-[#2ebaa1] p-3 md:p-4 rounded-lg lg:rounded-2xl shadow-lg text-white flex flex-col items-center z-20 h-[140px] sm:h-[160px] md:h-[180px] lg:h-[200px]"
       >
         <div class="feature-icon flex justify-left mb-2 md:mb-3">
           <div

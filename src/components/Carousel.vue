@@ -40,7 +40,7 @@ const fetchCarouselData = async () => {
       description: item.descripcion || "",
       buttonLabel: "Conoce más",
     }));
-    console.log("Slides cargados:", slides.value);
+    // console.log("Slides cargados:", slides.value);
   } catch (error) {
     console.error("Error fetching carousel data:", error);
   }

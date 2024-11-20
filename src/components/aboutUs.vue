@@ -12,7 +12,7 @@ const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
 const fetchAboutUs = async () => {
   try {
     const response = await getAboutUs();
-    console.log(response)
+    // console.log(response)
     nosotros.value = response.nosotros || {};
   } catch (error) {
     console.error("Error al cargar el acerca de nosotros:", error);

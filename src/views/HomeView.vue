@@ -7,6 +7,7 @@ import aboutUs from "@/components/aboutUs.vue";
 import CardEvent from "@/components/CardEvent.vue";
 import CardRelease from "@/components/CardRelease.vue";
 import FriendPagesCarousel from "@/components/FriendPagesCarousel.vue";
+import VideoUniversidad from "@/components/videoUniversidad.vue";
 </script>
 
 <template>

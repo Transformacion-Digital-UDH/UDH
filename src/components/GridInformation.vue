@@ -33,7 +33,7 @@ import logoCareer from "./Carreras/logoCareer.vue";
       </div>
 
       <!-- Tarjeta caracteristicas -->
-      <div class="min-h-[400px] rounded-xl shadow-custom-card bg-white">
+      <div class="min-h-auto rounded-xl shadow-custom-card bg-white">
         <characterCareer />
       </div>
 

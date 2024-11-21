@@ -1,59 +1,40 @@
-<template>
-  <Splide
-    :options="splideOptions"
-    :class="['carousel-wrapper', heightClass]"
-    ref="splideRef"
-  >
-    <CarouselSlide
-      v-for="(slide, index) in slides"
-      :key="index"
-      :backgroundImage="slide.backgroundImage"
-      :subtitle="slide.subtitle"
-      :title="slide.title"
-      :highlightedText="slide.highlightedText"
-      :description="slide.description"
-      :buttonLabel="slide.buttonLabel"
-      :minheight="heightClass"
-    />
-  </Splide>
-</template>
-
-<script setup>
-import { ref, onMounted, computed } from "vue";
+<script setup lang="ts">
+import { ref, onMounted, computed, type PropType } from "vue";
 import { Splide } from "@splidejs/vue-splide";
 import CarouselSlide from "@/components/CarouselSlide.vue";
 import "@splidejs/vue-splide/css";
-import { getCarouselInfo } from "@/lib/get-carousel-info";
 
-const splideRef = ref(null);
-const slides = ref([]); // Datos del carrusel
+interface Slide {
+  titulo: string;
+  subtitulo_1: string;
+  subtitulo_2: string;
+  descripcion: string;
+  imagen: {
+    url: string;
+  };
+}
 
-// Lógica para obtener datos del carrusel desde Strapi
-const fetchCarouselData = async () => {
-  try {
-    const data = await getCarouselInfo();
-    slides.value = data.imagenes_carousel.map((item) => ({
-      backgroundImage: `https://udhback.sistemasudh.com${item.imagen?.url || ""}`,
-      subtitle: item.subtitulo_1 || "",
-      title: item.titulo || "",
-      highlightedText: item.subtitulo_2 || "",
-      description: item.descripcion || "",
-      buttonLabel: "Conoce más",
-    }));
-    // console.log("Slides cargados:", slides.value);
-  } catch (error) {
-    console.error("Error fetching carousel data:", error);
-  }
-};
-
-onMounted(fetchCarouselData);
-
+// Props
 const props = defineProps({
+  fetchSlides: {
+    type: Function as PropType<() => Promise<{ imagenes_carousel: Slide[] }>>,
+    required: true, 
+  },
   carouselHeight: {
     type: String,
     default: "medium",
   },
 });
+
+// Estado
+const slides = ref<{
+  backgroundImage: string;
+  subtitle: string;
+  title: string;
+  highlightedText: string;
+  description: string;
+  buttonLabel: string;
+}[]>([]);
 
 const heightClass = computed(() => {
   switch (props.carouselHeight) {
@@ -78,21 +59,46 @@ const splideOptions = {
   arrows: true,
   pagination: false,
   rewind: true,
-  resetProgress: false,
   lazyLoad: true,
-  easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-  drag: "free",
-  snap: true,
   width: "100%",
   height: "100%",
-  transition: "slide",
-  breakpoints: {
-    640: {
-      arrows: false,
-    },
-  },
 };
+
+onMounted(async () => {
+  try {
+    const data = await props.fetchSlides();
+    slides.value = data.imagenes_carousel.map((item) => ({
+      backgroundImage: `https://udhback.sistemasudh.com${item.imagen.url || ""}`,
+      subtitle: item.subtitulo_1 || "",
+      title: item.titulo || "",
+      highlightedText: item.subtitulo_2 || "",
+      description: item.descripcion || "",
+      buttonLabel: "Conoce más",
+    }));
+  } catch (error) {
+    console.error("Error fetching carousel slides:", error);
+  }
+});
 </script>
+
+<template>
+  <Splide
+    :options="splideOptions"
+    :class="['carousel-wrapper', heightClass]"
+  >
+    <CarouselSlide
+      v-for="(slide, index) in slides"
+      :key="index"
+      :backgroundImage="slide.backgroundImage"
+      :subtitle="slide.subtitle"
+      :title="slide.title"
+      :highlightedText="slide.highlightedText"
+      :description="slide.description"
+      :buttonLabel="slide.buttonLabel"
+      :minheight="heightClass"
+    />
+  </Splide>
+</template>
 
 <style scoped>
 .carousel-wrapper {

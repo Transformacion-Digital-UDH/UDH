@@ -43,7 +43,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="about-area py-16 bg-white flex justify-center">
+  <div class="about-area bg-white flex justify-center">
     <div
       class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center items-center"
     >
@@ -57,7 +57,7 @@ onMounted(async () => {
                 baseApiUrl + backgroundImage || 'https://placehold.co/600x400'
               "
               :altText="namebgImage || 'Imagen de fondo'"
-              greenBorderClass="absolute -top-2 -left-2 xs:-top-3 xs:-left-3 sm:-top-8 sm:-left-8 md:-top-10 md:-left-10 w-[120px] h-[120px] xs:w-[130px] xs:h-[130px] sm:w-[300px] sm:h-[300px] md:w-[330px] md:h-[330px] lg:w-[300px] lg:h-[300px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] z-0"
+              greenBorderClass="absolute -top-2 -left-2 xs:-top-3 xs:-left-3 sm:-top-4 sm:-left-4 md:-top-5 md:-left-5 lg:-top-6 lg:-left-6 xl:-top-6 xl:-left-6 w-[120px] h-[120px] xs:w-[130px] xs:h-[130px] sm:w-[300px] sm:h-[300px] md:w-[330px] md:h-[330px] lg:w-[300px] lg:h-[300px] border-[10px] sm:border-[15px] md:border-[17px] border-[#2ebaa1] rounded-[15px] sm:rounded-[20px] lg:rounded-[25px] z-0"
               blackBorderClass="absolute -bottom-2 -right-2 xs:-bottom-3 xs:-right-3 sm:-bottom-4 sm:-right-4 md:-bottom-5 md:-right-5 w-[140px] h-[140px] xs:w-[160px] xs:h-[160px] sm:w-[300px] sm:h-[300px] md:w-[320px] md:h-[320px] lg:w-[280px] lg:h-[280px] bg-[#333333] z-0 clip-path rounded-br-[15px] lg:rounded-br-[17px] sm:rounded-br-[17px]"
             />
 

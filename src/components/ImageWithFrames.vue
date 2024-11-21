@@ -42,7 +42,7 @@ const handleImageLoad = () => {
     class="lg:w-1/2 mb-8 sm:w-[600px] lg:mb-0 relative ml-4 mr-4 lg:ml-12 lg:mr-12"
   >
     <div class="relative">
-      <div class="bg-white w-full h-full absolute top-0 left-0 z-10"></div>
+      <div class="w-full h-full absolute top-0 left-0 z-10"></div>
 
       <img
         :src="imageUrl"
@@ -84,7 +84,7 @@ const handleImageLoad = () => {
     class="lg:w-2/2 mb-8 lg:mb-0 relative ml-4 mr-4 lg:ml-12 lg:mr-12"
   >
     <div class="relative">
-      <div class="bg-white w-full h-full absolute top-0 left-0 z-10"></div>
+      <div class="w-full h-full absolute top-0 left-0 z-10"></div>
 
       <img
         :src="imageUrl"

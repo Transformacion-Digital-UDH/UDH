@@ -16,24 +16,26 @@
 
             <!-- Enlace del documento -->
             <div class="ml-2">
-                <a :href="data.url" class="font-semibold hover:underline text-gray-900" target="_blank">
-                    {{ data.name }}
+                <a :href="data.link" class="font-semibold hover:underline text-gray-900" target="_blank">
+                    {{ data.nombre }}
                 </a>
             </div>
         </div>
     </div>
 </template>
 
-<script setup lang="ts">
-import { IconCaretRight } from "@tabler/icons-vue";
-import { PropType } from 'vue';
-
+<script setup>
+import { IconCaretRight } from '@tabler/icons-vue';
 const props = defineProps({
     datas: {
-        type: Array as PropType<Array<{ name: string; url: string }>>,
-        required: true
+        type: Object,
+        required: true,
+        default: () => [
+            { nombre: '', link:'' }
+        ],
     },
 });
+const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
 </script>
 
 <style scoped>

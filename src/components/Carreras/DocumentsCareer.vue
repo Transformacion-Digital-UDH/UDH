@@ -14,7 +14,7 @@ const documentos = ref([]);
 const fetchInformationDocumentss = async () => {
     try {
         const documentsData = await getDocumentsSystem();
-        console.log(documentos)
+        // console.log(documentos)
         documentos.value = documentsData.documentos || [];
     } catch (error) {
         console.error("Error fetching contact data:", error);

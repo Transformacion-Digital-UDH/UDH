@@ -58,32 +58,32 @@ onMounted(fetchNews);
 
 <style scoped>
 h4 {
-  height: 8rem;
+  height: 2rem; 
   overflow: hidden;
 }
 
 p {
-  height: 6rem;
+  height: 2rem; 
   overflow: hidden;
 }
 
 @media (min-width: 640px) {
   h4 {
-    height: 8rem;
+    height: 2.5rem; 
   }
 
   p {
-    height: 8rem;
+    height: 2.5rem; 
   }
 }
 
 @media (min-width: 1024px) {
   h4 {
-    height: 12rem;
+    height: 3rem; 
   }
 
   p {
-    height: 10rem;
+    height: 3rem; 
   }
 }
 </style>

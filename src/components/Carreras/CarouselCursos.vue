@@ -1,7 +1,7 @@
 <template>
   <div class="text-white py-12">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold mb-8 text-center text-green-custom">Malla Curricular</h2>
+      <h2 class="text-4xl font-bold mb-8 text-center text-green-custom">Cursos de la carrera</h2>
       <Splide
         ref="splide"
         :options="carouselOptions"

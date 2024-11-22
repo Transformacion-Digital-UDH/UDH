@@ -3,141 +3,45 @@ import MainLayout from "@/layout/MainLayout.vue";
 import GridInformation from "@/components/GridInformation.vue";
 import Carousel from "@/components/Carousel.vue";
 import CarouselCursos from "@/components/Carreras/CarouselCursos.vue";
-import { getCarreraCarousel } from "@/lib/carreras/sistemas/get-sistemas-carousel";
+import { getSistemasCarousel } from "@/lib/carreras/sistemas/get-sistemas-carousel";
+import { getSistemasCursos } from "@/lib/carreras/sistemas/get-sistemascursos-carousel";
+import { ref, onMounted } from "vue";
 
-// Datos estáticos para cursos
-const cursos = [
-{
-    numero: "1",
-    titulo: "Primer Ciclo",
-    courses: [
-      "Base de Datos Avanzadas y Big Data",
-      "Metodología de la Investigación",
-      "Computación Gráfica y Visual",
-      "Modelamiento y Análisis de Software",
-      "Proyecto Social",
-      "Arquitectura del Computador",
-    ],
-  },
-  {
-    numero: "2",
-    titulo: "Segundo Ciclo",
-    courses: [
-      "Base de Datos Avanzadas y Big Data",
-      "Metodología de la Investigación",
-      "Computación Gráfica y Visual",
-      "Modelamiento y Análisis de Software",
-      "Proyecto Social",
-      "Arquitectura del Computador",
-    ],
-  },
-  {
-    numero: "3",
-    titulo: "Tercer Ciclo",
-    courses: [
-      "Base de Datos Avanzadas y Big Data",
-      "Metodología de la Investigación",
-      "Computación Gráfica y Visual",
-      "Modelamiento y Análisis de Software",
-      "Proyecto Social",
-      "Arquitectura del Computador",
-    ],
-  },
-  {
-    numero: "4",
-    titulo: "Cuarto Ciclo",
-    courses: [
-      "Probabilidad y Estadística",
-      "Estructura de Datos",
-      "Optimización y Simulación",
-      "Cálculo 2",
-      "Electrónica Digital",
-    ],
-  },
-  {
-    numero: "5",
-    titulo: "Quinto Ciclo",
-    courses: [
-      "Análisis de Algoritmos y Estrategias de Programación",
-      "Comunicación 3",
-      "Base de Datos",
-      "Responsabilidad Social",
-      "Técnicas de Programación Orientada a Objetos",
-    ],
-  },
-  {
-    numero: "6",
-    titulo: "Sexto Ciclo",
-    courses: [
-      "Base de Datos Avanzadas y Big Data",
-      "Metodología de la Investigación",
-      "Computación Gráfica y Visual",
-      "Modelamiento y Análisis de Software",
-      "Proyecto Social",
-      "Arquitectura del Computador",
-    ],
-  },
-  
-  {
-    numero: "7",
-    titulo: "Septimo Ciclo",
-    courses: [
-      "Base de Datos Avanzadas y Big Data",
-      "Metodología de la Investigación",
-      "Computación Gráfica y Visual",
-      "Modelamiento y Análisis de Software",
-      "Proyecto Social",
-      "Arquitectura del Computador",
-    ],
-  },
-  
-  {
-    numero: "8",
-    titulo: "Octavo Ciclo",
-    courses: [
-      "Base de Datos Avanzadas y Big Data",
-      "Metodología de la Investigación",
-      "Computación Gráfica y Visual",
-      "Modelamiento y Análisis de Software",
-      "Proyecto Social",
-      "Arquitectura del Computador",
-    ],
-  },
-  
-  {
-    numero: "9",
-    titulo: "Noveno Ciclo",
-    courses: [
-      "Base de Datos Avanzadas y Big Data",
-      "Metodología de la Investigación",
-      "Computación Gráfica y Visual",
-      "Modelamiento y Análisis de Software",
-      "Proyecto Social",
-      "Arquitectura del Computador",
-    ],
-  },
-  
-  {
-    numero: "10",
-    titulo: "Decimo ciclo",
-    courses: [
-      "Base de Datos Avanzadas y Big Data",
-      "Metodología de la Investigación",
-      "Computación Gráfica y Visual",
-      "Modelamiento y Análisis de Software",
-      "Proyecto Social",
-      "Arquitectura del Computador",
-    ],
-  },
-];
+interface Curso {
+  titulo: string;
+  courses: string[];
+}
 
+const cursos = ref<Curso[]>([]);
+
+onMounted(async () => {
+  try {
+    const data = await getSistemasCursos();
+    const malla = data.malla;
+
+    if (!Array.isArray(malla)) {
+      console.error("La malla curricular no es un array o no existe:", malla);
+      return;
+    }
+
+    cursos.value = malla.map((ciclo: any) => ({
+      titulo: ciclo.ciclo_escrito || "Ciclo sin nombre",
+      courses: Array.isArray(ciclo.cursos)
+        ? ciclo.cursos.map((curso: any) => curso.nombre_curso || "Curso sin nombre")
+        : [],
+    }));
+  } catch (error) {
+    console.error("Error al cargar la malla curricular:", error);
+  }
+});
 </script>
 
 <template>
   <MainLayout>
-    <Carousel :fetchSlides="getCarreraCarousel" carouselHeight="medium" />
+    <Carousel :fetchSlides="getSistemasCarousel" carouselHeight="medium" />
     <GridInformation />
-    <CarouselCursos :cursos="cursos" />
+    <CarouselCursos :cursos="cursos" v-if="cursos.length > 0" />
+    <p v-else class="text-center text-red-500">No se encontraron datos para la malla curricular.</p>
   </MainLayout>
 </template>
 

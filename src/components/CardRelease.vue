@@ -59,15 +59,15 @@ onMounted(fetchNews);
 <style scoped>
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(400px, 1fr));
-  gap: 1.5rem; 
-  justify-content: center; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adapta automáticamente las columnas */
+  gap: 1.5rem; /* Espaciado entre las tarjetas */
+  justify-content: center; /* Centra las tarjetas si hay espacio adicional */
 }
 
 .card {
-  width: 100%; 
-  max-width: 500px; 
-  margin: 0 auto; 
+  width: 100%; /* Tarjeta ocupa todo el ancho permitido */
+  max-width: 350px; /* Ancho máximo */
+  margin: 0 auto; /* Centra las tarjetas */
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -90,13 +90,8 @@ p {
 }
 
 @media (min-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(400px, 1fr));
-    justify-content: center; 
-  }
-
   .card {
-    max-width: 450px;
+    max-width: 400px; /* Ancho mayor en pantallas medianas */
   }
 
   h4 {
@@ -109,13 +104,8 @@ p {
 }
 
 @media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(3, minmax(450px, 1fr));
-    justify-content: center;
-  }
-
   .card {
-    max-width: 600px; 
+    max-width: 500px; /* Ancho mayor en pantallas grandes */
   }
 
   h4 {

@@ -59,14 +59,14 @@ onMounted(fetchNews);
 <style scoped>
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem; 
-  justify-content: center; 
+  justify-content: center;
 }
 
 .card {
   width: 100%; 
-  max-width: 500px; 
+  max-width: 350px; 
   margin: 0 auto; 
   border-radius: 10px;
   overflow: hidden;
@@ -90,13 +90,8 @@ p {
 }
 
 @media (min-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(400px, 1fr));
-    justify-content: center; 
-  }
-
   .card {
-    max-width: 450px;
+    max-width: 400px;
   }
 
   h4 {
@@ -109,13 +104,8 @@ p {
 }
 
 @media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(3, minmax(450px, 1fr));
-    justify-content: center;
-  }
-
   .card {
-    max-width: 600px; 
+    max-width: 500px; 
   }
 
   h4 {

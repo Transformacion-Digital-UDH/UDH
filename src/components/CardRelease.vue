@@ -42,10 +42,10 @@ const newsList = ref([]);
 const fetchNews = async () => {
   try {
     const data = await getNewsInfo();
-    newsList.value = data.enlaces_interes.map((news) => ({
+    newsList.value = data.noticias.map((news) => ({
       title: news.titulo || "Sin título",
-      description: "Consulta este enlace de interés para más detalles.",
-      date: new Date().toLocaleDateString("es-PE"), // Fecha actual como placeholder
+      description: news.descripcion || "Sin descripción",
+      date: new Date(news.fecha_publicacion).toLocaleDateString("es-PE"),
       link: news.link || "#",
     }));
   } catch (error) {
@@ -58,32 +58,32 @@ onMounted(fetchNews);
 
 <style scoped>
 h4 {
-  height: 2rem; 
+  height: 4rem; /* Altura reducida */
   overflow: hidden;
 }
 
 p {
-  height: 2rem; 
+  height: 4rem; /* Altura reducida */
   overflow: hidden;
 }
 
 @media (min-width: 640px) {
   h4 {
-    height: 2.5rem; 
+    height: 5rem; /* Ajuste para pantallas medianas */
   }
 
   p {
-    height: 2.5rem; 
+    height: 5rem; /* Ajuste para pantallas medianas */
   }
 }
 
 @media (min-width: 1024px) {
   h4 {
-    height: 3rem; 
+    height: 6rem; /* Ajuste para pantallas grandes */
   }
 
   p {
-    height: 3rem; 
+    height: 6rem; /* Ajuste para pantallas grandes */
   }
 }
 </style>

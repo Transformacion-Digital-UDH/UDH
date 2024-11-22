@@ -6,28 +6,16 @@
             <div class="flex items-center justify-between">
                 <!-- left -->
                 <div class="mr-2 z-10 text-white flex lg:gap-6 lg:text-base xs:text-xs md:text-sm gap-1 font-epilogue">
-                    <a href="#" class="border-e-[1px] border-white pr-4 flex gap-2 items-center hover:font-semibold">
-                        <IconUsers class="text-green-custom" size="20" />
-                        Ingresantes
-                    </a>
-                    <a href="#" class="flex gap-2 items-center hover:font-semibold">
-                        <IconUser class="text-green-custom" size="20" />
-                        Ingresar
+                    <a href="https://repositorio.udh.edu.pe/" target="_blank" class="border-e-[1px] border-white pr-4 flex gap-2 items-center hover:font-semibold">
+                        <IconLibrary class="text-green-custom" size="20" />
+                        Repositorio
                     </a>
                 </div>
                 <!-- right -->
-                <div class="flex items-center gap-1 lg:gap-4 z-10 ">
-                    <a href="#"
+                <div class="flex justify-center items-center gap-1 lg:gap-4 z-10 ">
+                    <a :href="rs.link" v-for="rs in redes_sociales" :key="rs.id"
                         class="w-8 h-8 rounded-full bg-[#333333] content-center text-white hover:text-green-custom place-items-center">
-                        <IconBrandWhatsapp size="19" />
-                    </a>
-                    <a href="#"
-                        class="w-8 h-8 rounded-full bg-[#333333] content-center text-white hover:text-green-custom place-items-center">
-                        <IconBrandYoutube size="19" />
-                    </a>
-                    <a href="#"
-                        class="w-8 h-8 rounded-full bg-[#333333] content-center text-white hover:text-green-custom place-items-center">
-                        <IconBrandInstagram size="19" />
+                        <img :src="`${baseApiUrl}/${rs.icono.url}`" :alt="rs.nombre" class="w-6 h-6" />
                     </a>
                 </div>
             </div>
@@ -36,5 +24,15 @@
 </template>
 
 <script setup>
-import { IconUsers, IconMail, IconUser, IconBrandWhatsapp, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-vue';
+import { IconLibrary } from '@tabler/icons-vue';
+
+const props = defineProps({
+    redes_sociales: {
+        type: Array,
+        required: true
+    }
+})
+
+const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
+
 </script>

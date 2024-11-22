@@ -1,16 +1,23 @@
-// main.ts
-import { createApp } from 'vue';
+import { createApp, markRaw } from 'vue';
 import '@/style.css';
 import App from '@/App.vue';
 import '@splidejs/vue-splide/css';
-import Particles from 'vue3-particles';  // Importa vue3-particles
 import router from '@/router';
-import axios from 'axios';
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import Particles from "vue3-particles";
+
+const pinia = createPinia()
+
+pinia.use(({store}) => {
+    store.router = markRaw(router)
+})
+
+pinia.use(piniaPluginPersistedstate)
 
 const app = createApp(App);
 
-axios.defaults.baseURL = 'http://localhost:1337/api';
-
-app.use(Particles);  // Usa el plugin de partículas en la aplicación
 app.use(router)
+app.use(pinia)
+app.use(Particles); 
 app.mount('#app');

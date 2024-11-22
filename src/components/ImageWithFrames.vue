@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 
 const props = defineProps({
   imageUrl: {
@@ -21,29 +22,41 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  altText: {
+    type: String,
+    required: false,
+    default: "Imagen de fondo",
+  },
 });
+
+const isLoading = ref(false);
+
+const handleImageLoad = () => {
+  isLoading.value = true;
+};
 </script>
 
 <template>
   <div
     v-if="aboutUs"
-    class="lg:w-1/2 mb-8 lg:mb-0 relative ml-4 mr-4 lg:ml-12 lg:mr-12"
+    class="lg:w-1/2 mb-8 sm:w-[600px] lg:mb-0 relative ml-4 mr-4 lg:ml-12 lg:mr-12"
   >
     <div class="relative">
+      <div class="w-full h-full absolute top-0 left-0 z-10"></div>
+
       <img
         :src="imageUrl"
         alt="Sobre nosotros"
         class="rounded-lg w-full shadow-lg relative z-10"
+        @load="handleImageLoad"
       />
-      <!-- Marco verde -->
-      <div :class="greenBorderClass"></div>
-      <!-- Marco negro -->
-      <div :class="blackBorderClass"></div>
 
-      <!-- Mostrar esta sección solo si aboutUs es true -->
+      <div v-if="isLoading" :class="greenBorderClass"></div>
+      <div v-if="isLoading" :class="blackBorderClass"></div>
+
       <div
         v-if="aboutUs"
-        class="absolute bottom-20 sm:bottom-20 md:bottom-32 lg:bottom-20 -left-4 sm:-left-8 md:-left-10 bg-[#2ebaa1] p-3 md:p-4 rounded-lg lg:rounded-2xl shadow-lg text-white flex flex-col items-center z-20 h-[140px] sm:h-[160px] md:h-[180px] lg:h-[200px]"
+        class="absolute bottom-20 xs:bottom-11 sm:bottom-20 md:bottom-32 lg:bottom-10 xl:bottom-20 -left-4 sm:-left-8 md:-left-10 lg:-left-8 xl:-left-8 bg-[#2ebaa1] p-3 md:p-4 rounded-lg lg:rounded-2xl shadow-lg text-white flex flex-col items-center z-20 h-[140px] sm:h-[160px] md:h-[180px] lg:h-[200px]"
       >
         <div class="feature-icon flex justify-left mb-2 md:mb-3">
           <div
@@ -71,17 +84,18 @@ const props = defineProps({
     class="lg:w-2/2 mb-8 lg:mb-0 relative ml-4 mr-4 lg:ml-12 lg:mr-12"
   >
     <div class="relative">
+      <div class="w-full h-full absolute top-0 left-0 z-10"></div>
+
       <img
         :src="imageUrl"
-        alt="Sobre nosotros"
+        :alt="altText"
         class="rounded-lg w-full shadow-lg relative z-10"
+        @load="handleImageLoad"
       />
-      <!-- Marco verde -->
-      <div :class="greenBorderClass"></div>
-      <!-- Marco negro -->
-      <div :class="blackBorderClass"></div>
 
-      <!-- Mostrar esta sección solo si aboutUs es true -->
+      <div v-if="isLoading" :class="greenBorderClass"></div>
+      <div v-if="isLoading" :class="blackBorderClass"></div>
+
       <div
         v-if="aboutUs"
         class="absolute bottom-20 sm:bottom-20 md:bottom-32 lg:bottom-20 -left-4 sm:-left-8 md:-left-10 bg-[#2ebaa1] p-3 md:p-4 rounded-lg lg:rounded-2xl shadow-lg text-white flex flex-col items-center z-20 h-[140px] sm:h-[160px] md:h-[180px] lg:h-[200px]"

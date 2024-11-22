@@ -1,11 +1,9 @@
-<!-- EventList.vue -->
 <template>
   <TitleSection title="Nuestros" subtitle1="Próximos" subtitle2="Eventos" />
   <div class="bg-white py-8 font-epilogue">
     <div
       class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
     >
-      <!-- Iteración sobre el array de eventos para mostrar tarjetas con contenido independiente -->
       <div
         v-for="(event, index) in events"
         :key="index"
@@ -50,15 +48,13 @@
 
             <h4 class="text-xl font-semibold text-black h- overflow-hidden">
               <a href="event-single.html" class="hover:text-green-custom">
-                {{ event.title}}
+                {{ event.title }}
               </a>
             </h4>
 
             <p class="text-black text-base mb-0 h-16 overflow-hidden">
               {{ event.description }}
             </p>
-
-            
           </div>
         </div>
       </div>
@@ -67,47 +63,34 @@
 </template>
 
 <script setup>
-import ButtonPrimarySecondEffect from "@/components/ButtonPrimarySecondEffect.vue";
 import TitleSection from "@/components/TitleSection.vue";
 import {
   IconMapPin,
   IconCalendar,
   IconClock,
-  IconArrowRight,
 } from "@tabler/icons-vue";
+import { ref, onMounted } from "vue";
+import { getEventsInfo } from "@/lib/get-events-info";
 
-const events = [
-  {
-    location: "Virtual",
-    image: "https://placehold.co/335x335",
-    date: "16 Abril, 2024",
-    time: "10:00AM - 01:00PM",
-    title: "Data Science Virtual",
-    description:
-      "Participa en nuestro evento virtual dirigido a aquellos que están interesados por el mundo de la Data Sciencie.",
-    link: "event-single.html",
-  },
-  {
-    location: "Auditorio Central",
-    image: "https://placehold.co/335x335",
-    date: "20 Mayo, 2024",
-    time: "9:00AM - 12:00PM",
-    title: "Conferencia de IA",
-    description:
-      "No te pierdas esta oportunidad de actualizarte y compartir experiencias con colegas y profesionales del área y decidir tu futuro.",
-    link: "event-single.html",
-  },
-  {
-    location: "Online",
-    image: "https://placehold.co/335x335",
-    date: "5 Junio, 2024",
-    time: "2:00PM - 5:00PM",
-    title: "Introducción a Big Data",
-    description:
-      "Estamos emocionados de anunciar que se acerca la fiesta conmemorativa por el Aniversario de nuestro Programa Académico de Ingeniería de Sistemas e Informática.",
-    link: "event-single.html",
-  },
-];
+const events = ref([]);
+
+const fetchEvents = async () => {
+  try {
+    const data = await getEventsInfo();
+    events.value = data.map((event) => ({
+      location: event.ubicacion || "Sin ubicación",
+      image: `https://udhback.sistemasudh.com${event.imagen?.url || ""}`,
+      date: new Date(event.fecha).toLocaleDateString("es-PE"),
+      time: `${event.hora_inicio?.slice(0, 5)} - ${event.hora_fin?.slice(0, 5)}`,
+      title: event.titulo || "Evento sin título",
+      description: event.descripcion || "Sin descripción",
+    }));
+  } catch (error) {
+    console.error("Error fetching events:", error);
+  }
+};
+
+onMounted(fetchEvents);
 </script>
 
 <style scoped>
@@ -141,23 +124,12 @@ const events = [
   z-index: 1;
 }
 
-@keyframes rotBGimg {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Ajuste para imagen del evento */
 .event-img img {
   width: 100%;
   height: 22rem;
   object-fit: cover;
 }
 
-/* Estilos de altura para el título y la descripción */
 h4 {
   height: 3rem;
   overflow: hidden;

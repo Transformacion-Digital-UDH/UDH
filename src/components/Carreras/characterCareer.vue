@@ -8,15 +8,29 @@ import {
   IconSchool,
 } from "@tabler/icons-vue";
 import FeatureItem from "@/components/FeatureItem.vue";
+import { getCharacterSystem } from "@/lib/carreras/sistemas/get-systemCaracteristicas.info";
+import { onMounted, ref } from "vue";
 
-const features = [
-  { icon: IconBook, label: "Cursos", value: "67" },
-  { icon: IconPencil, label: "Metodología", value: "Teórica y Práctica" },
-  { icon: IconMapPin, label: "Location", value: "La esperanza" },
-  { icon: IconBuilding, label: "Infraestructura", value: "Si" },
-  { icon: IconCircleCheck, label: "Bachiller", value: "Si" },
-  { icon: IconSchool, label: "Titulación", value: "Si" },
-];
+const caracteristicas = ref({});
+const features = ref([]);
+const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
+
+const fetchCharacterSystem = async () => {
+  try {
+    const response = await getCharacterSystem();
+    caracteristicas.value = response.caracteristicas || {};
+    features.value = caracteristicas.value.data || [];
+  } catch (error) {
+    console.error(
+      "Error al cargar las características de Ing. Sistemas:",
+      error
+    );
+  }
+};
+
+onMounted(() => {
+  fetchCharacterSystem();
+});
 </script>
 
 <template>
@@ -27,15 +41,16 @@ const features = [
     <h4
       class="section-title mb-10 font-black text-sm xs:text-sm sm:text-lg xl:text-xl"
     >
-      Características de la carrera
+      {{ caracteristicas.titulo }}
     </h4>
     <div class="course-feature-list">
       <FeatureItem
         v-for="(feature, index) in features"
         :key="index"
-        :icon="feature.icon"
-        :label="feature.label"
-        :value="feature.value"
+        :icon="`${baseApiUrl}${feature.icono?.url}`"
+        :label="feature.titulo"
+        :value="feature.descripcion"
+        :name="feature.icono?.name"
       />
     </div>
   </div>

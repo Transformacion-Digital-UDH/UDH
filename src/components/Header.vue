@@ -1,24 +1,22 @@
 <template>
     <header class="relative">
         <!-- Header Top -->
-        <HeaderTop v-if="!isScrolledPast" />
+        <HeaderTop v-if="!isScrolledPast" :redes_sociales="redes_sociales" />
 
         <!-- Spacer div to prevent content jump -->
         <div v-if="isScrolledPast" :style="{ height: navHeight + 'px' }"></div>
 
         <!-- Main Navigation -->
-        <nav 
-            ref="navRef"
-            :class="[
+        <nav ref="navRef" :class="[
             'bg-white py-0 w-full px-2 lg:px-6 sm:px-6  md:px-4 shadow-lg transition-all duration-300',
             { 'fixed top-0 left-0 right-0 z-50': isScrolledPast }
-            ]"
-        >
-            <div class="mx-auto max-w-full px-4 ">
+        ]">
+            <div class="mx-auto max-w-full px-3 ">
                 <div class="flex items-center justify-between xl:justify-center font-epilogue font-semibold">
                     <!-- Logo -->
-                    <a href="/" class="shrink-0 py-4 lg:py-2">
-                        <img src="/logo.png" alt="logo" class="w-[90px] md:w-[120px] lg:w-[140px] xl:w-[180px]">
+                    <a href="/" class="shrink-0 py-4 lg:py-3 mr-4">
+                        <img :src="`${baseApiUrl}${logoudh.url}`" :alt="logoudh.name"
+                            class="w-[90px] md:w-[120px] lg:w-[140px] xl:w-[150px]">
                     </a>
 
                     <!-- Desktop Navigation -->
@@ -45,13 +43,15 @@
                                             <NavDropdownLink href="#">Odontologia</NavDropdownLink>
                                         </NavDropdownColumn>
                                         <NavDropdownColumn title="ingeniería">
-                                            <NavDropdownLink href="/sistemas-e-informatica">Ingenieria de sistemas e informática</NavDropdownLink>
+                                            <NavDropdownLink href="/carrera/sistemas-e-informatica">Ingenieria de
+                                                sistemas e informática</NavDropdownLink>
                                             <NavDropdownLink href="#">Ingenieria civil</NavDropdownLink>
                                             <NavDropdownLink href="#">Ingenieria ambiental</NavDropdownLink>
                                             <NavDropdownLink href="#">Arquitectura</NavDropdownLink>
                                         </NavDropdownColumn>
                                         <NavDropdownColumn title="ciencias de la educación y humanidades">
-                                            <NavDropdownLink href="#">Educación básica: Inicial y primaria</NavDropdownLink>
+                                            <NavDropdownLink href="#">Educación básica: Inicial y primaria
+                                            </NavDropdownLink>
                                             <p class="uppercase text-green-custom pt-5">DERECHO Y CIENCIAS POLITICAS</p>
                                             <NavDropdownLink href="#">Derecho y ciencias politicas</NavDropdownLink>
                                         </NavDropdownColumn>
@@ -59,7 +59,8 @@
                                             <NavDropdownLink href="#">Administración de empresas</NavDropdownLink>
                                             <NavDropdownLink href="#">Contabilidad y finanzas</NavDropdownLink>
                                             <NavDropdownLink href="#">Turismo, hoteleria y gastronomia</NavDropdownLink>
-                                            <NavDropdownLink href="#">Marketing y negocios internacionales</NavDropdownLink>
+                                            <NavDropdownLink href="#">Marketing y negocios internacionales
+                                            </NavDropdownLink>
                                         </NavDropdownColumn>
                                     </div>
                                 </template>
@@ -135,9 +136,14 @@
                             </NavItem>
 
                             <!-- Utilities -->
-                            <li class="flex items-center gap-2 ml-4">
+                            <li class="flex items-center gap-1 ml-4">
+                                <img @click="changeLanguage('en')" v-if="lang === 'es-PE'"
+                                    src="/src/assets/icons/flag-peru.svg" alt="flag" class="w-6 h-6 cursor-pointer">
+                                <img @click="changeLanguage('es-PE')" v-else src="/src/assets/icons/flasg-us.svg"
+                                    alt="flag" class="w-6 h-6 cursor-pointer">
                                 <Search />
-                                <ButtonPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]" />
+                                <LinkPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]"
+                                    :hrefHref="link_login" />
                             </li>
                         </ul>
                     </nav>
@@ -145,10 +151,7 @@
                     <!-- Mobile Navigation -->
                     <div class="flex items-center gap-4 xl:hidden">
                         <Search />
-                        <button 
-                            class="p-2 text-gray-custom hover:text-green-custom"
-                            @click="toggleMobileMenu"
-                        >
+                        <button class="p-2 text-gray-custom hover:text-green-custom" @click="toggleMobileMenu">
                             <IconMenu2 class="w-6 h-6" />
                         </button>
                     </div>
@@ -157,15 +160,12 @@
         </nav>
 
         <!-- Mobile Menu -->
-        <MobileMenu 
-            v-if="isMobileMenuOpen" 
-            @close="closeMobileMenu" 
-        />
+        <MobileMenu v-if="isMobileMenuOpen" @close="closeMobileMenu" :link_login="link_login" />
     </header>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { IconMenu2 } from '@tabler/icons-vue';
 import HeaderTop from '@/components/HeaderTop.vue';
 import NavItem from '@/components/navigation/NavItem.vue';
@@ -174,12 +174,51 @@ import NavDropdownColumn from '@/components/navigation/NavDropdownColumn.vue';
 import NavNestedDropdown from '@/components/navigation/NavNestedDropdown.vue';
 import NavNestedItem from '@/components/navigation/NavNestedItem.vue';
 import MobileMenu from '@/components/navigation/MobileMenu.vue';
-import ButtonPrimarySecondEffect from '@/components/ButtonPrimarySecondEffect.vue';
+import LinkPrimarySecondEffect from '@/components/LinkPrimarySecondEffect.vue';
 import Search from '@/components/Search.vue';
+import { useSelectStore } from "@/stores/select";
+import { getHeaderInfo } from '@/lib/get-header-info';
+
 const navRef = ref(null);
 const navHeight = ref(0);
 const isScrolledPast = ref(false);
+const lang = ref('');
 const isMobileMenuOpen = ref(false);
+
+// definir variables para los datos referentes de los campos de la API
+const redes_sociales = ref([]);
+const contactos = ref([]);
+const logoudh = ref({});
+const link_login = ref(null);
+
+const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
+
+// funcion para obtener los datos de la API y asignarlos a las variables
+const fetchSettings = async () => {
+    try {
+        const headerInfo = await getHeaderInfo();
+
+        redes_sociales.value = headerInfo.redes_sociales || [];
+        contactos.value = headerInfo.contactos || [];
+        logoudh.value = headerInfo.logoudh || null;
+        link_login.value = headerInfo.link_login || null;
+    } catch (error) {
+        console.error("Error fetching settings data:", error);
+    }
+};
+
+// cargo los datos recibido de la API
+onMounted(async () => {
+    await fetchSettings();
+});
+
+const selectStore = useSelectStore();
+lang.value = selectStore.language;
+
+const changeLanguage = async (language) => {
+    await selectStore.changeLanguage(language);
+    lang.value = language;
+}
 
 const updateNavHeight = () => {
     if (navRef.value) {
@@ -211,6 +250,4 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

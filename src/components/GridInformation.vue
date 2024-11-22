@@ -3,8 +3,8 @@ import VideoCareer from "@/components/Carreras/videoCareer.vue";
 import courseRequirement from "@/components/Carreras/courseRequirement.vue";
 import characterCareer from "@/components/Carreras/characterCareer.vue";
 import InfoCareer from "@/components/Carreras/infoCareer.vue";
-import logoCareer from "@/components/Carreras/logoCareer.vue";
 import DocumentsCareer from "@/components/Carreras/DocumentsCareer.vue";
+import logoCareer from "./Carreras/logoCareer.vue";
 </script>
 
 <template>
@@ -33,7 +33,7 @@ import DocumentsCareer from "@/components/Carreras/DocumentsCareer.vue";
       </div>
 
       <!-- Tarjeta caracteristicas -->
-      <div class="min-h-[400px] rounded-xl shadow-custom-card bg-white">
+      <div class="min-h-auto rounded-xl shadow-custom-card bg-white">
         <characterCareer />
       </div>
 

@@ -1,15 +1,27 @@
 <script setup>
-
 const props = defineProps({
-  icon: [Object, Function],
-  label: String,
-  value: String,
+  icon: {
+    type: String,
+    required: false,
+  },
+  name: {
+    type: String,
+    required: false,
+  },
+  label: {
+    type: String,
+    required: false,
+  },
+  value: {
+    type: String,
+    required: false,
+  },
 });
 </script>
 
 <template>
   <a href="#" class="feature-item">
-    <component :is="icon" class="icon" />
+    <img :src="icon" :alt="name" class="icon">
     <span
       class="label text-[10px] xs:text-[12px] sm:text-[14px] xl:text-[16px]"
       >{{ label }}</span
@@ -22,6 +34,7 @@ const props = defineProps({
 
 <style scoped>
 .icon {
+  width: 25px;
   position: relative;
   color: #2ebaa1;
   font-size: 1.5rem;
@@ -62,6 +75,6 @@ const props = defineProps({
 .feature-item:hover .icon,
 .feature-item:hover .label,
 .feature-item:hover span:last-child {
-    transform: scale(1.059);
+  transform: scale(1.059);
 }
 </style>

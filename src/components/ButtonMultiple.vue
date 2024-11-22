@@ -1,30 +1,32 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 import { IconArrowDownFromArc } from "@tabler/icons-vue";
+import { getButtonFloat } from "@/lib/get-buttonfloat-info";
 
 const isAtTop = ref(true);
+const whatsappInfo = ref({ numero: "", mensaje: "" });
 
-const buttons = [
+const buttons = ref([
   {
     icon: "fas fa-comment-dots",
     action: () => window.open("/", "_blank"),
   },
   {
     icon: "fab fa-whatsapp",
-    action: () => window.open("/", "_blank"),
+    action: () => {},
   },
   {
     icon: "arrow-up-bar",
     action: () => window.scrollTo({ top: 0, behavior: "smooth" }),
   },
-];
+]);
 
 const mainButtons = computed(() =>
-  buttons.filter((button) => button.icon !== "arrow-up-bar")
+  buttons.value.filter((button) => button.icon !== "arrow-up-bar")
 );
 
 const uploadButton = computed(() =>
-  buttons.find((button) => button.icon === "arrow-up-bar")
+  buttons.value.find((button) => button.icon === "arrow-up-bar")
 );
 
 function handleClick(action) {
@@ -35,8 +37,34 @@ function handleScroll() {
   isAtTop.value = window.scrollY === 0;
 }
 
-onMounted(() => {
+onMounted(async () => {
   window.addEventListener("scroll", handleScroll);
+
+  try {
+    const data = await getButtonFloat(); // Llamamos a la API.
+    whatsappInfo.value = {
+      numero: data.numero_whatsapp,
+      mensaje: data.mensaje_whatsapp,
+    };
+
+    // Configuramos la acción del botón de WhatsApp.
+    buttons.value = buttons.value.map((button) =>
+      button.icon === "fab fa-whatsapp"
+        ? {
+            ...button,
+            action: () =>
+              window.open(
+                `https://wa.me/${whatsappInfo.value.numero}?text=${encodeURIComponent(
+                  whatsappInfo.value.mensaje
+                )}`,
+                "_blank"
+              ),
+          }
+        : button
+    );
+  } catch (error) {
+    console.error("Error al obtener los datos de WhatsApp:", error);
+  }
 });
 
 onBeforeUnmount(() => {

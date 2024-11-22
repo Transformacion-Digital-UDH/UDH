@@ -1,14 +1,31 @@
 <script setup>
+import { ref, onMounted } from 'vue';
 import dataInformationCareer from '@/components/dataInformationCareer.vue';
+import { getInformationCareer } from '@/lib/carreras/sistemas/get-informationCareer';
+
+// definir variables para los datos referentes de los campos de la API
+const informacion = ref([]);
+
+
+// funcion para obtener los datos de la API y asignarlos a las variables
+const fetchInformationData = async () => {
+    try {
+        const informationData = await getInformationCareer();
+        //console.log(informationData)
+        informacion.value = informationData.informacion.data || [];
+    } catch (error) {
+        console.error("Error fetching contact data:", error);
+    }
+}
+
+// Cargar datos al montar el componente
+onMounted(() => {
+    fetchInformationData()
+})
 </script>
 
 <template>
-    <dataInformationCareer :datas="[
-        { icon: 'fas fa-graduation-cap', titulo: 'FACULTAD', descripcion: 'Ingenieria' },
-        { icon: 'fas fa-users', titulo: 'VACANTES 2025', descripcion: '20 estudiantes' },
-        { icon: 'fas fa-clock', titulo: 'DURACION DE LA CARRERA', descripcion: '05 años' },
-        { icon: 'fas fa-dollar', titulo: 'Pension', descripcion: 'S/. 468.12' }
-    ]" />
+    <dataInformationCareer :datas="informacion" />
 </template>
 
 <style lang="scss" scoped>

@@ -1,17 +1,28 @@
 <template>
-    <DataDocuments :datas="docs" />
+    <DataDocuments :datas="documentos" />
 </template>
 
-<script setup lang="ts">
-import DataDocuments from "@/components/Carreras/DataDocuments.vue";
-const docs = [
-    {
-        name: "Plan de estudios",
-        url: "https://template-udh.onrender.com/carrera/pdf/P06.pdf",
-    },
-    {
-        name: "Malla curricular",
-        url: "https://template-udh.onrender.com/carrera/pdf/mallaingsistemas.pdf",
+<script setup>
+import DataDocuments from './DataDocuments.vue';
+import { ref, onMounted } from 'vue';
+import { getDocumentsSystem } from '@/lib/carreras/get-documentsSystem';
+// definir variables para los datos referentes de los campos de la API
+const documentos = ref([]);
+
+
+// funcion para obtener los datos de la API y asignarlos a las variables
+const fetchInformationDocumentss = async () => {
+    try {
+        const documentsData = await getDocumentsSystem();
+        // console.log(documentos)
+        documentos.value = documentsData.documentos || [];
+    } catch (error) {
+        console.error("Error fetching contact data:", error);
     }
-]
+}
+
+// Cargar datos al montar el componente
+onMounted(() => {
+    fetchInformationDocumentss()
+})
 </script>

@@ -57,33 +57,73 @@ onMounted(fetchNews);
 </script>
 
 <style scoped>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(400px, 1fr));
+  gap: 1.5rem; 
+  justify-content: center; 
+}
+
+.card {
+  width: 100%; 
+  max-width: 500px; 
+  margin: 0 auto; 
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 h4 {
-  height: 4rem; /* Altura reducida */
+  height: 4rem;
   overflow: hidden;
 }
 
 p {
-  height: 4rem; /* Altura reducida */
+  height: 4rem;
   overflow: hidden;
 }
 
 @media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(400px, 1fr));
+    justify-content: center; 
+  }
+
+  .card {
+    max-width: 450px;
+  }
+
   h4 {
-    height: 5rem; /* Ajuste para pantallas medianas */
+    height: 5rem;
   }
 
   p {
-    height: 5rem; /* Ajuste para pantallas medianas */
+    height: 5rem;
   }
 }
 
 @media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(450px, 1fr));
+    justify-content: center;
+  }
+
+  .card {
+    max-width: 600px; 
+  }
+
   h4 {
-    height: 6rem; /* Ajuste para pantallas grandes */
+    height: 6rem;
   }
 
   p {
-    height: 6rem; /* Ajuste para pantallas grandes */
+    height: 6rem;
   }
 }
 </style>

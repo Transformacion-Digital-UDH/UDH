@@ -14,7 +14,7 @@
           class="text-left text-white max-w-2xl space-y-4 md:space-y-6 lg:space-y-8 p-4"
         >
           <h6
-            class="text-lg md:text-xl text-green-custom lg:text-2xl font-semibold animate-fadeInDown"
+            class="text-lg md:text-xl lg:text-2xl font-semibold animate-fadeInDown"
             style="animation-delay: 0.25s"
           >
             {{ subtitle }}

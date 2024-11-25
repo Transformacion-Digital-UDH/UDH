@@ -1,19 +1,20 @@
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount, defineEmits } from "vue";
 import { IconArrowDownFromArc } from "@tabler/icons-vue";
 import { getButtonFloat } from "@/lib/get-buttonfloat-info";
 
 const isAtTop = ref(true);
 const whatsappInfo = ref({ numero: "", mensaje: "" });
+const emit = defineEmits(['toggle-chat']);
 
 const buttons = ref([
   {
     icon: "fas fa-comment-dots",
-    action: () => window.open("/", "_blank"),
+    action: () => { emit('toggle-chat'); },
   },
   {
     icon: "fab fa-whatsapp",
-    action: () => {},
+    action: () => { },
   },
   {
     icon: "arrow-up-bar",
@@ -51,15 +52,15 @@ onMounted(async () => {
     buttons.value = buttons.value.map((button) =>
       button.icon === "fab fa-whatsapp"
         ? {
-            ...button,
-            action: () =>
-              window.open(
-                `https://wa.me/${whatsappInfo.value.numero}?text=${encodeURIComponent(
-                  whatsappInfo.value.mensaje
-                )}`,
-                "_blank"
-              ),
-          }
+          ...button,
+          action: () =>
+            window.open(
+              `https://wa.me/${whatsappInfo.value.numero}?text=${encodeURIComponent(
+                whatsappInfo.value.mensaje
+              )}`,
+              "_blank"
+            ),
+        }
         : button
     );
   } catch (error) {
@@ -74,22 +75,13 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="button-multiple">
-    <button
-      v-for="(button, index) in mainButtons"
-      :key="index"
-      class="button-circle"
-      :class="{ 'shift-up': isAtTop }"
-      @click="handleClick(button.action)"
-    >
+    <button v-for="(button, index) in mainButtons" :key="index" class="button-circle" :class="{ 'shift-up': isAtTop }"
+      @click="handleClick(button.action)">
       <i :class="button.icon"></i>
     </button>
 
-    <button
-      v-if="uploadButton"
-      class="button-circle upload-button"
-      :class="{ 'slide-down': isAtTop }"
-      @click="handleClick(uploadButton.action)"
-    >
+    <button v-if="uploadButton" class="button-circle upload-button" :class="{ 'slide-down': isAtTop }"
+      @click="handleClick(uploadButton.action)">
       <IconArrowDownFromArc />
     </button>
   </div>

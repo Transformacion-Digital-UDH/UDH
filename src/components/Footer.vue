@@ -48,7 +48,7 @@ onMounted(() => {
                         <!-- Iterar sobre contactos -->
                         <div v-for="(contacto, index) in contactos" :key="index" class="contact-item">
                             <!-- Celular -->
-                            <a v-if="contacto.id === 11 ? contacto.celular : ''" href="#"
+                            <a v-if="contacto.id === 15 ? contacto.celular : ''" href="#"
                                 class="flex my-3 gap-5 items-center content-center">
                                 <div class="items-center content-center bg-green-custom p-1 rounded-md">
                                     <IconPhone size="19" />
@@ -57,7 +57,7 @@ onMounted(() => {
                             </a>
 
                             <!-- Dirección -->
-                            <a v-if="contacto.id === 11 ? contacto.direccion : ''" href="#"
+                            <a v-if="contacto.id === 15 ? contacto.direccion : ''" href="#"
                                 class="flex my-3 gap-5 items-center content-center">
                                 <div class="items-center content-center bg-green-custom p-1 rounded-md">
                                     <IconMapPin size="20" />
@@ -66,7 +66,7 @@ onMounted(() => {
                             </a>
 
                             <!-- Email -->
-                            <a v-if="contacto.id === 11 ? contacto.correo_electronico : ''" href="#"
+                            <a v-if="contacto.id === 15 ? contacto.correo_electronico : ''" href="#"
                                 class="flex my-3 gap-5 items-center content-center">
                                 <div class="items-center content-center bg-green-custom p-1 rounded-md">
                                     <IconMail size="20" />
@@ -81,7 +81,7 @@ onMounted(() => {
                         <!-- Iterar sobre contactos -->
                         <div v-for="(contacto, index) in contactos" :key="index" class="contact-item">
                             <!-- Celular -->
-                            <a v-if="contacto.id === 12 ? contacto.celular : ''" href="#"
+                            <a v-if="contacto.id === 16 ? contacto.celular : ''" href="#"
                                 class="flex my-3 gap-5 items-center content-center">
                                 <div class="items-center content-center bg-green-custom p-1 rounded-md">
                                     <IconPhone size="19" />
@@ -90,7 +90,7 @@ onMounted(() => {
                             </a>
 
                             <!-- Dirección -->
-                            <a v-if="contacto.id === 12 ? contacto.direccion : ''" href="#"
+                            <a v-if="contacto.id === 16 ? contacto.direccion : ''" href="#"
                                 class="flex my-3 gap-5 items-center content-center">
                                 <div class="items-center content-center bg-green-custom p-1 rounded-md">
                                     <IconMapPin size="20" />
@@ -99,7 +99,7 @@ onMounted(() => {
                             </a>
 
                             <!-- Email -->
-                            <a v-if="contacto.id === 12 ? contacto.correo_electronico : ''" href="#"
+                            <a v-if="contacto.id === 16 ? contacto.correo_electronico : ''" href="#"
                                 class="flex my-3 gap-5 items-center content-center">
                                 <div class="items-center content-center bg-green-custom p-1 rounded-md">
                                     <IconMail size="20" />

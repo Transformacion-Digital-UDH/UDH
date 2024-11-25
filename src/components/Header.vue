@@ -26,9 +26,13 @@
                             <NavItem title="Investigación">
                                 <template #dropdown>
                                     <div class="w-72">
-                                        <NavDropdownLink href="#">Revisión científica</NavDropdownLink>
-                                        <NavDropdownLink href="#">Repositorio</NavDropdownLink>
-                                        <NavDropdownLink href="#">Vicerrectorado de investigación</NavDropdownLink>
+                                        <NavDropdownLink href="https://copiloto.udh.edu.pe/">Copiloto</NavDropdownLink>
+                                        <NavDropdownLink href="https://tucoach.udh.edu.pe/">Tu coach</NavDropdownLink>
+                                        <NavDropdownLink href="https://sigep.udh.edu.pe/">Sigep</NavDropdownLink>
+                                        <NavDropdownLink href="https://repositorio.udh.edu.pe/">Repositorio
+                                        </NavDropdownLink>
+                                        <NavDropdownLink href="https://investigacion.udh.edu.pe/">Vicerrectorado de
+                                            investigación</NavDropdownLink>
                                     </div>
                                 </template>
                             </NavItem>
@@ -150,6 +154,10 @@
 
                     <!-- Mobile Navigation -->
                     <div class="flex items-center gap-4 xl:hidden">
+                        <img @click="changeLanguage('en')" v-if="lang === 'es-PE'" src="/src/assets/icons/flag-peru.svg"
+                            alt="flag" class="w-6 h-6 cursor-pointer">
+                        <img @click="changeLanguage('es-PE')" v-else src="/src/assets/icons/flasg-us.svg" alt="flag"
+                            class="w-6 h-6 cursor-pointer">
                         <Search />
                         <button class="p-2 text-gray-custom hover:text-green-custom" @click="toggleMobileMenu">
                             <IconMenu2 class="w-6 h-6" />

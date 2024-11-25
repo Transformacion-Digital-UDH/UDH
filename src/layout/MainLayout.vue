@@ -4,6 +4,7 @@ import Footer from "@/components/Footer.vue";
 import ButtonMultiple from "@/components/ButtonMultiple.vue";
 import { getSeoConfigInfo } from "@/lib/get-seo-config-info";
 import { onMounted, ref, watch } from 'vue';
+import BoxChat from "@/components/BoxChat.vue";
 
 // Tipos para mayor seguridad
 interface Favicon {
@@ -25,6 +26,11 @@ interface SeoConfig {
 const nombreSitio = ref<string | null>(null);
 const favicon = ref<Favicon>({});
 const config_seo = ref<SeoConfig>({});
+const isChatOpen = ref(false);
+
+function toggleChat() {
+    isChatOpen.value = !isChatOpen.value;
+}
 
 const updateSeoTags = () => {
     if (!config_seo.value) return;
@@ -101,5 +107,6 @@ watch(() => config_seo.value, updateSeoTags, { deep: true });
     <Header />
     <slot />
     <Footer />
-    <ButtonMultiple />
+    <ButtonMultiple @toggle-chat="toggleChat" />
+    <BoxChat :open="isChatOpen"/>
 </template>

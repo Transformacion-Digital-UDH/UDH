@@ -21,7 +21,15 @@ const props = defineProps({
 
 <template>
   <a href="#" class="feature-item">
-    <img :src="icon" :alt="name" class="icon">
+    <img
+      :src="icon"
+      :alt="name"
+      class="icon"
+      style="
+        filter: brightness(0) saturate(100%) invert(54%) sepia(71%)
+          saturate(3888%) hue-rotate(137deg) brightness(101%) contrast(101%);
+      "
+    />
     <span
       class="label text-[10px] xs:text-[12px] sm:text-[14px] xl:text-[16px]"
       >{{ label }}</span

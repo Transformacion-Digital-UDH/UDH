@@ -42,7 +42,7 @@ onBeforeUnmount(() => {
 <template>
     <div v-if="open" ref="chatContainer" class="chatbot-container">
         <button @click="closeChat" class="close-button">X</button>
-        <iframe frame src="https://bot-drtc.vercel.app/" frameborder="2"></iframe>
+        <iframe frame src="https://chatbot.sistemasudh.com" frameborder="2"></iframe>
     </div>
 </template>
 

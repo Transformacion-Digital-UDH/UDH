@@ -141,10 +141,16 @@
 
                             <!-- Utilities -->
                             <li class="flex items-center gap-1 ml-4">
-                                <img @click="changeLanguage('en')" v-if="lang === 'es-PE'"
-                                    src="/src/assets/icons/flag-peru.svg" alt="flag" class="w-6 h-6 cursor-pointer">
-                                <img @click="changeLanguage('es-PE')" v-else src="/src/assets/icons/flasg-us.svg"
-                                    alt="flag" class="w-6 h-6 cursor-pointer">
+                                <div v-if="lang === 'es-PE'" class="flex items-center gap-1">
+                                    <img @click="changeLanguage('en')" src="/src/assets/icons/flag-peru.svg" alt="flag"
+                                        class="w-6 h-6 cursor-pointer">
+                                    <p>ES</p>
+                                </div>
+                                <div v-else class="flex items-center gap-1">
+                                    <img @click="changeLanguage('es-PE')" src="/src/assets/icons/flasg-us.svg"
+                                        alt="flag" class="w-6 h-6 cursor-pointer">
+                                    <p>EN</p>
+                                </div>
                                 <Search />
                                 <LinkPrimarySecondEffect label="Ingresar" class="px-7 py-[10px] w-[110px]"
                                     :hrefHref="link_login" />
@@ -174,7 +180,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue';
-import { IconMenu2 } from '@tabler/icons-vue';
+import { IconMenu2, IconLanguage } from '@tabler/icons-vue';
 import HeaderTop from '@/components/HeaderTop.vue';
 import NavItem from '@/components/navigation/NavItem.vue';
 import NavDropdownLink from '@/components/navigation/NavDropdownLink.vue';

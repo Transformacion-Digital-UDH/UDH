@@ -1,30 +1,31 @@
 <script setup>
-import { defineProps, defineEmits, ref, onMounted, onBeforeUnmount } from 'vue';
+import { defineProps, ref, onMounted, onBeforeUnmount } from 'vue';
 
 const props = defineProps({
     open: {
         type: Boolean,
         required: true
+    },
+    close: {
+        type: Function,
+        required: true
     }
 })
-
-// Definir los eventos que el componente puede emitir
-const emit = defineEmits(['close-chat']);
 
 // Referencia al contenedor del chat
 const chatContainer = ref(null);
 
-// Función para emitir el evento de cierre
-const closeChat = () => {
-    // emit('close-chat');
-    props.open = false
-    console.log(props.open)
-};
-
 // Función para manejar clics fuera del chat
 const handleClickOutside = (event) => {
-    if (chatContainer.value && !chatContainer.value.contains(event.target)) {
-        emit('close-chat');
+    // Verificar si el clic está fuera del contenedor del chat y del botón de chat
+    const chatbotButton = document.getElementById('chatbot-button');
+    if (
+        chatContainer.value &&
+        !chatContainer.value.contains(event.target) &&
+        chatbotButton &&
+        !chatbotButton.contains(event.target)
+    ) {
+        props.close();
     }
 };
 
@@ -36,14 +37,17 @@ onMounted(() => {
 onBeforeUnmount(() => {
     window.removeEventListener('click', handleClickOutside);
 });
-
 </script>
 
 <template>
-    <div v-if="open" ref="chatContainer" class="chatbot-container">
-        <button @click="closeChat" class="close-button">X</button>
-        <iframe frame src="https://chatbot.sistemasudh.com" frameborder="2"></iframe>
-    </div>
+    <transition name="chat">
+        <div v-if="open" ref="chatContainer" class="chatbot-container">
+            <button @click="props.close" class="close-button">
+                X
+            </button>
+            <iframe src="https://chatbot.sistemasudh.com" frameborder="2"></iframe>
+        </div>
+    </transition>
 </template>
 
 <style scoped>
@@ -58,23 +62,59 @@ onBeforeUnmount(() => {
     border-radius: 10px;
     box-shadow: 2px 10px 10px 0 rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    animation: fadeIn 0.5s;
+    /* Animación de entrada */
+    animation: slideIn 0.5s ease-out;
+}
 
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
+/* Animaciones de entrada y salida */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
-    iframe {
-        width: 100%;
-        height: 100%;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
+/* Estilos de transición de Vue */
+.chat-enter-active,
+.chat-leave-active {
+    transition: all 0.5s ease;
+}
+
+.chat-enter-from,
+.chat-leave-to {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.chat-enter-to,
+.chat-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.close-button {
+    position: absolute;
+    top: 19px;
+    right: 60px;
+    background: #6d6d6d;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 1000;
 }
 
 @media (min-width: 768px) {
@@ -89,20 +129,5 @@ onBeforeUnmount(() => {
         width: 350px;
         height: 500px;
     }
-}
-
-.close-button {
-    position: absolute;
-    top: 19px;
-    right: 14px;
-    background: #000000;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    z-index: 1000;
 }
 </style>

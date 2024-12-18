@@ -108,5 +108,5 @@ watch(() => config_seo.value, updateSeoTags, { deep: true });
     <slot />
     <Footer />
     <ButtonMultiple @toggle-chat="toggleChat" />
-    <BoxChat :open="isChatOpen"/>
+    <BoxChat :open="isChatOpen" :close="toggleChat" />
 </template>

@@ -12,6 +12,7 @@ import { getCarouselInfo } from "@/lib/get-carousel-info";
 </script>
 
 <template>
+  <div>pal commit nomas :V</div>
   <MainLayout>
     <div class="flex flex-col items-center md:mb-20 lg:mb-5 relative">
       <Carousel :fetchSlides="getCarouselInfo" carouselHeight="large" />

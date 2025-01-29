@@ -11,8 +11,8 @@ const informacion = ref([]);
 const fetchInformationData = async () => {
     try {
         const informationData = await getInformationCareer();
-        //console.log(informationData)
-        informacion.value = informationData.informacion.data || [];
+        informacion.value = informationData.informacion || [];
+        console.log(informacion.value);
     } catch (error) {
         console.error("Error fetching contact data:", error);
     }
@@ -25,7 +25,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <dataInformationCareer :datas="informacion" />
+    <dataInformationCareer :info="informacion.data" :title="informacion.titulo" />
 </template>
 
 <style lang="scss" scoped>

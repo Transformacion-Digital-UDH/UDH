@@ -1,12 +1,16 @@
 <script setup>
 const props = defineProps({
-    datas: {
+    info: {
         type: Object,
         required: true,
         default: () => [
             { icono: '', titulo: '', descripcion: '', titulo:'' }
         ],
     },
+    title: {
+        type: String,
+        required: true
+    }
 });
 const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
 </script>
@@ -14,9 +18,9 @@ const baseApiUrl = import.meta.env.VITE_API_URL_STRAPI;
 <template>
     <div class="m-6 pt-10 pb-10 font-epilogue">
         <h4 class="section-title mb-10 font-black text-sm xs:text-sm sm:text-lg xl:text-xl">
-            Información de la carrera
+            {{ title }}
         </h4>
-        <div class="flex mt-4 text-xs xs:text-sm sm:text-sm xl:text-lg" v-for="(data, index) in datas" :key="index">
+        <div class="flex mt-4 text-xs xs:text-sm sm:text-sm xl:text-lg" v-for="(data, index) in info" :key="index">
             <div class="circle-border p-2 ">
                 <img :src="`${baseApiUrl}${data.icono.url}`" :alt="data.icono.name" class="w-[250px]">
             </div>

@@ -1,4 +1,5 @@
 <script setup>
+import { IconX } from '@tabler/icons-vue';
 import { defineProps, ref, onMounted, onBeforeUnmount } from 'vue';
 
 const props = defineProps({
@@ -42,8 +43,8 @@ onBeforeUnmount(() => {
 <template>
     <transition name="chat">
         <div v-if="open" ref="chatContainer" class="chatbot-container">
-            <button @click="props.close" class="close-button">
-                X
+            <button @click="props.close" class="close-button text-slate-400">
+                <IconX class="w-7 h-7" />
             </button>
             <iframe src="https://chatbot.sistemasudh.com" frameborder="2"></iframe>
         </div>
@@ -53,14 +54,14 @@ onBeforeUnmount(() => {
 <style scoped>
 .chatbot-container {
     position: fixed;
-    bottom: 110px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     z-index: 2147483647;
     width: 450px;
     height: 550px;
     background: #fff;
     border-radius: 10px;
-    box-shadow: 2px 10px 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: -2px 10px 20px 0 rgba(0, 0, 0, 0.8);
     overflow: hidden;
     /* Animación de entrada */
     animation: slideIn 0.5s ease-out;
@@ -104,30 +105,27 @@ iframe {
 
 .close-button {
     position: absolute;
-    top: 19px;
-    right: 60px;
-    background: #6d6d6d;
+    top: 20px;
+    right: 100px;
     border: none;
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    color: white;
     cursor: pointer;
     font-weight: bold;
-    z-index: 1000;
 }
 
 @media (min-width: 768px) {
     .chatbot-container {
-        width: 350px;
-        height: 500px;
+        width: 450px;
+        height: 600px;
     }
 }
 
 @media (max-width: 768px) {
     .chatbot-container {
         width: 350px;
-        height: 500px;
+        height: 600px;
     }
 }
 </style>

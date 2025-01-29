@@ -1,7 +1,10 @@
 import { query } from "@/lib/strapi"
+import { useSelectStore } from "@/stores/select";
 
 export const getDocumentsSystem = async () => {
-    return query('carrera-sistema?fields[0]=locale&populate[documentos]=*')
+  const selectStore = useSelectStore();
+
+    return query(`carrera-sistema?locale=${selectStore.language}&fields[0]=locale&populate[documentos]=*`)
         .then(res => {
             return res.data
         })

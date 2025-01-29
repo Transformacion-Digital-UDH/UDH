@@ -19,7 +19,7 @@
                 <div class="flex-1 overflow-y-auto">
                     <div class="p-2">
                         <!-- Login Button -->
-                        <LinkPrimarySecondEffect label="Ingresar" class="!my-3" :hrefHref="link_login"/>
+                        <LinkPrimarySecondEffect label="Ingresar" class="!my-3" :hrefHref="link_login" />
 
 
                         <!-- Menu Items -->
@@ -51,9 +51,12 @@ const menuItems = [
     {
         title: 'Investigación',
         items: [
-            { title: 'Revisión científica', href: '#' },
-            { title: 'Repositorio', href: '#' },
-            { title: 'Vicerrectorado de investigación', href: '#' }
+            { title: 'Copiloto', href: 'https://copiloto.udh.edu.pe/' },
+            { title: 'Tu Coach', href: 'https://tucoach.udh.edu.pe/' },
+            { title: 'Sigep', href: 'https://sigep.udh.edu.pe/' },
+            { title: 'Repositorio', href: 'https://repositorio.udh.edu.pe/' },
+            { title: 'Vicerrectorado de investigación', href: 'https://investigacion.udh.edu.pe/' },
+            { title: 'Revistas', href: 'http://revistas.udh.edu.pe/' },
         ]
     },
     {
@@ -61,7 +64,7 @@ const menuItems = [
         items: [
             {
                 title: 'Ciencias de la salud',
-                items: [
+                items: [ 
                     { title: 'Obstetricia', href: '#' },
                     { title: 'Psicología', href: '#' },
                     { title: 'Enfermeria', href: '#' },
@@ -71,7 +74,7 @@ const menuItems = [
             {
                 title: 'Ingeniería',
                 items: [
-                    { title: 'Ingenieria de sistemas e informática', href: '/sistemas-e-informatica' },
+                    { title: 'Ingenieria de sistemas e informática', href: '/carrera/sistemas-e-informatica' },
                     { title: 'Ingenieria civil', href: '#' },
                     { title: 'Ingenieria ambiental', href: '#' },
                     { title: 'Arquitectura', href: '#' }
@@ -127,29 +130,33 @@ const menuItems = [
     {
         title: 'Postgrado',
         items: [
-            { title: 'Maestrías', href: '#' },
-            { title: 'Doctorados', href: '#' },
-            { title: 'Segunda especialidad', href: '#' }
+            { title: 'Maestrías', href: 'https://posgrado.udh.edu.pe/#maestrias' },
+            { title: 'Doctorados', href: 'https://posgrado.udh.edu.pe/#doctorados' },
+            { title: 'Segunda especialidad', href: 'https://posgrado.udh.edu.pe/#segunda' }
         ]
     },
     {
         title: 'Admisión',
         items: [
-            { title: 'Modalidades y costos', href: '#' },
-            { title: 'Guía', href: '#' },
-            { title: 'Matrícula y pensiones', href: '#' },
-            { title: 'Requisitos', href: '#' },
-            { title: 'Preguntas frecuentes', href: '#' }
+            { title: 'Modalidades y costos', href: 'https://posgrado.udh.edu.pe/#admision' },
+            { title: 'Guía', href: 'https://posgrado.udh.edu.pe/#admision' },
+            { title: 'Matrícula y pensiones', href: 'https://posgrado.udh.edu.pe/#admision' },
+            { title: 'Requisitos', href: 'https://posgrado.udh.edu.pe/#admision' },
+            { title: 'Preguntas frecuentes', href: 'https://posgrado.udh.edu.pe/#admision' }
         ]
     },
     {
         title: 'Nosotros',
         items: [
-            { title: 'Sobre UDH', href: '#' },
-            { title: 'Biblioteca virtual', href: '#' },
-            { title: 'Transparencia universitaria', href: '#' },
+            { title: 'Sobre UDH', href: 'http://www.udh.edu.pe/misionvision.aspx' },
+            { title: 'Biblioteca virtual', href: 'http://www.udh.edu.pe/bibliotecavirtual/' },
+            { title: 'Transparencia universitaria', href: 'http://www.udh.edu.pe/transparencia' },
             { title: 'Nuestras sedes', href: '#' },
-            { title: 'Contactos', href: '#' }
+            { title: 'Contactos', href: '#' },
+            { title: 'Centro de idioma', href: 'http://www.udh.edu.pe/CentroIdiomas.aspx' },
+            { title: 'Biblioteca UDH', href: 'https://biblioteca.udh.edu.pe/online/index.php' },
+            { title: 'Defensoria universitaria', href: 'http://www.udh.edu.pe/defensoriauniversitaria.aspx' },
+            { title: 'Bienestar universitaria', href: 'https://bienestar.udh.edu.pe/' }
         ]
     }
 ];

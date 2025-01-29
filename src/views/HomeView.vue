@@ -15,7 +15,7 @@ import { getCarouselInfo } from "@/lib/get-carousel-info";
   <MainLayout>
     <div class="flex flex-col items-center md:mb-20 lg:mb-5 relative">
       <Carousel :fetchSlides="getCarouselInfo" carouselHeight="large" />
-      <mainFeatures class="w-[90%] max-w-[1200px] my-6 md:my-[-40px] lg:my-[-40px] z-20 relative top-[-20px]" />
+      <mainFeatures class="w-[90%] max-w-[1200px] my-6 md:my-[-40px] lg:my-[-40px] z-10 relative top-[-20px]" />
     </div>
     <aboutUs />
     <DatosUniversidad />

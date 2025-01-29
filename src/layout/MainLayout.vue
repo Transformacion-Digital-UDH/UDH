@@ -5,6 +5,7 @@ import ButtonMultiple from "@/components/ButtonMultiple.vue";
 import { getSeoConfigInfo } from "@/lib/get-seo-config-info";
 import { onMounted, ref, watch } from 'vue';
 import BoxChat from "@/components/BoxChat.vue";
+import ModalHeadless from "@/components/ModalHeadless.vue";
 
 // Tipos para mayor seguridad
 interface Favicon {
@@ -105,6 +106,7 @@ watch(() => config_seo.value, updateSeoTags, { deep: true });
 </script>
 <template>
     <Header />
+    <ModalHeadless />
     <slot />
     <Footer />
     <ButtonMultiple @toggle-chat="toggleChat" />

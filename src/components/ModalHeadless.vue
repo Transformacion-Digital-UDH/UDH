@@ -18,11 +18,13 @@
                                 <DialogTitle as="h3"
                                     class="text-lg sm:text-xl leading-6 text-gray-900 text-center uppercase font-epilogue font-semibold">
                                     ¡Nuestro bot DEACHE ya está aqui!
+
                                 </DialogTitle>
                                 <button @click="closeModal" class="hover:scale-105 absolute top-4 right-4">
                                     <IconX class="w-6 h-6 " />
                                 </button>
                             </div>
+
 
                             <div class="flex sm:flex-row flex-col items-center gap-2 sm:gap-4 justify-center h-full">
                                 <a type="button" href="https://wa.link/o74ru5" target="_blank"
